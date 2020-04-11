@@ -100,5 +100,5 @@ theme: hexo-theme-matery
 deploy:
   type: git
   repo: git@github.com:ahmat1914/ahmat1914.github.io.git # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
-  branch: gh-pages
+  branch: master
   message: hexo deploy
