@@ -102,3 +102,5 @@ deploy:
   repo: git@github.com:ahmat1914/ahmat1914.github.io.git # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: master
   message: hexo deploy
+  name: ahmatjan
+  email: ahmatjan@dontbother.me
