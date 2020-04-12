@@ -111,3 +111,11 @@ search:
 permalink_pinyin:
   enable: true
   separator: '-' # default: '-'
+
+postInfo:
+  date: true
+  update: false
+  wordCount: false # set true.
+  totalCount: false # set true.
+  min2read: false # set true.
+  readCount: false # set true.
