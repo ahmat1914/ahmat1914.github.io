@@ -121,7 +121,7 @@ postInfo:
   readCount: false # set true.
 
 githubEmojis:
-  enable: true
+  enable: false
   className: github-emoji
   inject: true
   styles:
