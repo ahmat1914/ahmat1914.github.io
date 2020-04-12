@@ -103,3 +103,7 @@ deploy:
   branch: master
   name: ahmatjan
   email: ahmatjan@dontbother.me
+
+search:
+  path: search.xml
+  field: post
