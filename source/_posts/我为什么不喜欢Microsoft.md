@@ -3,6 +3,7 @@ title: 我为什么不喜欢Microsoft
 date: 2020-04-13 16:33:24
 category: 思考
 tags: 杂记
+img: /images/quote-microsoft-isn-t-evil-they-just-make-really-crappy-operating-systems-linus-torvalds-29-60-73.jpg
 ---
 
 我第一台电脑是 windows 98，直到大学一直不知道世界上还有别的操作系统。
