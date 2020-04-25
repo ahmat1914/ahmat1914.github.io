@@ -3,7 +3,7 @@ title: TFX Overview
 date: 2020-04-25 21:20:49
 category: 思考
 tags: 笔记
-img: images/flow-of-data-between-tfx-components.png
+img: /images/flow-of-data-between-tfx-components.png
 ---
 
 ### TensorFlow Extended 是什么？
@@ -12,9 +12,32 @@ Google 开源的端到端平台，用于部署生产型机器学习流水线。
 ### TFX Core Concepts
 
 #### TFX Pipelines
+> A TFX pipeline defines a data flow through several components, with the goal of implementing a specific ML task (e.g., building and deploying a regression model for specific data). Pipeline components are built upon TFX libraries. The result of a pipeline is a TFX deployment target and/or service of an inference request.
+
+> A TFX pipeline is a sequence of components that implement an ML pipeline which is specifically designed for scalable, high-performance machine learning tasks. 
+
 #### Artifacts
+> In a pipeline, an artifact is a unit of data that is passed between components. Generally, components have at least one input artifact and one output artifact. All artifacts must have associated metadata, which defines the type and properties of the artifact. Artifacts must be strongly typed with an artifact type registered in the ML Metadata store.
+
 #### Model vs. SavedModel
-#### Schema 
+**Model**
+> A model is the output of the training process. It is the serialized record of the weights that have been learned during the training process. These weights can be subsequently used to compute predictions for new input examples. For TFX and TensorFlow, 'model' refers to the checkpoints containing the weights learned up to that point.
+
+**SavedModel**
+
+> What is a SavedModel: a universal, language-neutral, hermetic, recoverable serialization of a TensorFlow model.
+
+> Why is it important: It enables higher-level systems to produce, transform, and consume TensorFlow models using a single abstraction.
+
+> SavedModel is the recommended serialization format for serving a TensorFlow model in production, or exporting a trained model for a native mobile or JavaScript application
+#### Schema
+> Some TFX components use a description of your input data called a schema. The schema is an instance of schema.proto.
+
+> The schema can specify data types for feature values, whether a feature has to be present in all examples, allowed value ranges, and other properties. 
+
+> One of the benefits of using TensorFlow Data Validation (TFDV) is that it will automatically generate a schema by inferring types, categories, and ranges from the training data.
+
+> In a typical TFX pipeline TensorFlow Data Validation generates a schema, which is consumed by the other components.
 
 ### TFX Pipeline Components
 A TFX pipeline typically includes the following components:
@@ -27,10 +50,10 @@ A TFX pipeline typically includes the following components:
 * Evaluator: performs deep analysis of the training results and helps you validate your exported models, ensuring that they are "good enough" to be pushed to production.
 * Pusher: deploys the model on a serving infrastructure.
 
-![bc3b97ba3f6311cddccb27f985126b5d.png](images/261a09290f89497cb892a3f5dd2f926e.png)
+![bc3b97ba3f6311cddccb27f985126b5d.png](/images/261a09290f89497cb892a3f5dd2f926e.png)
 ### Anatomy of a Component
 
-![745a33fdc35be6b6f85ef302250b6c85.png](images/8e0ad6e85fa1414bb40c1416b31acb71.png)
+![745a33fdc35be6b6f85ef302250b6c85.png](/images/8e0ad6e85fa1414bb40c1416b31acb71.png)
 TFX components consist of three main pieces:
 * Driver and Publisher
 > The driver supplies metadata to the executor by querying the metadata store, while the publisher accepts the results of the executor and stores them in metadata. As a developer you will typically not need to interact with the driver and publisher directly, but messages logged by the driver and publisher may be useful during debugging.
@@ -38,7 +61,7 @@ TFX components consist of three main pieces:
 * Executor
 > The executor is where a component performs its processing. As a developer you write code which runs in the executor, based on the requirements of the classes which implement the type of component that you're working with. For example, when you're working on a Transform component you will need to develop a preprocessing_fn.
 ### TFX Libraries
-![8fb962ef79a20aca4a7870fadc1e403c.png](images/5e1c7ae593664ae2b435a4128344d1f0.png)
+![8fb962ef79a20aca4a7870fadc1e403c.png](/images/5e1c7ae593664ae2b435a4128344d1f0.png)
 TFX includes both libraries and pipeline components.This diagram illustrates the relationships between TFX libraries and pipeline components:
 
 TFX libraries include:
@@ -88,7 +111,7 @@ TFDV can be used to monitor new data;especially useful for time series data ;
 > You will first query ML Metadata (MLMD) to locate the results of these executions of these components, and then use the visualization support API in TFDV to create the visualizations in your notebook.
 
 **Developing and Training Models**
-![fe79b9f7453f1d79756e027c1a24d7be.png](images/103a6be21a1540e28da78494f314ef6d.png)
+![fe79b9f7453f1d79756e027c1a24d7be.png](/images/103a6be21a1540e28da78494f314ef6d.png)
 
 > A typical TFX pipeline will include a Transform component, which will perform feature engineering by leveraging the capabilities of the TensorFlow Transform (TFT) library. 
 
@@ -102,7 +125,7 @@ consumes the schema;data transformations
 
 Cleanup of missing values and conversion of types;
 
-![470e7ca2bed9fb90aa1e4345b6ab2e33.png](images/272c53d2ee354ab9b55cf47e5b46d040.png)
+![470e7ca2bed9fb90aa1e4345b6ab2e33.png](/images/272c53d2ee354ab9b55cf47e5b46d040.png)
 
 > The result of a Transform component is a SavedModel which will be imported and used in your modeling code in TensorFlow, during a Trainer component. 
 
@@ -148,7 +171,7 @@ TensorFlow Serving; TensorFlow Lite;TensorFlow JS
 
 SavedModels can be deployed to deployment targets.
 
-![895ca2e6ee5ad7dfbacc090328455059.png](images/698ebd673f04494b8f491ab28d381425.png)
+![895ca2e6ee5ad7dfbacc090328455059.png](/images/698ebd673f04494b8f491ab28d381425.png)
 
 **Inference: TensorFlow Serving**
 
