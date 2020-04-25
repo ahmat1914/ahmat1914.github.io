@@ -1,5 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+category: 思考
+tags: 笔记
+img:
 ---
