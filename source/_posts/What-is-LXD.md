@@ -18,7 +18,7 @@ LXD is written in Go, it's free software and is developed under the Apache 2 lic
 
 The LXD project was founded and is currently led by Canonical Ltd with contributions from a range of other companies and individual contributors.
 
-Image based.
+LXD is image based.
 
 Support for Cross-host container and image transfer
 
@@ -68,8 +68,9 @@ lxc list
 lxc exec first -- /bin/bash
 # Or just run a command directly:
 lxc exec first -- apt-get update
-# To pull a file from the container, use:
+# To pull/push a file from the container, use:
 lxc file pull first/etc/hosts .
+lxc file push hosts first/tmp/
 # To stop the container, simply do:
 lxc stop first
 # And to remove it entirely:
