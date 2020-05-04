@@ -3,7 +3,7 @@ title: concepts and terms of MASS
 category: 思考
 tags: 笔记
 date: 2020-05-04 14:29:35
-img: /images/46177305128bf7f3190f8a7bbd037c33e96f6a9e.pngs
+img: /images/46177305128bf7f3190f8a7bbd037c33e96f6a9e.png
 ---
 Concepts and terms of MASS
 
@@ -276,7 +276,7 @@ Hubs essentially started as repeaters. While they may be able to connect more th
 
 A switch is a “smart” device that connects cables from nodes to make networks. 
 
-####Network topology
+#### Network topology
 
 Topology describes how nodes are connected to a network, specifically referring to the shapes made by the cables and the paths that packets can take. 
 
