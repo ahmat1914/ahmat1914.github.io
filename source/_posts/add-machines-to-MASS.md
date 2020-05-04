@@ -7,6 +7,7 @@ date: 2020-05-04 15:56:18
 There are two ways to add a machine to MAAS.
 * If you place the machine on a connected network, and the machine is configured to netboot, MAAS will enlist it from there. 
 * If you add a machine manually, MAAS will automatically commission it. 
+
 ### How enlistment works
 When MAAS enlists a machine, the first step is to contact the DHCP server, so that the machine can be assigned an IP address, which is necessary to download a kernel and initrd via TFTP.
 
