@@ -99,7 +99,7 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:ahmat1914/ahmat1914.github.io.git # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: git@blog:ahmat1914/ahmat1914.github.io.git # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: master
   name: ahmatjan
   email: ahmatjan@dontbother.me
