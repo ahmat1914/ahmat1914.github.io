@@ -43,7 +43,6 @@ snap install lxd
 # or apt install lxd lxd-client
 ```
 
-
 ### Initial configuration
 Before you can create containers, you need to tell LXD a little bit about your storage and network needs.
 
