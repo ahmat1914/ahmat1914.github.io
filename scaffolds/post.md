@@ -1,7 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
-category: 思考
+category: 技术
 tags: 笔记
 img:
 ---
