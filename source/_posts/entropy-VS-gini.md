@@ -1,7 +1,7 @@
 ---
 title: entropy VS gini
 category: 技术
-tags: 笔记
+tags: DecisionTree
 date: 2021-01-07 18:35:10
 img:
 ---
