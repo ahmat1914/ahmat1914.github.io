@@ -4,6 +4,7 @@ category: 技术
 tags: DecisionTree
 date: 2021-01-07 20:20:37
 img: /images/criterion.jpeg
+mathjax: true
 ---
 
 分类决策树中，我们的目标函数是最大化每次切分数据带来的信息增益：

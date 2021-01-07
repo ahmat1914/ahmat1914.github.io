@@ -4,6 +4,7 @@ category: 技术
 tags: DecisionTree
 date: 2021-01-07 18:35:10
 img:
+mathjax: true
 ---
 
 ### Entropy vs gini
