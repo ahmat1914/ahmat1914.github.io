@@ -3,7 +3,7 @@ title: entropy VS gini
 category: 技术
 tags: DecisionTree
 date: 2021-01-07 18:35:10
-img:
+img: /images/overview-plot.20200107.png
 mathjax: true
 ---
 
