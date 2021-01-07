@@ -1,5 +1,5 @@
 ---
-title: advantages of the different impurity metrics?
+title: Advantages of the different impurity metrics?
 category: 技术
 tags: 笔记
 date: 2021-01-07 20:20:37
