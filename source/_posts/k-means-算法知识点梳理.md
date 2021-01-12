@@ -1,9 +1,9 @@
 ---
 title: k-means 算法知识点梳理
 category: 技术
-tags: 笔记
+tags: 笔记, k-means
 date: 2021-01-12 10:12:46
-img:
+img: /images/k-means-clustering.png
 ---
 
 ## Overview
@@ -33,7 +33,7 @@ KMeans的目标是确保“簇内差异小，簇外差异大。
 1. 值越接近1表示样本与自己所在的簇中的样本很相似，并且与其他簇中的样本不相似
 2. 当样本点与簇外的样本更相似的时候，轮廓系数就为负。
 3. 当轮廓系数为0时，则代表两个簇中的样本相似度一致，两个簇本应该是一个簇。
-4. sklearn中，我们使用模块metrics中的类silhouette_score来计算轮廓系数，它返回的是一个数据集中，所有样本的轮廓系数的均值。但我们还有同在metrics模块中silhouette_sample，它的参数与轮廓系数一致，但返回的是数据集中每个样本自己的轮廓系数。
+4. sklearn中，我们使用模块metrics中的类 silhouette_score 来计算轮廓系数，它返回的是一个数据集中，所有样本的轮廓系数的均值。但我们还有同在metrics模块中silhouette_sample，它的参数与轮廓系数一致，但返回的是数据集中每个样本自己的轮廓系数。
 
 ## 相关公式
 每个点分配到距离最近的质心所属簇。几种距离计算方式：
@@ -50,5 +50,3 @@ KMeans的目标是确保“簇内差异小，簇外差异大。
 1. scatter 聚类图
 2. 每个点的轮廓系数柱状图
 ![](/images/Silhouette.png)
-
-
