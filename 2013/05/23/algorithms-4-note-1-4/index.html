@@ -1,0 +1,1308 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Algorithms 4 Note 1.4, ahmatjan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Algorithms 4 Note 1.4 | ahmatjan</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ahmatjan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ahmatjan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Algorithms 4 Note 1.4</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%80%9D%E8%80%83/" class="post-category">
+                                思考
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2013-05-23
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="1-4-算法分析"><a href="#1-4-算法分析" class="headerlink" title="1.4　算法分析"></a>1.4　算法分析</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>我的程序会运行多长时间？为什么我的程序耗尽了所有内存？</p>
+<h2 id="1-4-1-科学方法"><a href="#1-4-1-科学方法" class="headerlink" title="1.4.1　科学方法"></a>1.4.1　科学方法</h2><p>科学家用来理解自然世界的方法对于研究计算机程序的运行时间同样有效：</p>
+<ul>
+<li>细致地观察真实世界的特点，通常还要有精确的测量；</li>
+<li>根据观察结果提出假设模型；</li>
+<li>根据模型预测未来的事件；</li>
+<li>继续观察并核实预测的准确性；</li>
+<li>如此反复直到确认预测和观察一致。</li>
+</ul>
+<p>科学方法的一条关键原则是我们所设计的实验必须是<strong>可重现</strong>的，这样他人也可以自己验证假设的真实性。<br>所有的假设也必须是<strong>可证伪</strong>的，这样我们才能确认某个假设是错误的（并需要修正）。</p>
+<blockquote>
+<p>再多的实验也不一定能够证明我是对的，但只需要一个实验就能证明我是错的。—- 爱因斯坦</p>
+</blockquote>
+<h2 id="1-4-2-观察"><a href="#1-4-2-观察" class="headerlink" title="1.4.2　观察"></a>1.4.2　观察</h2><p>如何定量测量程序的运行时间？</p>
+<ul>
+<li>第一个定量观察就是，计算性任务的困难程度可以用输入的规模来衡量。根据直觉，程序的运行时间应该随着输入规模的增长而变长，但我们每次在开发和运行一个程序时想问的问题都是<strong>运行时间的增长有多快</strong>。</li>
+<li>另一个定量观察是运行时间和输入本身相对无关，它主要取决于问题规模。因此我们现在来重点研究如何更好地将<strong>问题规模和运行时间的关系</strong>量化。</li>
+</ul>
+<h3 id="1-4-2-1-举例"><a href="#1-4-2-1-举例" class="headerlink" title="1.4.2.1　举例"></a>1.4.2.1　举例</h3><p>ThreeSum 程序。</p>
+<h3 id="1-4-2-2-计时器"><a href="#1-4-2-2-计时器" class="headerlink" title="1.4.2.2　计时器"></a>1.4.2.2　计时器</h3><p>准确测量给定程序的确切运行时间是很困难的。不过幸运的是我们一般只需要近似值就可以了。</p>
+<ul>
+<li>我们希望能够把需要几秒钟或者几分钟就能完成的程序和需要几天、几个月甚至更长时间才能完成的程序区别开来，</li>
+<li>而且我们希望知道对于同一个任务某个程序是不是比另一个程序快一倍。</li>
+</ul>
+<p>因此，我们仍然需要准确的测量手段来生成实验数据，并根据它们得出并验证关于程序的运行时间和问题规模的假设。</p>
+<h3 id="1-4-2-3-实验数据的分析"><a href="#1-4-2-3-实验数据的分析" class="headerlink" title="1.4.2.3　实验数据的分析"></a>1.4.2.3　实验数据的分析</h3><p>程序在不同的计算机上的运行时间之比通常是一个常数。<br>尽管如此，你还是会提出更详细的问题：作为问题规模的一个函数，我的程序的运行时间是多久？</p>
+<h2 id="1-4-3-数学模型"><a href="#1-4-3-数学模型" class="headerlink" title="1.4.3　数学模型"></a>1.4.3　数学模型</h2><p>D. E. Knuth 认为，尽管有许多复杂的因素影响着我们对程序的运行时间的理解，原则上我们仍然可能构造出一个数学模型来描述任意程序的运行时间。<br>Knuth 的基本见地很简单——一个程序运行的总时间主要和两点有关：</p>
+<ul>
+<li>执行每条语句的耗时；(取决于计算机、Java 编译器和操作系统)</li>
+<li>执行每条语句的频率。(取决于程序本身和输入)</li>
+</ul>
+<p>如果对于程序的所有部分我们都知道了这些性质，可以将它们相乘并将程序中所有指令的成本相加得到总运行时间。<br>第一个挑战是判定语句的执行频率。</p>
+<h3 id="1-4-3-1-近似"><a href="#1-4-3-1-近似" class="headerlink" title="1.4.3.1　近似"></a>1.4.3.1　近似</h3><p>这种频率分析可能会产生复杂冗长的数学表达式。用近似的方式忽略公式中那些非常复杂但幂次较低，且对最终结果的贡献无关紧要的项。<br>定义。我们用 $<del>f(N)$ 表示所有随着 N 的增大除以 $f(N)$ 的结果趋近于 1 的函数。我们用 $g(N)\</del>f(N)$ 表示 $g(N)/f(N)$ 随着 N 的增大趋近于 1。</p>
+<h3 id="1-4-3-2-近似运行时间"><a href="#1-4-3-2-近似运行时间" class="headerlink" title="1.4.3.2　近似运行时间"></a>1.4.3.2　近似运行时间</h3><p>我们观察到的一个关键现象是执行最频繁的指令决定了程序执行的总时间——我们将这些指令称为程序的内循环。这种情况是很典型的：许多程序的运行时间都只取决于其中的一小部分指令。</p>
+<p><img src="/images/image-20200523174610103.png" alt="image-20200523174610103"></p>
+<h3 id="1-4-3-3-对增长数量级的猜想"><a href="#1-4-3-3-对增长数量级的猜想" class="headerlink" title="1.4.3.3　对增长数量级的猜想"></a>1.4.3.3　对增长数量级的猜想</h3><p>1.4.2.3 节中的实验和表 1.4.4 中的数学模型都支持以下猜想：<br>性质 A。ThreeSum（在 N 个数中找出三个和为 0 的整数元组的数量）的运行时间的增长数量级为 $N^3$。（在本书中，我们使用性质表示需要用实验验证的猜想。）</p>
+<p><img src="/images/image-20200523174716575.png" alt="image-20200523174716575"></p>
+<h3 id="1-4-3-4-算法的分析"><a href="#1-4-3-4-算法的分析" class="headerlink" title="1.4.3.4　算法的分析"></a>1.4.3.4　算法的分析</h3><p>类似于性质 A 的猜想的意义很重要，因为它们将抽象世界中的一个 Java 程序和真实世界中运行它的一台计算机联系了起来。<br>增长数量级概念的应用使我们能够继续向前迈进一步：<strong>将程序和它实现的算法隔离开来。</strong>（ThreeSum 的运行时间的增长数量级是 $N^3$，这与它是由 Java 实现或是它运行在你的笔记本电脑上或是某人的手机上或是一台超级计算机上无关。决定这一点的主要因素是它需要检查输入中任意三个整数的所有可能组合。）<br>你所使用的算法（有时还要算上输入模型）决定了增长的数量级。(将算法和某台计算机上的具体实现分离开来是一个强大的概念，因为这使我们对算法性能的知识可以应用于任何计算机。实际上，经典算法的性能理论大部分都发表于数十年前，但它们仍然适用于今天的计算机。)</p>
+<h3 id="1-4-3-5-成本模型"><a href="#1-4-3-5-成本模型" class="headerlink" title="1.4.3.5　成本模型"></a>1.4.3.5　成本模型</h3><p>我们使用了一个成本模型来评估算法的性质。这个模型定义了我们所研究的算法中的基本操作。例如，适合于 3-sum 问题的成本模型是我们访问数组元素的次数。3-sum 的暴力算法使用了 $~N^3/2$ 次数组访问来计算 N 个整数中和为 0 的整数三元组的数量。<br>在全书中我们都会使用某个确定的成本模型研究所讨论的算法。</p>
+<h3 id="1-4-3-6-总结"><a href="#1-4-3-6-总结" class="headerlink" title="1.4.3.6　总结"></a>1.4.3.6　总结</h3><p>对于大多数程序，得到其运行时间的数学模型所需的步骤如下：</p>
+<ul>
+<li>确定输入模型，定义问题的规模；</li>
+<li>识别内循环；</li>
+<li>根据内循环中的操作确定成本模型；</li>
+<li>对于给定的输入，判断这些操作的执行频率。这可能需要进行数学分析——我们在本书中会在学习具体的算法时给出一些例子。</li>
+</ul>
+<p>如果一个程序含有多个方法，我们一般会分别讨论它们，<br>例如，二分查找( BinarySearch)的输入模型是大小为 N 的数组 a[]，内循环是一个 while 循环中的所有语句，成本模型是比较操作（比较两个数组元素的值）。（3.1 节中的命题 B 详细完整地给出了 1.1 节中讨论的内容，该命题说明它所需的比较次数最多为 $lgN + 1$。）<br>白名单的输入模型是白名单的大小 N 和由标准输入得到的 M 个整数，且我们假设 $M &gt;&gt; N$，内循环是一个 while 循环中的所有语句，成本模型是比较操作（承自二分查找）。由二分查找的分析我们可以立即得到对白名单问题的分析——比较次数最多为 $M(lgN + 1)$。</p>
+<p>在算法分析中进行数学建模是一个多产的研究领域，但它多少超出了本书的范畴。通过二分查找、归并排序和其他许多算法你仍会看到，理解特定的数学模型对于理解基础算法的运行效率是很关键的，因此我们常常会详细地证明它们或是引用经典研究中的结论。在其中，我们会遇到各种数学分析中广泛使用的函数和近似函数。</p>
+<h2 id="1-4-4-增长数量级的分类"><a href="#1-4-4-增长数量级的分类" class="headerlink" title="1.4.4 增长数量级的分类"></a>1.4.4 增长数量级的分类</h2><p>我们在实现算法时使用了几种结构性的原语（普通语句、条件语句、循环、嵌套语句和方法调用），所以成本增长的数量级一般都是问题规模 N 的若干函数之一。</p>
+<h3 id="1-4-4-1-常数级别"><a href="#1-4-4-1-常数级别" class="headerlink" title="1.4.4.1　常数级别"></a>1.4.4.1　常数级别</h3><p>运行时间的增长数量级为常数的程序完成它的任务所需的操作次数一定，因此它的运行时间不依赖于 N。</p>
+<h3 id="1-4-4-2-对数级别"><a href="#1-4-4-2-对数级别" class="headerlink" title="1.4.4.2 对数级别"></a>1.4.4.2 对数级别</h3><p>运行时间的增长数量级为对数的程序仅比常数时间的程序稍慢。运行时间和问题规模成对数关系的程序的经典例子就是<strong>二分查找</strong>。对数的底数和增长的数量级无关，所以我们在说明对数级别时一般使用 $logN$。</p>
+<h3 id="1-4-4-3-线性级别"><a href="#1-4-4-3-线性级别" class="headerlink" title="1.4.4.3 线性级别"></a>1.4.4.3 线性级别</h3><p>使用常数时间处理输入数据中的所有元素或是基于单个 for 循环的程序是十分常见的。此类程序的增长数量级是线性的——它的运行时间和 N 成正比。</p>
+<h3 id="1-4-4-4-线性对数级别"><a href="#1-4-4-4-线性对数级别" class="headerlink" title="1.4.4.4 线性对数级别"></a>1.4.4.4 线性对数级别</h3><p>我们用线性对数描述运行时间和问题规模 N 的关系为 $NlogN$ 的程序(和之前一样，对数的底数和增长的数量级无关)。<br>线性对数算法的典型例子是 <strong>Merge.sort和Quick.sort</strong></p>
+<h3 id="1-4-4-5-平方级别"><a href="#1-4-4-5-平方级别" class="headerlink" title="1.4.4.5　平方级别"></a>1.4.4.5　平方级别</h3><p>一个运行时间的增长数量级为 N^2 的程序一般都含有两个嵌套的 for 循环，对由 N 个元素得到的所有元素对进行计算。初级排序算法 <strong>Selection.sort() 和 Insertion.sort()</strong> 都是这种类型的典型程序。</p>
+<h3 id="1-4-4-6-立方级别"><a href="#1-4-4-6-立方级别" class="headerlink" title="1.4.4.6 立方级别"></a>1.4.4.6 立方级别</h3><p>一个运行时间的增长数量级为 $N^3$ 的程序一般都含有三个嵌套的 for 循环，对由 N 个元素得到的所有三元组进行计算。<strong>ThreeSum</strong> 就是一个典型的例子。</p>
+<h3 id="1-4-4-7-指数级别"><a href="#1-4-4-7-指数级别" class="headerlink" title="1.4.4.7 指数级别"></a>1.4.4.7 指数级别</h3><p>在第 6 章中（也只会在第 6 章）我们将会遇到运行时间和 $2^N$ 或者更高级别的函数成正比的程序。一般我们会使用指数级别来描述增长数量级为 $b^N$ 的算法(其中 $b &gt; 1$ 且为常数，尽管不同的 b 值得到的运行时间可能完全不同)。<br>指数级别的算法非常慢——不可能用它们解决大规模的问题。但指数级别的算法仍然在算法理论中有着重要的地位，因为它们看起来仍然是解决许多问题的最佳方案。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以上是最常见分类，但肯定不是最全面的。算法的增长数量级可能是 $N^2logN$ 或者 $N^(3/2)$ 或者是其他类似的函数。实际上，详细的算法分析可能会用到若干个世纪以来发明的各种数学工具。<br>我们所学习的一大部分算法的性能特点都很简单，可以使用我们所讨论过的某种增长数量级函数精确地描述。如，归并排序所需的运行时间的增长数量级是线性对数的。简单起见，我们将这句话简写为归并排序是线性对数的。</p>
+<h2 id="1-4-5-设计更快的算法"><a href="#1-4-5-设计更快的算法" class="headerlink" title="1.4.5 设计更快的算法"></a>1.4.5 设计更快的算法</h2><p>学习程序的增长数量级的一个重要动力是为了帮助我们为同一个问题设计更快的算法。<br>怎么知道如何设计一个更快的算法呢？这个问题的答案是，我们已经讨论并使用过两个经典的算法，即归并排序和二分查找。也知道归并排序是线性对数级别的，二分查找是对数级别的。如何利用它们解决 3-sum 问题呢？</p>
+<h2 id="1-4-6-倍率实验"><a href="#1-4-6-倍率实验" class="headerlink" title="1.4.6 倍率实验"></a>1.4.6 倍率实验</h2><p>下面这种方法可以简单有效地<strong>预测任意程序的性能并判断它们的运行时间大致的增长数量级</strong>。</p>
+<p>在有性能压力的情况下应该考虑对编写过的所有程序进行<strong>倍率实验</strong>——这是一种估计运行时间的增长数量级的简单方法，或许它能够发现一些性能问题，比如你的程序并没有想象的那样高效。</p>
+<p>一般来说，我们可以用以下方式对程序的运行时间的增长数量级作出假设并预测它的性能。</p>
+<h3 id="1-4-6-1-评估它解决大型问题的可行性"><a href="#1-4-6-1-评估它解决大型问题的可行性" class="headerlink" title="1.4.6.1 评估它解决大型问题的可行性"></a>1.4.6.1 评估它解决大型问题的可行性</h3><p>你需要回答这个基本问题：“该程序能在可接受的时间内处理这些数据吗？”<br>了解程序的运行时间的增长数量级能够为你提供精确的信息，从而理解你能够解决的问题规模的上限。<br>理解诸如此类的问题，是研究性能的首要原因。没有这些知识，你将对一个程序所需的时间一无所知；而如果你有了它们，一张信封的背面就足够你计算出运行所需的时间并采取相应的行动。</p>
+<h3 id="1-4-6-2-评估使用更快的计算机所产生的价值"><a href="#1-4-6-2-评估使用更快的计算机所产生的价值" class="headerlink" title="1.4.6.2 评估使用更快的计算机所产生的价值"></a>1.4.6.2 评估使用更快的计算机所产生的价值</h3><p>另一个基本问题是：“如果我能够得到一台更快的计算机，解决问题的速度能够加快多少？”<br>如果新计算机比老的快 x 倍，运行时间也将变为原来的 x 分之一。但你一般都会用新计算机来处理更大规模的问题，这将会如何影响所需的运行时间呢？同样，增长的数量级信息也正是你回答这个问题所需要的。</p>
+<p>著名的摩尔定律告诉我们，18 个月后计算机的速度和内存容量都会翻一番，5 年后计算机的速度和内存容量都会变为现在的 10 倍。如果你使用的是平方或者立方级别的算法，摩尔定律就不适用了。进行倍率测试并检查随着输入规模的倍增前后运行时间之比是趋向于 2 而非 4 或者 8 即可验证这种情况。</p>
+<h2 id="1-4-7-注意事项"><a href="#1-4-7-注意事项" class="headerlink" title="1.4.7　注意事项"></a>1.4.7　注意事项</h2><h3 id="1-4-7-1-大常数"><a href="#1-4-7-1-大常数" class="headerlink" title="1.4.7.1　大常数"></a>1.4.7.1　大常数</h3><h3 id="1-4-7-2-非决定性的内循环"><a href="#1-4-7-2-非决定性的内循环" class="headerlink" title="1.4.7.2　非决定性的内循环"></a>1.4.7.2　非决定性的内循环</h3><h3 id="1-4-7-3-指令时间"><a href="#1-4-7-3-指令时间" class="headerlink" title="1.4.7.3　指令时间"></a>1.4.7.3　指令时间</h3><h3 id="1-4-7-4-系统因素"><a href="#1-4-7-4-系统因素" class="headerlink" title="1.4.7.4　系统因素"></a>1.4.7.4　系统因素</h3><h3 id="1-4-7-5-不分伯仲"><a href="#1-4-7-5-不分伯仲" class="headerlink" title="1.4.7.5　不分伯仲"></a>1.4.7.5　不分伯仲</h3><h3 id="1-4-7-6-对输入的强烈依赖"><a href="#1-4-7-6-对输入的强烈依赖" class="headerlink" title="1.4.7.6　对输入的强烈依赖"></a>1.4.7.6　对输入的强烈依赖</h3><h3 id="1-4-7-7-多个问题参量"><a href="#1-4-7-7-多个问题参量" class="headerlink" title="1.4.7.7　多个问题参量"></a>1.4.7.7　多个问题参量</h3><h2 id="1-4-8-处理对于输入的依赖"><a href="#1-4-8-处理对于输入的依赖" class="headerlink" title="1.4.8　处理对于输入的依赖"></a>1.4.8　处理对于输入的依赖</h2><p>对于许多问题，刚才所提到的注意事项中最突出的一个就是<strong>对于输入的依赖</strong>，因为在这种情况下程序的运行时间的变化范围可能非常大。</p>
+<p>ThreeSum 的修改版本的运行时间的范围根据输入的不同可能在常数级别到立方级别之间，因此如果我们想要预测它的性能，就需要对它进行更加细致的分析。</p>
+<h3 id="1-4-8-1-输入模型"><a href="#1-4-8-1-输入模型" class="headerlink" title="1.4.8.1　输入模型"></a>1.4.8.1　输入模型</h3><p>一种方法是更加小心地对我们所要解决的问题所处理的输入建模。</p>
+<h3 id="1-4-8-2-对最坏情况下的性能的保证"><a href="#1-4-8-2-对最坏情况下的性能的保证" class="headerlink" title="1.4.8.2　对最坏情况下的性能的保证"></a>1.4.8.2　对最坏情况下的性能的保证</h3><p>有些应用程序要求程序对于任意输入的运行时间均小于某个指定的上限。<br>为了提供这种性能保证，理论研究者们要从极度悲观的角度来估计算法的性能：<strong>在最坏情况下程序的运行时间是多少？</strong>（这种保守的做法对于运行在核反应堆、心脏起搏器或者刹车控制器之中的软件可能是十分必要的。）</p>
+<h3 id="1-4-8-3-随机化算法"><a href="#1-4-8-3-随机化算法" class="headerlink" title="1.4.8.3　随机化算法"></a>1.4.8.3　随机化算法</h3><p>为性能提供保证的一种重要方法是引入随机性。<br>例如，我们将在2.3 节中学习的<strong>快速排序算法</strong>（可能是使用最广泛的排序算法）在最坏情况下的性能是平方级别的，但通过随机打乱输入，<strong>根据概率我们能够保证它的性能是线性对数</strong>的。每次运行该算法，它所需的时间均不相同，但它的运行时间超过线性对数级别的可能性小到可以忽略。<br>例如， 3.4 节中学习的用于符号表的<strong>散列算法</strong>（同样也可能是使用最广泛的同类算法），在最坏情况下的性能是线性级别的，但<strong>根据概率我们可以保证它的运行时间是常数级别的</strong>。<br>这些保证并不是绝对的，但它们失效的可能性甚至小于你的电脑被闪电击中的可能性。因此，这种保证在实际中也可以用来作为最坏情况下的性能保证。</p>
+<h3 id="1-4-8-4-操作序列"><a href="#1-4-8-4-操作序列" class="headerlink" title="1.4.8.4　操作序列"></a>1.4.8.4　操作序列</h3><p>对于许多应用来说，算法的“输入”可能并不只是数据，还包括用例所进行的一系列操作的顺序。<br>例如，对于一个下压栈来说，用例先压入 N 个值然后再将它们全部弹出的所得到的性能，和 N 次压入弹出的混合操作序列所得到的性能可能大不相同。</p>
+<h3 id="1-4-8-5-均摊分析"><a href="#1-4-8-5-均摊分析" class="headerlink" title="1.4.8.5　均摊分析"></a>1.4.8.5　均摊分析</h3><p>相应地，提供性能保证的另一种方法是通过记录<strong>所有操作的总成本并除以操作总数来将成本均摊</strong>。在这里，我们可以允许执行一些昂贵的操作，但保持所有操作的平均成本较低。这种类型分析的典型例子是我们在 1.3 节中对基于动态调整数组大小的Stack 数据结构（请见 1.3.2.5 节的算法 1.1）的研究。</p>
+<h2 id="1-4-9-内存"><a href="#1-4-9-内存" class="headerlink" title="1.4.9　内存"></a>1.4.9　内存</h2><p>和运行时间一样，一个程序对内存的使用也和物理世界直接相关：计算机中的电路很大一部分的作用就是帮助程序保存一些值并在稍后取出它们。<br>在任意时刻需要保存的值越多，需要的电路也就越多。你可能知道计算机能够使用的内存上限（知道这一点的人应该比知道运行时间限制的人要多）因为你很可能已经在内存上花了不少额外的支出。<br><strong>内存的使用是和实现相关的。</strong><br><strong>Java 最重要的特性之一就是它的内存分配系统。</strong>它的任务是把你从对内存的操作之中解脱出来。（显然，你肯定已经知道应该在适当的时候利用这个功能，但是你也应该（至少是大概）知道程序对内存的需求在何时会成为解决问题的障碍。）<br><strong>分析内存的使用比分析程序所需的运行时间要简单得多，主要原因是它所涉及的程序语句较少（只有声明语句）且在分析中我们会将复杂的对象简化为原始数据类型，而原始数据类型的内存使用是预先定义好的</strong>，而且非常容易理解：只需将变量的数量和它们的类型所对应的字节数分别相乘并汇总即可。（例如，因为 Java 的int数据类型是$-2 147 483 648$ 到$2 147 483 647$ 之间的整数值的集合，即总数为 $2^32$ 个不同的值，典型的 Java 实现使用 32 位来表示 int 值。）<br>根据可用内存的总量就能够计算出保存这些值的极限数量。</p>
+<h3 id="1-4-9-1-对象"><a href="#1-4-9-1-对象" class="headerlink" title="1.4.9.1　对象"></a>1.4.9.1　对象</h3><p>要知道一个对象所使用的内存量，需要将所有实例变量使用的内存与对象本身的开销（一般是 16 字节,这些开销包括一个指向对象的类的引用、垃圾收集信息以及同步信息。）相加。</p>
+<p>另外，一般内存的使用都会被填充为8 字节（64 位计算机中的机器字）的倍数。<br>当我们说明一个引用所占的内存时，我们会单独说明它所指向的对象所占用的内存，因此这个内存使用总量并没有包含 String 值所使用的内存。</p>
+<h3 id="1-4-9-2-链表"><a href="#1-4-9-2-链表" class="headerlink" title="1.4.9.2　链表"></a>1.4.9.2　链表</h3><p>嵌套的非静态（内部）类，例如我们的 Node 类（请见 1.3.3.1 节），还需要额外的 8 字节（用于一个指向外部类的引用）。因此，一个 Node 对象需要使用 40 字节（16 字节的对象开销，指向 Item 和 Node 对象的引用各需 8 字节，另外还有 8 字节的额外开销）。<br>因为 Integer 对象需要使用 24 字节，一个含有 N 个整数的基于链表的栈（请见算法 1.2）需要使用（32+64N）字节，包括 Stack 对象的 16 字节的开销，引用类型实例变量8 字节，int 型实例变量4 字节，4 个填充字节，每个元素需要 64 字节，一个Node 对象的 40 字节和一个Integer 对象的 24 字节。</p>
+<h3 id="1-4-9-3-数组"><a href="#1-4-9-3-数组" class="headerlink" title="1.4.9.3　数组"></a>1.4.9.3　数组</h3><p>图 1.4.9 总结了 Java 中的各种类型的数组对内存的典型需求。<br>Java 中数组被实现为对象，它们一般都会因为记录长度而需要额外的内存。(一个原始数据类型的数组一般需要 24 字节的头信息（16 字节的对象开销，4 字节用于保存长度以及 4 填充字节）再加上保存值所需的内存。)<br>一个对象的数组就是一个对象的引用的数组，所以我们应该在对象所需的内存之外加上引用所需的内存。<br>二维数组是一个数组的数组（每个数组都是一个对象）。</p>
+<h3 id="1-4-9-4-字符串对象"><a href="#1-4-9-4-字符串对象" class="headerlink" title="1.4.9.4　字符串对象"></a>1.4.9.4　字符串对象</h3><p>我们可以用相同的方式说明 Java 的 String 类型对象所需的内存，只是对于字符串来说别名是非常常见的。<br>String 的标准实现含有 4 个实例变量：一个指向字符数组的引用（8 字节）和三个 int 值（各 4 字节）。</p>
+<h3 id="1-4-9-5-字符串的值和子字符串"><a href="#1-4-9-5-字符串的值和子字符串" class="headerlink" title="1.4.9.5　字符串的值和子字符串"></a>1.4.9.5　字符串的值和子字符串</h3><h2 id="1-4-10-展望"><a href="#1-4-10-展望" class="headerlink" title="1.4.10　展望"></a>1.4.10　展望</h2><p>良好的性能是非常重要的。速度极慢的程序和不正确的程序一样无用，因此显然有必要在一开始就关注程序的运行成本，这能够让你大致估计出所要解决的问题的规模，而聪明的做法是时刻关注程序中的内循环代码的组成。</p>
+<p>但在<strong>编程领域中，最常见的错误或许就是过于关注程序的性能。你的首要任务应该是写出清晰正确的代码。</strong>C.A.R. Hoare（快速排序的发明人，也是一位推动编写清晰而正确的代码的领军人物）曾将这种想法总结为：</p>
+<blockquote>
+<p>不成熟的优化是所有罪恶之源</p>
+</blockquote>
+<p>在编程领域中，第二常见的错误或许是完全忽略了程序的性能。较快的算法一般都比暴力算法更复杂，所以很多人宁可使用较慢的算法也不愿应付复杂的代码。但是，几行优秀的代码有时能够给你带来巨大的收益。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">ahmatjan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://ahmat1914.github.io/2013/05/23/algorithms-4-note-1-4/">https://ahmat1914.github.io/2013/05/23/algorithms-4-note-1-4/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">ahmatjan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/04/12/jue-ce-shu-jie-shao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="决策树介绍">
+                        
+                        <span class="card-title">决策树介绍</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-04-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">树模型</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2013/05/04/algorithms-4-note-1-3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Algorithms 4 1.3 背包、队列和栈">
+                        
+                        <span class="card-title">Algorithms 4 1.3 背包、队列和栈</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2013-05-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%80%9D%E8%80%83/" class="post-category">
+                                    思考
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">ahmatjan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
