@@ -1,7 +1,7 @@
 ---
 title: Bias-Variance Tradeoff
-category: 技术
-tags: 笔记
+category: MachineLearning
+tags: Bias, Variance
 date: 2021-02-19 20:31:30
 img: /images/optimal-balance-of-bias-and-variance.png
 ---

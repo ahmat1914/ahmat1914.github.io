@@ -1,7 +1,7 @@
 ---
 title: Advantages of the different impurity metrics?
-category: 技术
-tags: DecisionTree
+category: MachineLearning
+tags: 决策树,评估指标
 date: 2021-01-07 20:20:37
 img: /images/criterion.jpeg
 mathjax: true

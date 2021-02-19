@@ -1,7 +1,7 @@
 ---
 title: What is Juju?
-category: 思考
-tags: 笔记
+category: Life
+tags: Juju
 date: 2020-05-03 18:42:29
 img: /images/c33e1b3bbd24b2caac6d27ef83a2afb746d2ee59.png
 ---

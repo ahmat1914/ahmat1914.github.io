@@ -1,7 +1,7 @@
 ---
 title: concepts and terms of MASS
-category: 思考
-tags: 笔记
+category: Life
+tags: MASS
 date: 2020-05-04 14:29:35
 img: /images/46177305128bf7f3190f8a7bbd037c33e96f6a9e.png
 ---

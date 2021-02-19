@@ -1,7 +1,7 @@
 ---
 title: k-means 算法知识点梳理
-category: 技术
-tags: 笔记, k-means
+category: MachineLearning, Note 
+tags: k-means
 date: 2021-01-12 10:12:46
 img: /images/k-means-clustering.png
 ---

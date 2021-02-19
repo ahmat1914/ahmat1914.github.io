@@ -1,7 +1,7 @@
 ---
 title: What is LXD?
-category: 思考
-tags: 笔记
+category: Life
+tags: LXD
 date: 2020-05-03 15:28:44
 img: /images/LXD-Containers-Ubuntu-Submit-2015.png
 ---

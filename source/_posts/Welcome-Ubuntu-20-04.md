@@ -1,7 +1,7 @@
 ---
 title: Welcome Ubuntu 20.04
-category: 思考
-tags: 笔记
+category: Life
+tags: ubuntu
 date: 2020-04-27 20:09:31
 img: /images/ubuntu-20-04.png
 ---

@@ -1,8 +1,8 @@
 ---
 title: TFX Overview
 date: 2020-04-25 21:20:49
-category: 思考
-tags: 笔记
+category: MachineLearning
+tags: TFX
 img: /images/flow-of-data-between-tfx-components.png
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: What is CaaS ?
-category: 思考
-tags: 笔记
+category: Life
+tags: CaaS
 date: 2020-04-27 20:03:25
 img: /images/What-Is-CaaS-Container-As-A-Service-Explained-min.jpg
 ---

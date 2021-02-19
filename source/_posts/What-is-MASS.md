@@ -1,7 +1,7 @@
 ---
 title: What is MASS?
-category: 思考
-tags: 笔记
+category: Life
+tags: MASS
 date: 2020-05-03 18:24:09
 img: /images/c7ab255f51a3931815b5beeaf19119a42ea0e9e4.png
 ---

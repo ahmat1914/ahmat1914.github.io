@@ -1,7 +1,7 @@
 ---
 title: Algorithms 4 1.3 背包、队列和栈 
-category: 思考
-tags: 笔记
+category: Note
+tags: 算法与数据结构
 date: 2013-05-04 15:56:18
 ---
 ## 1.3　背包、队列和栈

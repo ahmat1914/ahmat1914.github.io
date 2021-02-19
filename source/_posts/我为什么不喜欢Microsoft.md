@@ -1,8 +1,8 @@
 ---
 title: 我为什么不喜欢Microsoft
 date: 2020-04-13 16:33:24
-category: 思考
-tags: 杂记
+category: Life
+tags: 杂记, 思考
 img: /images/quote-microsoft-isn-t-evil-they-just-make-really-crappy-operating-systems-linus-torvalds-29-60-73.jpg
 ---
 

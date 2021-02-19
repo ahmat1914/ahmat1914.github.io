@@ -1,7 +1,7 @@
 ---
 title: add machines to MASS
-category: 思考
-tags: 笔记
+category: Life
+tags: MASS
 date: 2020-05-04 15:56:18
 ---
 There are two ways to add a machine to MAAS.

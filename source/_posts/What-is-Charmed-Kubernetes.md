@@ -1,7 +1,7 @@
 ---
 title: What is Charmed Kubernetes?
-category: 思考
-tags: 笔记
+category: Life
+tags: k8s
 date: 2020-04-27 20:17:42
 ---
 
