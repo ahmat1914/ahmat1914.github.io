@@ -72,9 +72,9 @@
       
         <tags>
             
-            <tag> 树模型 </tag>
-            
             <tag> 集成学习 </tag>
+            
+            <tag> 树模型 </tag>
             
             <tag> 随机森林 </tag>
             
@@ -202,9 +202,9 @@
       
       <categories>
           
-          <category> Note </category>
-          
           <category> MachineLearning </category>
+          
+          <category> Note </category>
           
       </categories>
       
@@ -229,9 +229,9 @@
       
       <categories>
           
-          <category> Note </category>
-          
           <category> MachineLearning </category>
+          
+          <category> Note </category>
           
       </categories>
       

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Category: MachineLearning, ahmatjan">
+    <meta name="keywords" content="Category: Note, ahmatjan">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Category: MachineLearning | ahmatjan</title>
+    <title>Category: Note | ahmatjan</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -364,7 +364,7 @@
                 
                 <a href="/categories/Note/" title="Note: 4">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
+                             chip-active "
                             style="background-color: #F9EBEA;">Note
                         <span class="tag-length">4</span>
                     </span>
@@ -373,7 +373,7 @@
                 
                 <a href="/categories/MachineLearning/" title="MachineLearning: 17">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
+                             chip-default "
                             style="background-color: #F5EEF8;">MachineLearning
                         <span class="tag-length">17</span>
                     </span>
@@ -400,7 +400,7 @@
                 
                 <a href="/categories/MachineLearning/Note/" title="Note: 2">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
+                             chip-active "
                             style="background-color: #FEF9E7;">Note
                         <span class="tag-length">2</span>
                     </span>
@@ -418,7 +418,7 @@
                 
                 <a href="/categories/Tech/MachineLearning/" title="MachineLearning: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
+                             chip-default "
                             style="background-color: #82E0AA;">MachineLearning
                         <span class="tag-length">1</span>
                     </span>
@@ -427,7 +427,7 @@
                 
                 <a href="/categories/Life/MachineLearning/" title="MachineLearning: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
+                             chip-default "
                             style="background-color: #D7BDE2;">MachineLearning
                         <span class="tag-length">1</span>
                     </span>
@@ -456,23 +456,29 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/01/07/entropy-vs-gini/">
+                    <a href="/2021/01/12/k-means-suan-fa-zhi-shi-dian-shu-li/">
                         <div class="card-image tag-image">
                             
-                            <img src="/images/overview-plot.20200107.png" class="responsive-img" alt="entropy VS gini">
+                            <img src="/images/k-means-clustering.png" class="responsive-img" alt="k-means 算法知识点梳理">
                             
-                            <span class="card-title">entropy VS gini</span>
+                            <span class="card-title">k-means 算法知识点梳理</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Entropy vs ginisklearn.tree.DecisionTreeClassifier(criterion=&quot;gini&quot;) 中 criterion 参数用于指定节点上决策问题评估指标（不纯度降低量最大或信息
+                                Overviewk-means 算法是最常用的聚类算法，属于无监督学习算法。
+工作原理和流程
+输入k，表示数据聚类到k簇
+随机选出 k个质心（Centroid）
+将每个点归到距离最近的质心所属簇
+求簇中每个点均值，求出该质心新的位置
+循环3
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-12
                             </span>
                             <span class="publish-author">
                                 
@@ -482,185 +488,10 @@
                                     MachineLearning
                                 </a>
                                 
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
-                            <span class="chip bg-color">决策树</span>
-                        </a>
-                        
-                        <a href="/tags/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">
-                            <span class="chip bg-color">评估指标</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%86%B5/">
-                            <span class="chip bg-color">熵</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%9F%BA%E5%B0%BC%E4%B8%8D%E7%BA%AF%E5%BA%A6/">
-                            <span class="chip bg-color">基尼不纯度</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/01/07/hua-jue-ce-shu/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="/images/%E7%94%BB%E5%87%BA%E5%86%B3%E7%AD%96%E6%A0%91/decisionTree.custom.png" class="responsive-img" alt="画决策树">
-                            
-                            <span class="card-title">画决策树</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                数据准备本示例我们使用红酒数据集。
->>> from sklearn import datasets
->>> from sklearn.datasets import load_wine
->>> wine_dataset = load_wi
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MachineLearning/" class="post-category">
-                                    MachineLearning
-                                </a>
-                                
-                                <a href="/categories/exercises/" class="post-category">
-                                    exercises
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
-                            <span class="chip bg-color">决策树</span>
-                        </a>
-                        
-                        <a href="/tags/%E7%94%BB%E5%9B%BE/">
-                            <span class="chip bg-color">画图</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/01/07/jue-ce-shu-xiang-guan-xi-ti/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="决策树相关习题">
-                            
-                            <span class="card-title">决策树相关习题</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                《机器学习》课后习题–周志华4.1 试证明对于不含冲突数据(即特征向量完全相同但标记不同)的训练集，必存在与训练集一致(即训练误差为 0) 的决策树。答：   
-从原书p74的图4.2的决策树学习的基本算法可以看出，生成一个叶节点有三种情况
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MachineLearning/" class="post-category">
-                                    MachineLearning
-                                </a>
-                                
-                                <a href="/categories/MachineLearning/exercises/" class="post-category">
-                                    exercises
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
-                            <span class="chip bg-color">决策树</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/">
-                            <span class="chip bg-color">树模型</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/01/06/guan-yu-jue-ce-shu-ni-gai-zhi-dao-na-xie/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="关于决策树你该知道哪些?">
-                            
-                            <span class="card-title">关于决策树你该知道哪些?</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                工具和技巧
-graphviz 画出决策树
-超参数的学习曲线：以超参数的取值为横坐标，模型的度量指标为纵坐标的曲线，它是用来衡量不同超参数取值下模型的表现的线。
-
-实验：
-各个超参数学习曲线：
-criterion: gini, entropy
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-06
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Note/" class="post-category">
+                                <a href="/categories/MachineLearning/Note/" class="post-category">
                                     Note
                                 </a>
                                 
-                                <a href="/categories/MachineLearning/" class="post-category">
-                                    MachineLearning
-                                </a>
-                                
                                 
                             </span>
                         </div>
@@ -669,12 +500,8 @@ criterion: gini, entropy
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
-                            <span class="chip bg-color">决策树</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/">
-                            <span class="chip bg-color">树模型</span>
+                        <a href="/tags/k-means/">
+                            <span class="chip bg-color">k-means</span>
                         </a>
                         
                     </div>
@@ -684,25 +511,26 @@ criterion: gini, entropy
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/04/25/tfx-overview/">
+                    <a href="/2021/01/07/id3-suan-fa/">
                         <div class="card-image tag-image">
                             
-                            <img src="/images/flow-of-data-between-tfx-components.png" class="responsive-img" alt="TFX Overview">
                             
-                            <span class="card-title">TFX Overview</span>
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ID3 算法">
+                            
+                            <span class="card-title">ID3 算法</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                TensorFlow Extended 是什么？Google 开源的端到端平台，用于部署生产型机器学习流水线。
-TFX Core ConceptsTFX Pipelines
-A TFX pipeline defines a data flo
+                                决策树是一个非常常见并且优秀的机器学习算法，它易于理解、可解释性强，其可作为分类算法，也可用于回归模型。基本算法有 ID3、C4.5、CART。
+Overview
+ID3算法（Iterative Dichotomiser 3 迭代二叉树3代
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-07
                             </span>
                             <span class="publish-author">
                                 
@@ -712,111 +540,8 @@ A TFX pipeline defines a data flo
                                     MachineLearning
                                 </a>
                                 
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/TFX/">
-                            <span class="chip bg-color">TFX</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/04/12/jue-ce-shu-gong-zuo-yuan-li-shi-li/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="/images/%E5%86%B3%E7%AD%96%E6%A0%91%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E7%A4%BA%E4%BE%8B-cover.jpeg" class="responsive-img" alt="决策树工作原理示例">
-                            
-                            <span class="card-title">决策树工作原理示例</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                数据我们从 Zoo 数据集中抽出10条用于展示决策树工作原理。其中 class是预测目标特征，属于分类问题。
-
-Zoo DataSet http://archive.ics.uci.edu/ml/machine-learning-datab
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-04-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Note/" class="post-category">
+                                <a href="/categories/MachineLearning/Note/" class="post-category">
                                     Note
-                                </a>
-                                
-                                <a href="/categories/MachineLearning/" class="post-category">
-                                    MachineLearning
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
-                            <span class="chip bg-color">决策树</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/">
-                            <span class="chip bg-color">树模型</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/04/12/jue-ce-shu-jie-shao/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="决策树介绍">
-                            
-                            <span class="card-title">决策树介绍</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                什么是决策树决策树是一种用树结构进行学习、预测的监督学习方法。英文 Decision Tree。
-树结构包含节点和边。节点可分为根节点、内部节点、叶子节点。如下图
-
-学习（训练）过程：
-
-数据从根节点流入
-寻找最佳决策问题，作为切分数据的依
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-04-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MachineLearning/" class="post-category">
-                                    MachineLearning
                                 </a>
                                 
                                 
@@ -843,30 +568,6 @@ Zoo DataSet http://archive.ics.uci.edu/ml/machine-learning-datab
         </div>
     </article>
 </main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/categories/MachineLearning/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a class="right btn-floating btn-large disabled">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
 
 
 
