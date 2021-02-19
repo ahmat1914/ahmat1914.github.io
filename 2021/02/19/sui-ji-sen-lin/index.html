@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="使用交叉验证选择决策树预剪枝参数 max_depth, ahmatjan">
+    <meta name="keywords" content="随机森林, ahmatjan">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>使用交叉验证选择决策树预剪枝参数 max_depth | ahmatjan</title>
+    <title>随机森林 | ahmatjan</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">使用交叉验证选择决策树预剪枝参数 max_depth</h1>
+                    <h1 class="description center-align post-title">随机森林</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-15
+                    2021-02-19
                 </div>
                 
 
@@ -477,90 +477,51 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>max_depth  限制树的最大深度，超过设定深度的树枝全部剪掉。</p>
+                <p>随机森林是一种具有代表性的 Bagging（装袋法）集成算法。</p>
 <a id="more"></a>
 
-<h3 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a>准备数据</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sklearn <span class="token keyword">import</span> tree
-<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_wine
-<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split
-wine <span class="token operator">=</span> load_wine<span class="token punctuation">(</span><span class="token punctuation">)</span>
-Xtrain<span class="token punctuation">,</span> Xtest<span class="token punctuation">,</span> Ytrain<span class="token punctuation">,</span> Ytest <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>wine<span class="token punctuation">.</span>data<span class="token punctuation">,</span>wine<span class="token punctuation">.</span>target<span class="token punctuation">,</span>test_size<span class="token operator">=</span><span class="token number">0.3</span><span class="token punctuation">)</span>
-feature_name <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'酒精'</span><span class="token punctuation">,</span><span class="token string">'苹果酸'</span><span class="token punctuation">,</span><span class="token string">'灰'</span><span class="token punctuation">,</span><span class="token string">'灰的碱性'</span><span class="token punctuation">,</span><span class="token string">'镁'</span><span class="token punctuation">,</span><span class="token string">'总酚'</span><span class="token punctuation">,</span><span class="token string">'类黄酮'</span><span class="token punctuation">,</span><span class="token string">'非黄烷类酚类'</span><span class="token punctuation">,</span><span class="token string">'花青素'</span><span class="token punctuation">,</span><span class="token string">'颜色强度'</span><span class="token punctuation">,</span><span class="token string">'色调'</span><span class="token punctuation">,</span><span class="token string">'od280/od315稀释葡萄酒'</span><span class="token punctuation">,</span>'脯氨酸’<span class="token punctuation">]</span></code></pre>
-<h3 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h3><p>默认参数模型准确率</p>
-<pre class=" language-python"><code class="language-python">clf <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>criterion<span class="token operator">=</span><span class="token string">"entropy"</span>
-                                    <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">30</span>
-                                    <span class="token punctuation">,</span>splitter<span class="token operator">=</span><span class="token string">"random"</span>
-                                    <span class="token punctuation">)</span>
-clf <span class="token operator">=</span> clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
-score <span class="token operator">=</span> clf<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span></code></pre>
-<p><code>0.88</code></p>
-<h3 id="默认-max-depth-生成决策树"><a href="#默认-max-depth-生成决策树" class="headerlink" title="默认 max_depth 生成决策树"></a>默认 max_depth 生成决策树</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> graphviz
-dot_data <span class="token operator">=</span> tree<span class="token punctuation">.</span>export_graphviz<span class="token punctuation">(</span>clf
-                                <span class="token punctuation">,</span>feature_names<span class="token operator">=</span> feature_name
-                                <span class="token punctuation">,</span>class_names<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"琴酒"</span><span class="token punctuation">,</span><span class="token string">"雪莉"</span><span class="token punctuation">,</span><span class="token string">"贝尔摩德"</span><span class="token punctuation">]</span>
-                                <span class="token punctuation">,</span>filled<span class="token operator">=</span><span class="token boolean">True</span>
-                                <span class="token punctuation">,</span>rounded<span class="token operator">=</span><span class="token boolean">True</span>
-                                <span class="token punctuation">)</span>
-graph <span class="token operator">=</span> graphviz<span class="token punctuation">.</span>Source<span class="token punctuation">(</span>dot_data<span class="token punctuation">)</span>
-graph</code></pre>
-<p><img src="/images/max_depth/11.png" alt=""></p>
-<h3 id="max-depth-3-生成决策树"><a href="#max-depth-3-生成决策树" class="headerlink" title="max_depth=3 生成决策树"></a>max_depth=3 生成决策树</h3><pre class=" language-python"><code class="language-python">clf <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>criterion<span class="token operator">=</span><span class="token string">"entropy"</span>
-                                    <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">30</span>
-                                    <span class="token punctuation">,</span>splitter<span class="token operator">=</span><span class="token string">"random"</span>
-                                    <span class="token punctuation">,</span>max_depth<span class="token operator">=</span><span class="token number">3</span>
-                                <span class="token comment" spellcheck="true">#    ,min_samples_leaf=10</span>
-                                <span class="token comment" spellcheck="true">#    ,min_samples_split=25</span>
-                                    <span class="token punctuation">)</span>
-clf <span class="token operator">=</span> clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
-dot_data <span class="token operator">=</span> tree<span class="token punctuation">.</span>export_graphviz<span class="token punctuation">(</span>clf
-                                <span class="token punctuation">,</span>feature_names<span class="token operator">=</span> feature_name
-                                <span class="token punctuation">,</span>class_names<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"琴酒"</span><span class="token punctuation">,</span><span class="token string">"雪莉"</span><span class="token punctuation">,</span><span class="token string">"贝尔摩德"</span><span class="token punctuation">]</span>
-                                <span class="token punctuation">,</span>filled<span class="token operator">=</span><span class="token boolean">True</span>
-                                <span class="token punctuation">,</span>rounded<span class="token operator">=</span><span class="token boolean">True</span>
-                                <span class="token punctuation">)</span>
-graph <span class="token operator">=</span> graphviz<span class="token punctuation">.</span>Source<span class="token punctuation">(</span>dot_data<span class="token punctuation">)</span>
-graph</code></pre>
-<p><img src="/images/max_depth/2.png" alt=""></p>
-<h3 id="交叉验证-学习曲线"><a href="#交叉验证-学习曲线" class="headerlink" title="交叉验证 学习曲线"></a>交叉验证 学习曲线</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-test <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    clf <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>max_depth<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span>
-                                    <span class="token punctuation">,</span>criterion<span class="token operator">=</span><span class="token string">"entropy"</span>
-                                    <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">30</span>
-                                    <span class="token punctuation">,</span>splitter<span class="token operator">=</span><span class="token string">"random"</span>
-                                    <span class="token punctuation">)</span>
-    clf <span class="token operator">=</span> clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
-    score <span class="token operator">=</span> clf<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
-    test<span class="token punctuation">.</span>append<span class="token punctuation">(</span>score<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span>test<span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">"red"</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">"max_depth"</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="/images/max_depth/2.png" alt=""></p>
-<h3 id="交叉验证-学习曲线-1"><a href="#交叉验证-学习曲线-1" class="headerlink" title="交叉验证 学习曲线"></a>交叉验证 学习曲线</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-test <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    clf <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>max_depth<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span>
-                                    <span class="token punctuation">,</span>criterion<span class="token operator">=</span><span class="token string">"entropy"</span>
-                                    <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">30</span>
-                                    <span class="token punctuation">,</span>splitter<span class="token operator">=</span><span class="token string">"random"</span>
-                                    <span class="token punctuation">)</span>
-    clf <span class="token operator">=</span> clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
-    score <span class="token operator">=</span> clf<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
-    test<span class="token punctuation">.</span>append<span class="token punctuation">(</span>score<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span>test<span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">"red"</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">"max_depth"</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="/images/max_depth/3.png" alt=""></p>
-<h3 id="max-depth-3-时模型准确率"><a href="#max-depth-3-时模型准确率" class="headerlink" title="max_depth=3 时模型准确率"></a>max_depth=3 时模型准确率</h3><pre class=" language-python"><code class="language-python">clf <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>criterion<span class="token operator">=</span><span class="token string">"entropy"</span><span class="token punctuation">,</span>
-                                    max_depth<span class="token operator">=</span><span class="token number">3</span>
-                                    <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">30</span>
-                                    <span class="token punctuation">,</span>splitter<span class="token operator">=</span><span class="token string">"random"</span>
-                                    <span class="token punctuation">)</span>
-clf <span class="token operator">=</span> clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
-score <span class="token operator">=</span> clf<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
-score</code></pre>
-<p><code>0.94</code></p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>把 n 个基评估器的结果，汇总后得到集成算法的结果，以此得到比单个评估器更好的模型表现。</p>
+<ul>
+<li>其中每个基评估器都是决策树，所以称呼森林；</li>
+<li>随机挑选特征和数据，生成 n 个决策树，所以称随机。</li>
+</ul>
+<h3 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h3><ul>
+<li>Bootsrap：随机森林通过有放回的随机抽样技术来形成不同的训练数据，bootsrap等于 TRUE，表示使用这种抽样技术。<ul>
+<li>含有n个样本的数据集中，进行有放回随机采样n 次，组成大小为n的自助集。</li>
+<li>由于有放回随机采样，每个自助集都不同，训练的决策树也不同。</li>
+<li>由于有放回采样，有些数据样本会被多个自助集采到、有些数据集始终不会被采到。</li>
+</ul>
+</li>
+<li>Out of  Bag：一般来说，自助集平均包含 63%的原始数据。每个样本被抽到某个自助集中的概率为 1 - (1 - 1/n)^n 。当 n 足够大时，这个概率收敛于 1 - 1/e, 约等于 0.632。因此会有 37% 的训练数据被浪费掉，没有参与建模，这些数据被称为袋外数据(out of bag data, 简写 OOB)。<ul>
+<li>除了最初划分为测试集的数据之外，这部分OOB数据也可以加入到测试集中。</li>
+<li>当然，使用随机森林时，我们可以不划分测试集和训练集，只需要用袋外数据作为测试集即可。（当n 和 n_estimators 都不够大时，很可能就没有oob数据）</li>
+</ul>
+</li>
+</ul>
+<h3 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h3><ol>
+<li>常用的集成算法有哪些？<ol>
+<li>Bagging （装袋）法：基评估器互相独立、平行。代表算法是随机森林</li>
+<li>Boosting （提升）法：基评估器有顺序，逐渐提升。代表算法有 XGboost</li>
+<li>Stacking 法</li>
+</ol>
+</li>
+<li>随机森林用了什么方法，来保证集成的效果一定好于单个分类器?<ol>
+<li>例如随机森林中有25棵树，每棵树分类错误的概率是 0.2</li>
+<li>当且仅当13及以上的树都分类错误时随机森林集成结果才分类错误</li>
+<li>13都分类错误的概率：</li>
+</ol>
+</li>
+<li>随机森林如何保证，每一个决策树都不一样？（随机性）<ol>
+<li>有放回随机抽样训练数据，训练决策树</li>
+<li>随机选择部分特征，构造决策树</li>
+</ol>
+</li>
+<li>使用随机森林有什么特殊要求？<ol>
+<li>要求每个基评估器都相互独立；</li>
+<li>基分类器的分类准确率要超过随机分类器（即，随机森林使用的基分类器的准确率至少要超过50%）。当基分类器的误差率小于0.5，即准确率大于0.5 时，集成的效果是比基分类器要好的。相反， 当基分类器的误差率大于0.5，袋装的集成算法就失效了。</li>
+</ol>
+</li>
+</ol>
 
                 
             </div>
@@ -587,7 +548,7 @@ score</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ahmat1914.github.io/2021/02/15/shi-yong-jiao-cha-yan-zheng-xuan-ze-jue-ce-shu-yu-jian-zhi-can-shu-max-depth/">https://ahmat1914.github.io/2021/02/15/shi-yong-jiao-cha-yan-zheng-xuan-ze-jue-ce-shu-yu-jian-zhi-can-shu-max-depth/</a>
+                    <a href="https://ahmat1914.github.io/2021/02/19/sui-ji-sen-lin/">https://ahmat1914.github.io/2021/02/19/sui-ji-sen-lin/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -796,9 +757,10 @@ score</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2021/02/19/sui-ji-sen-lin/">
                     <div class="card-image">
@@ -816,9 +778,9 @@ score</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -831,6 +793,7 @@ score</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -849,24 +812,24 @@ score</code></pre>
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/22/zhi-chi-xiang-liang-ji-xiang-guan-xi-ti/">
+                <a href="/2021/02/15/shi-yong-jiao-cha-yan-zheng-xuan-ze-jue-ce-shu-yu-jian-zhi-can-shu-max-depth/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="支持向量机相关习题">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="使用交叉验证选择决策树预剪枝参数 max_depth">
                         
-                        <span class="card-title">支持向量机相关习题</span>
+                        <span class="card-title">使用交叉验证选择决策树预剪枝参数 max_depth</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            max_depth  限制树的最大深度，超过设定深度的树枝全部剪掉。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-15
                             </span>
                         <span class="publish-author">
                             
@@ -883,8 +846,8 @@ score</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0-%E4%B9%A0%E9%A2%98/">
-                        <span class="chip bg-color">笔记, 习题</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
                 </div>
