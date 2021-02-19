@@ -1,6 +1,6 @@
 ---
 title: Advantages of the different impurity metrics?
-category: [Tech, MachineLearning]
+category: MachineLearning
 tags:
 - 决策树
 - 评估指标

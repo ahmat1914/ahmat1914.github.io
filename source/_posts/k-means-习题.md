@@ -1,7 +1,7 @@
 ---
 title: k-means 习题
 category:
-- [Tech, MachineLearning]
+- MachineLearning
 - exercises 
 tags: k-means
 date: 2021-01-12 10:37:20

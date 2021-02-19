@@ -1,7 +1,7 @@
 ---
 title: k-means 算法知识点梳理
 category:
-- [Tech, MachineLearning]
+- MachineLearning
 - Note 
 tags: k-means
 date: 2021-01-12 10:12:46

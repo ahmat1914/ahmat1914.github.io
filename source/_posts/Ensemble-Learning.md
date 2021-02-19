@@ -1,6 +1,6 @@
 ---
 title: Ensemble Learning
-category: [Tech, MachineLearning]
+category: MachineLearning
 tags: 集成学习
 date: 2021-02-19 15:52:08
 img: /images/ensemble-learning.png

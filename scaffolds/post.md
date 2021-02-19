@@ -1,7 +1,10 @@
 ---
 title: {{ title }}
 date: {{ date }}
-category: 技术
-tags: 笔记
+category:
+- MachineLearning
+tags:
+- 决策树
+- 画图
 img:
 ---

@@ -1,7 +1,6 @@
 ---
 title: What is Kubeflow?
 category:
-- Tech
 - MachineLearning
 tags:
 - k8s

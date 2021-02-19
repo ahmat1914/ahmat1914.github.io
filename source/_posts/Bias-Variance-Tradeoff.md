@@ -1,6 +1,6 @@
 ---
 title: Bias-Variance Tradeoff
-category: [Tech, MachineLearning]
+category: MachineLearning
 tags:
 - 偏差
 - 方差
