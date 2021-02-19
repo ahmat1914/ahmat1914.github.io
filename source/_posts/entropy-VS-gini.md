@@ -1,7 +1,11 @@
 ---
 title: entropy VS gini
-category: MachineLearning 
-tags: 决策树, 评估指标,熵,基尼不纯度
+category: [Tech, MachineLearning] 
+tags:
+- 决策树
+- 评估指标
+- 熵
+- 基尼不纯度
 date: 2021-01-07 18:35:10
 img: /images/overview-plot.20200107.png
 mathjax: true

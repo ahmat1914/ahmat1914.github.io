@@ -1,7 +1,11 @@
 ---
 title: 使用交叉验证选择决策树预剪枝参数 max_depth
-category: MachineLearning, exercises
-tags: 树模型, 决策树
+category:
+    - [Tech, MachineLearning]
+    - exercises
+tags:
+    - 树模型
+    - 决策树
 date: 2021-02-15 18:24:47
 img:
 ---

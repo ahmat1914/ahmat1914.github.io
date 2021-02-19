@@ -1,7 +1,11 @@
 ---
 title: What is Kubeflow?
-category: Life, MachineLearning
-tags: Kubfeflow, k8s
+category:
+- Tech
+- MachineLearning
+tags:
+- k8s
+- kubeflow
 date: 2020-04-27 20:20:39
 img: images/82181d5c5d46c27929e593d5373f47be.png
 ---

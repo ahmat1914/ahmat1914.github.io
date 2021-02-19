@@ -1,6 +1,6 @@
 ---
 title: add machines to MASS
-category: Life
+Category: Tech
 tags: MASS
 date: 2020-05-04 15:56:18
 ---

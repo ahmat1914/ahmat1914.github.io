@@ -1,7 +1,9 @@
 ---
 title: ID3 算法
-category: MachineLearning, Note
-tags: 决策树, 树模型
+category: [Tech, MachineLearning], Note
+tags:
+- 决策树
+- 树模型
 date: 2021-01-07 22:19:46
 img:
 ---

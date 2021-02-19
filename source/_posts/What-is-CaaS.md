@@ -1,6 +1,6 @@
 ---
 title: What is CaaS ?
-category: Life
+Category: Tech
 tags: CaaS
 date: 2020-04-27 20:03:25
 img: /images/What-Is-CaaS-Container-As-A-Service-Explained-min.jpg

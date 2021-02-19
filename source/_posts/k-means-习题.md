@@ -1,6 +1,8 @@
 ---
 title: k-means 习题
-category: MachineLearning, exercises 
+category:
+- [Tech, MachineLearning]
+- exercises 
 tags: k-means
 date: 2021-01-12 10:37:20
 img: /images/SilhouetteCoefficient.png
