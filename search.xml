@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>Life</title>
-      <link href="2021/02/19/life/"/>
-      <url>2021/02/19/life/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Bias-Variance Tradeoff</title>
       <link href="2021/02/19/bias-variance-tradeoff/"/>
       <url>2021/02/19/bias-variance-tradeoff/</url>
@@ -26,14 +13,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> Bias, Variance </tag>
             
         </tags>
       
@@ -51,14 +38,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> 集成学习 </tag>
             
         </tags>
       
@@ -76,14 +63,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> 树模型, 集成学习, 随机森林 </tag>
             
         </tags>
       
@@ -101,14 +88,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning, exercises </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> 树模型, 决策树 </tag>
             
         </tags>
       
@@ -126,14 +113,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning, exercises </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记, 习题 </tag>
+            <tag> svm </tag>
             
         </tags>
       
@@ -151,14 +138,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记, svm,支持向量机 </tag>
+            <tag> svm </tag>
             
         </tags>
       
@@ -176,14 +163,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning, exercises </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记, k-means </tag>
+            <tag> k-means </tag>
             
         </tags>
       
@@ -201,14 +188,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning, Note </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记, k-means </tag>
+            <tag> k-means </tag>
             
         </tags>
       
@@ -226,14 +213,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning, Note </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> 决策树, 树模型 </tag>
             
         </tags>
       
@@ -251,14 +238,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> DecisionTree </tag>
+            <tag> 决策树,评估指标 </tag>
             
         </tags>
       
@@ -276,14 +263,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> DecisionTree </tag>
+            <tag> 决策树, 评估指标,熵,基尼不纯度 </tag>
             
         </tags>
       
@@ -301,14 +288,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning, exercises </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> DecisionTree </tag>
+            <tag> DecisionTree, Plot </tag>
             
         </tags>
       
@@ -326,14 +313,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning, exercises </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> DecisionTree </tag>
+            <tag> 树模型, 决策树 </tag>
             
         </tags>
       
@@ -351,14 +338,14 @@
       
       <categories>
           
-          <category> 技术 </category>
+          <category> MachineLearning, Note </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> 决策树, 树模型 </tag>
             
         </tags>
       
@@ -376,14 +363,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> MASS </tag>
             
         </tags>
       
@@ -401,14 +388,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> MASS </tag>
             
         </tags>
       
@@ -426,14 +413,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> Juju </tag>
             
         </tags>
       
@@ -451,14 +438,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> MASS </tag>
             
         </tags>
       
@@ -476,14 +463,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> LXD </tag>
             
         </tags>
       
@@ -501,14 +488,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life, MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> Kubfeflow, k8s </tag>
             
         </tags>
       
@@ -526,14 +513,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> k8s </tag>
             
         </tags>
       
@@ -551,14 +538,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> ubuntu </tag>
             
         </tags>
       
@@ -576,14 +563,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> CaaS </tag>
             
         </tags>
       
@@ -601,14 +588,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> TFX </tag>
             
         </tags>
       
@@ -626,14 +613,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 杂记 </tag>
+            <tag> 杂记, 思考 </tag>
             
         </tags>
       
@@ -651,7 +638,7 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life </category>
           
       </categories>
       
@@ -676,14 +663,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Life, MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 杂记 </tag>
+            <tag> 思考, 杂记 </tag>
             
         </tags>
       
@@ -701,14 +688,14 @@
       
       <categories>
           
-          <category> 机器学习 </category>
+          <category> MachineLearning, Note </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 树模型 </tag>
+            <tag> 树模型, 决策树 </tag>
             
         </tags>
       
@@ -726,14 +713,14 @@
       
       <categories>
           
-          <category> 机器学习 </category>
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 树模型 </tag>
+            <tag> 树模型, 决策树 </tag>
             
         </tags>
       
@@ -751,14 +738,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Note </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> 算法与数据结构 </tag>
             
         </tags>
       
@@ -776,14 +763,14 @@
       
       <categories>
           
-          <category> 思考 </category>
+          <category> Note </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> 算法与数据结构 </tag>
             
         </tags>
       
