@@ -13,8 +13,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> MachineLearning </category>
           
       </categories>
@@ -42,8 +40,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> MachineLearning </category>
           
       </categories>
@@ -69,8 +65,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> MachineLearning </category>
           
       </categories>
@@ -78,9 +72,9 @@
       
         <tags>
             
-            <tag> 集成学习 </tag>
-            
             <tag> 树模型 </tag>
+            
+            <tag> 集成学习 </tag>
             
             <tag> 随机森林 </tag>
             
@@ -99,8 +93,6 @@
       
       
       <categories>
-          
-          <category> Tech </category>
           
           <category> MachineLearning </category>
           
@@ -131,8 +123,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> MachineLearning </category>
           
           <category> exercises </category>
@@ -160,8 +150,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> MachineLearning </category>
           
       </categories>
@@ -186,8 +174,6 @@
       
       
       <categories>
-          
-          <category> Tech </category>
           
           <category> MachineLearning </category>
           
@@ -216,8 +202,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> Note </category>
           
           <category> MachineLearning </category>
@@ -244,8 +228,6 @@
       
       
       <categories>
-          
-          <category> Tech </category>
           
           <category> Note </category>
           
@@ -276,8 +258,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> MachineLearning </category>
           
       </categories>
@@ -304,8 +284,6 @@
       
       
       <categories>
-          
-          <category> Tech </category>
           
           <category> MachineLearning </category>
           
@@ -338,8 +316,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> MachineLearning </category>
           
           <category> exercises </category>
@@ -369,8 +345,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> MachineLearning </category>
           
           <category> exercises </category>
@@ -399,8 +373,6 @@
       
       
       <categories>
-          
-          <category> Tech </category>
           
           <category> Note </category>
           
@@ -630,8 +602,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> MachineLearning </category>
           
       </categories>
@@ -738,8 +708,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> Note </category>
           
           <category> MachineLearning </category>
@@ -768,8 +736,6 @@
       
       
       <categories>
-          
-          <category> Tech </category>
           
           <category> MachineLearning </category>
           
