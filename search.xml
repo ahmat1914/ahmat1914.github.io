@@ -13,6 +13,8 @@
       
       <categories>
           
+          <category> Tech </category>
+          
           <category> MachineLearning </category>
           
       </categories>
@@ -20,7 +22,9 @@
       
         <tags>
             
-            <tag> 偏差, 方差 </tag>
+            <tag> 偏差 </tag>
+            
+            <tag> 方差 </tag>
             
         </tags>
       
@@ -37,6 +41,8 @@
       
       
       <categories>
+          
+          <category> Tech </category>
           
           <category> MachineLearning </category>
           
@@ -63,6 +69,8 @@
       
       <categories>
           
+          <category> Tech </category>
+          
           <category> MachineLearning </category>
           
       </categories>
@@ -70,7 +78,11 @@
       
         <tags>
             
-            <tag> 树模型,集成学习,随机森林 </tag>
+            <tag> 集成学习 </tag>
+            
+            <tag> 树模型 </tag>
+            
+            <tag> 随机森林 </tag>
             
         </tags>
       
@@ -88,14 +100,20 @@
       
       <categories>
           
-          <category> MachineLearning, exercises </category>
+          <category> Tech </category>
+          
+          <category> MachineLearning </category>
+          
+          <category> exercises </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 树模型, 决策树 </tag>
+            <tag> 决策树 </tag>
+            
+            <tag> 树模型 </tag>
             
         </tags>
       
@@ -113,7 +131,11 @@
       
       <categories>
           
-          <category> MachineLearning, exercises </category>
+          <category> Tech </category>
+          
+          <category> MachineLearning </category>
+          
+          <category> exercises </category>
           
       </categories>
       
@@ -137,6 +159,8 @@
       
       
       <categories>
+          
+          <category> Tech </category>
           
           <category> MachineLearning </category>
           
@@ -163,7 +187,11 @@
       
       <categories>
           
-          <category> MachineLearning, exercises </category>
+          <category> Tech </category>
+          
+          <category> MachineLearning </category>
+          
+          <category> exercises </category>
           
       </categories>
       
@@ -188,7 +216,11 @@
       
       <categories>
           
-          <category> MachineLearning, Note </category>
+          <category> Note </category>
+          
+          <category> Tech </category>
+          
+          <category> MachineLearning </category>
           
       </categories>
       
@@ -238,6 +270,8 @@
       
       <categories>
           
+          <category> Tech </category>
+          
           <category> MachineLearning </category>
           
       </categories>
@@ -245,7 +279,9 @@
       
         <tags>
             
-            <tag> 决策树,评估指标 </tag>
+            <tag> 决策树 </tag>
+            
+            <tag> 评估指标 </tag>
             
         </tags>
       
@@ -263,6 +299,8 @@
       
       <categories>
           
+          <category> Tech </category>
+          
           <category> MachineLearning </category>
           
       </categories>
@@ -270,7 +308,13 @@
       
         <tags>
             
-            <tag> 决策树, 评估指标,熵,基尼不纯度 </tag>
+            <tag> 决策树 </tag>
+            
+            <tag> 评估指标 </tag>
+            
+            <tag> 熵 </tag>
+            
+            <tag> 基尼不纯度 </tag>
             
         </tags>
       
@@ -288,14 +332,20 @@
       
       <categories>
           
-          <category> MachineLearning, exercises </category>
+          <category> Tech </category>
+          
+          <category> MachineLearning </category>
+          
+          <category> exercises </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 决策树,画图 </tag>
+            <tag> 决策树 </tag>
+            
+            <tag> 画图 </tag>
             
         </tags>
       
@@ -313,14 +363,20 @@
       
       <categories>
           
-          <category> MachineLearning, exercises </category>
+          <category> Tech </category>
+          
+          <category> MachineLearning </category>
+          
+          <category> exercises </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 树模型,决策树 </tag>
+            <tag> 决策树 </tag>
+            
+            <tag> 树模型 </tag>
             
         </tags>
       
@@ -338,14 +394,20 @@
       
       <categories>
           
-          <category> MachineLearning, Note </category>
+          <category> Note </category>
+          
+          <category> Tech </category>
+          
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 决策树,树模型 </tag>
+            <tag> 决策树 </tag>
+            
+            <tag> 树模型 </tag>
             
         </tags>
       
@@ -360,12 +422,6 @@
       
         <content type="html"><![CDATA[<p>There are two ways to add a machine to MAAS.</p><ul><li>If you place the machine on a connected network, and the machine is configured to netboot, MAAS will enlist it from there. </li><li>If you add a machine manually, MAAS will automatically commission it. </li></ul><h3 id="How-enlistment-works"><a href="#How-enlistment-works" class="headerlink" title="How enlistment works"></a>How enlistment works</h3><p>When MAAS enlists a machine, the first step is to contact the DHCP server, so that the machine can be assigned an IP address, which is necessary to download a kernel and initrd via TFTP.</p><p>Next, initrd mounts a Squashfs image, ephemerally, via HTTP, so that cloud-init can execute.</p><p>Finally, cloud-init runs enlistment and setup scripts.</p><blockquote><p>The enlistment scripts send the region API server information about the machine, including the architecture, MAC address and other details. The API server, in turn, stores these details in the database. This information-gathering process is known as automatic discovery.</p></blockquote><p>After the enlistment process, the MAAS places the machine in the ‘Ready’ state.</p><p>Typically, the next step will be to commission the machine. </p><h3 id="Add-a-machine-manually"><a href="#Add-a-machine-manually" class="headerlink" title="Add a machine manually"></a>Add a machine manually</h3><p>Enlistment can be done manually if the hardware specifications of the underlying machine are known.</p><p>On the ‘Machines’ page of the web UI, click the ‘Add hardware’ button and then select ‘Machine’.</p><p>Fill in the form and hit ‘Save machine’.</p><p>Normally, when you add a machine manually, MAAS will immediately attempt to commission the machine.</p><blockquote><p> Note that you will need to configure the underlying machine to boot over the network, or commissioning will not happen. MAAS cannot handle this configuration for you. </p></blockquote>]]></content>
       
-      
-      <categories>
-          
-          <category> Life </category>
-          
-      </categories>
       
       
         <tags>
@@ -386,12 +442,6 @@
         <content type="html"><![CDATA[<p>Concepts and terms of MASS</p><h3 id="Nodes"><a href="#Nodes" class="headerlink" title="Nodes"></a>Nodes</h3><p>A node is a general term that refers to multiple, more specific objects. </p><p>Nodes include:</p><ul><li>Controllers</li><li>Machines</li><li>Devices</li></ul><p>node’s life cycle:</p><h4 id="Controllers"><a href="#Controllers" class="headerlink" title="Controllers"></a>Controllers</h4><h4 id="Machines"><a href="#Machines" class="headerlink" title="Machines"></a>Machines</h4><p>A machine is a node that can be deployed by MAAS.</p><h4 id="Devices"><a href="#Devices" class="headerlink" title="Devices"></a>Devices</h4><p>A device is a non-deployable node. </p><p>Static or dynamic IP addresses and DNS names can be assigned to any device or parent node. </p><h3 id="Pods"><a href="#Pods" class="headerlink" title="Pods"></a>Pods</h3><p>Pods, also called composable hardware, allow for the dynamic composition of machines from a pool of available hardware resources (e.g. disk space, memory, cores).</p><h3 id="Zones"><a href="#Zones" class="headerlink" title="Zones"></a>Zones</h3><p>A physical zone, or just zone, is an organisational unit that contains nodes where each node is in one, and only one, zone.</p><h3 id="Regions"><a href="#Regions" class="headerlink" title="Regions"></a>Regions</h3><p>A region is an organisational unit one level above a zone.</p><h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><p>A series is essentially an operating system version.</p><h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>An image is used to provision a machine. As soon as you install MAAS, images are imported based on what series you have selected. MAAS won’t work until it has imported the necessary images.</p><h3 id="Fabrics"><a href="#Fabrics" class="headerlink" title="Fabrics"></a>Fabrics</h3><p>A <strong>fabric</strong> connects VLANs.</p><p>Consequently, it would be impossible for two VLANs to communicate with each other. A fabric makes these VLAN-to-VLAN connections possible.</p><p>You could describe a fabric as a VLAN namespace. It’s a switch or a combination of switches that use trunking to provide access to specific VLANs. </p><p>The following conceptual diagram shows two fabrics in the same data centre or region, each using distinct VLAN ranges and their associated subnets:</p><p><img src="/images/46177305128bf7f3190f8a7bbd037c33e96f6a9e.png" alt=""></p><h3 id="Spaces"><a href="#Spaces" class="headerlink" title="Spaces"></a>Spaces</h3><p>A space is a logical grouping of subnets that can communicate with one another. </p><p>Spaces can be arranged to group subnets according to various parameters. </p><p>One of the most common examples is a DMZ space, which might group subnets presenting a web interface to the public Internet. Behind this DMZ would be specific applications that aren’t allowed to interact directly with the user, but instead must interact with a Web UI in the DMZ space.</p><h3 id="Tags"><a href="#Tags" class="headerlink" title="Tags"></a>Tags</h3><p>A tag (not to be confused with VLAN tags) is user-created and associated with nodes based on their physical properties.</p><h3 id="Subnets"><a href="#Subnets" class="headerlink" title="Subnets"></a>Subnets</h3><p>A subnet is a “layer 3” network, defined by a network address and a network mask length (in bits) and usually written in “CIDR” format. MAAS supports IPv4 and IPv6 subnets. Examples include:</p><pre class=" language-auto"><code class="language-auto">10.0.0.0/8172.16.0.0/12192.168.0.0/162001:db8:4d41:4153::/64</code></pre><h3 id="VLANs"><a href="#VLANs" class="headerlink" title="VLANs"></a>VLANs</h3><p>VLANs (Virtual LANs) are a common way to create logically separate networks using the same physical infrastructure.</p><h3 id="DHCP-relay"><a href="#DHCP-relay" class="headerlink" title="DHCP relay"></a>DHCP relay</h3><p>A DHCP relay, or relay agent, is a network device that forwards requests and replies between a DHCP client and a DHCP server when both are not on the same physical subnet.</p><h3 id="Interfaces"><a href="#Interfaces" class="headerlink" title="Interfaces"></a>Interfaces</h3><h4 id="Physical"><a href="#Physical" class="headerlink" title="Physical"></a>Physical</h4><p>After a node is commissioned, MAAS discovers its physical interfaces.</p><p>MAAS always creates a device with at least one physical interface.</p><p>Before deployment, a MAAS administrator can configure additional interfaces on the node, including one or more of the types mentioned below.</p><h4 id="Bond"><a href="#Bond" class="headerlink" title="Bond"></a>Bond</h4><p>A bond interface is capable of aggregating two or more physical interfaces into a single logical interface. </p><h4 id="VLAN"><a href="#VLAN" class="headerlink" title="VLAN"></a>VLAN</h4><p>A VLAN interface can be used to connect to a tagged VLAN, if the node is connected to an authorised port.</p><h3 id="Machine-actions"><a href="#Machine-actions" class="headerlink" title="Machine actions"></a>Machine actions</h3><p>Machine actions are essentially “things you can do with nodes”.</p><p>You can trigger them via the web UI or the MAAS CLI.</p><h4 id="Abort"><a href="#Abort" class="headerlink" title="Abort"></a>Abort</h4><p>You can abort any action that permits retries. Currently, only commissioning and deployment permit retries.</p><h4 id="Acquire"><a href="#Acquire" class="headerlink" title="Acquire"></a>Acquire</h4><p>Allocates (reserves) a node to the MAAS user performing the action (and currently logged in). </p><p>Changes a node’s status from ‘Ready’ to ‘Allocated’.</p><h4 id="Commission"><a href="#Commission" class="headerlink" title="Commission"></a>Commission</h4><p>This action commissions a node, changing a node’s status from ‘New’ to ‘Commissioning’ to ‘Ready’.</p><p>Commissioning enables MAAS to build a detailed inventory of RAM, CPU, storage, NICs and accelerators like GPUs. </p><h4 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h4><p>This action removes a node from MAAS</p><h4 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h4><p>This action, which includes ‘Power on,’ deploys a node, changing a node’s status from ‘Ready’ (or ‘Allocated’) to a deployed status.</p><h4 id="Exit-rescue-mode"><a href="#Exit-rescue-mode" class="headerlink" title="Exit rescue mode"></a>Exit rescue mode</h4><p>This action changes a node’s status from ‘Rescue mode’ to the ‘Exiting rescue mode’ transitory status and then back to its original status when the operation is complete.</p><h3 id="Node-statuses"><a href="#Node-statuses" class="headerlink" title="Node statuses"></a>Node statuses</h3><h4 id="Allocated"><a href="#Allocated" class="headerlink" title="Allocated"></a>Allocated</h4><p>The node is allocated (reserved) to a MAAS user. See node action ‘Acquire’.</p><h4 id="Broken"><a href="#Broken" class="headerlink" title="Broken"></a>Broken</h4><p>The node is broken. See node action ‘Mark broken’.</p><h4 id="Commissioning"><a href="#Commissioning" class="headerlink" title="Commissioning"></a>Commissioning</h4><p>The node is in the process of commissioning. See node action ‘Commission’.</p><h4 id="Deployed"><a href="#Deployed" class="headerlink" title="Deployed"></a>Deployed</h4><p>The node is deployed. See node action ‘Deploy’.</p><p>The visible status will be the name of the chosen OS (e.g. ‘Ubuntu 16.04 LTS’).</p><h4 id="Deploying"><a href="#Deploying" class="headerlink" title="Deploying"></a>Deploying</h4><p>The node is in the process of deploying. See node action ‘Deploy’.</p><p>The visible status will be Deploying to ‘OS’, where ‘OS’ is the name of the OS being deployed (e.g. ‘Deploying to Ubuntu 16.04 LTS’).</p><h4 id="Entering-rescue-mode"><a href="#Entering-rescue-mode" class="headerlink" title="Entering rescue mode"></a>Entering rescue mode</h4><p>The node is in the process of entering rescue mode. See node action ‘Rescue mode’.</p><h4 id="Exiting-rescue-mode"><a href="#Exiting-rescue-mode" class="headerlink" title="Exiting rescue mode"></a>Exiting rescue mode</h4><p>The node is in the process of exiting rescue mode. See node action ‘Exit rescue mode’.</p><h4 id="Failed-Commissioning"><a href="#Failed-Commissioning" class="headerlink" title="Failed Commissioning"></a>Failed Commissioning</h4><p>The node failed to commission.</p><h4 id="Failed-Deployment"><a href="#Failed-Deployment" class="headerlink" title="Failed Deployment"></a>Failed Deployment</h4><p>The node failed to deploy.</p><h4 id="Locked"><a href="#Locked" class="headerlink" title="Locked"></a>Locked</h4><p>It’s not strictly a status, but a machine showing a ‘padlock’ symbol adjacent to its name is in a locked state.</p><h4 id="New"><a href="#New" class="headerlink" title="New"></a>New</h4><p>This status represents the first stage of a node’s life in MAAS. Typically, a node with this status has just been added to MAAS.</p><h4 id="Ready"><a href="#Ready" class="headerlink" title="Ready"></a>Ready</h4><p>A node bearing this status has been commissioned and is ready for use, including the necessary BMC credentials. MAAS can start or stop this machine, and allocate or (re)deploy it with a fresh operating system.</p><h4 id="Rescue-mode"><a href="#Rescue-mode" class="headerlink" title="Rescue mode"></a>Rescue mode</h4><p>The node is in rescue mode and is ready to accept SSH connections. See node action ‘Rescue mode’.</p><h3 id="Package-repositories"><a href="#Package-repositories" class="headerlink" title="Package repositories"></a>Package repositories</h3><p>Package repositories managed within MAAS can be of two types:</p><ul><li>Ubuntu package repositories</li><li>Personal Package Archives (PPA)</li></ul><h4 id="Personal-Package-Archives-PPA"><a href="#Personal-Package-Archives-PPA" class="headerlink" title="Personal Package Archives (PPA)"></a>Personal Package Archives (PPA)</h4><p>A Personal Package Archive (PPA) is a <a href="https://launchpad.net/" target="_blank" rel="noopener">Launchpad</a>-based method for any individual (or team) to build and distribute packages for Ubuntu.</p><h3 id="Brief-network-tutorial"><a href="#Brief-network-tutorial" class="headerlink" title="Brief network tutorial"></a>Brief network tutorial</h3><p>The following is a brief network tutorial, provided as a tool to synchronize understanding.</p><h4 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h4><p>The Dynamic Host Control Protocol is a network management system in which a server (or group of servers) dynamically assigns IP addresses and other network parameters to a network device. </p><p>DHCP operates using the “DORA” model: Discovery, Offer, Request, and Acknowledge:</p><ol><li>Potential DHCP clients broadcast a DHCPDISCOVER message on its attached subnet using destination address 255.255.255.255.</li><li>connected DHCP server receives the DHCPDISCOVER message and sends a DHCPOFFER message, containing an IP address that the client may use.</li><li>The client replies with a DHCPREQUEST message, requesting the offered address.</li><li>The DHCP server responds with a DHCPACK (acknowledgement) which includes various important configuration parameters, such as the lease duration.</li></ol><p>(Of course, there is <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol" target="_blank" rel="noopener">much more to DHCP</a>, but what’s covered here should be sufficient understanding for using MAAS.)</p><h4 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h4><p>In the client/server age, the lines between client and server are blurred and sometimes reversible.</p><p> For the purposes of MAAS and general networking principles, we can define a “client” as a node that uses shared resources via a network. If that same client provides shared resources to other nodes, it could also be considered a server.</p><h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><p>A server is a node that provides shared resources to clients via a network. </p><p> If that same server uses shared resources from other nodes, it could also be considered a client, but only in that context.</p><h4 id="Network-interface"><a href="#Network-interface" class="headerlink" title="Network interface"></a>Network interface</h4><p>A network interface, often referred to as a “network interface card” or NIC, is either a separate physical card connected to a node, a set of circuits embedded on a node’s motherboard, or a radio transceiver attached to a node in some way.</p><p>All network connections require a NIC. The terms “port” and “adapter” are also used to refer to a network interface.</p><h4 id="MAC-address"><a href="#MAC-address" class="headerlink" title="MAC address"></a>MAC address</h4><p>A MAC or “media access control” address is a unique address or “physical address” associated with a network interface. </p><p>Every computer in the world theoretically has a unique MAC address. You can identify a node’s IP address with the command <code>ipconfig /all</code>.</p><h4 id="Network-cable"><a href="#Network-cable" class="headerlink" title="Network cable"></a>Network cable</h4><p>Network cables are special cables that connect non-wireless-based nodes.</p><h4 id="Packet"><a href="#Packet" class="headerlink" title="Packet"></a>Packet</h4><p>A packet is a unit of network traffic. It may or may not represent a complete message.</p><h4 id="Repeater"><a href="#Repeater" class="headerlink" title="Repeater"></a>Repeater</h4><p>Technically, a repeater is a network signal amplifier with two RJ45 connectors which adds one maximum length (for the cable type) to the network connection or “run.”</p><h4 id="Hub"><a href="#Hub" class="headerlink" title="Hub"></a>Hub</h4><p>Hubs essentially started as repeaters. While they may be able to connect more than two computers together</p><h4 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h4><p>A switch is a “smart” device that connects cables from nodes to make networks. </p><h4 id="Network-topology"><a href="#Network-topology" class="headerlink" title="Network topology"></a>Network topology</h4><p>Topology describes how nodes are connected to a network, specifically referring to the shapes made by the cables and the paths that packets can take. </p><h4 id="Patch-panel"><a href="#Patch-panel" class="headerlink" title="Patch panel"></a>Patch panel</h4><p>A patch panel is simply a 24- to 48-port panel of connectors that can link together three- to ten-foot cables</p><h4 id="LAN"><a href="#LAN" class="headerlink" title="LAN"></a>LAN</h4><p>Besides topology, networks can also be classified by their size, range, or “reach.” One such classification is the Local Area Network (LAN), which connects computers in close proximity (about 300 feet).</p><h4 id="WAN"><a href="#WAN" class="headerlink" title="WAN"></a>WAN</h4><p>A WAN (wide area network) is a network which connects LANs across large geographic distances, e.g., thousands of miles.</p><h4 id="MAN"><a href="#MAN" class="headerlink" title="MAN"></a>MAN</h4><p>A metro area network or MAN connects LANs over a smaller area, like a city or urban footprint. Basically, if it isn’t really a WAN, but you can’t connect it with cables, it’s usually considered a MAN.</p>]]></content>
       
       
-      <categories>
-          
-          <category> Life </category>
-          
-      </categories>
-      
       
         <tags>
             
@@ -410,12 +460,6 @@
       
         <content type="html"><![CDATA[<p>From <a href="https://juju.is/docs" target="_blank" rel="noopener">https://juju.is/docs</a></p><hr><p>Juju is an open source application modeling tool. It allows you to deploy, configure, scale and operate your software on public and private clouds.</p><h3 id="Clouds"><a href="#Clouds" class="headerlink" title="Clouds"></a>Clouds</h3><blockquote><p>MAAS manages the machines and Juju manages the services running on those machines. – From <a href="https://maas.io/docs" target="_blank" rel="noopener">https://maas.io/docs</a></p></blockquote><p>Juju supports  a wide variety of clouds:(cloud manages the machines,Juju manages the services)</p><ul><li><a href="https://juju.is/docs/aws-cloud" target="_blank" rel="noopener">Amazon AWS</a> *</li><li><a href="https://juju.is/docs/azure-cloud" target="_blank" rel="noopener">Microsoft Azure</a> *</li><li><a href="https://juju.is/docs/gce-cloud" target="_blank" rel="noopener">Google GCE</a> *</li><li><a href="https://juju.is/docs/oci-cloud" target="_blank" rel="noopener">Oracle</a> *</li><li><a href="https://juju.is/docs/rackspace-cloud" target="_blank" rel="noopener">Rackspace</a> *</li><li><a href="https://juju.is/docs/lxd-cloud" target="_blank" rel="noopener">LXD</a> (local) *</li><li><a href="https://juju.is/docs/lxd-cloud" target="_blank" rel="noopener">LXD</a> (remote)</li><li><a href="https://juju.is/docs/k8s-cloud" target="_blank" rel="noopener">Kubernetes</a></li><li><a href="https://juju.is/docs/vsphere-cloud" target="_blank" rel="noopener">VMware vSphere</a></li><li><a href="https://juju.is/docs/openstack-cloud" target="_blank" rel="noopener">OpenStack</a></li><li><a href="https://juju.is/docs/maas-cloud" target="_blank" rel="noopener">MAAS</a></li><li><a href="https://juju.is/docs/manual-cloud" target="_blank" rel="noopener">Manual</a></li></ul><p>The exception is for a local LXD cloud; credentials are added automatically.</p><h3 id="Setting-up"><a href="#Setting-up" class="headerlink" title="Setting up"></a>Setting up</h3><p>You need to install snap, which will allow you to install other software.</p><p>Install Juju locally with snap:</p><pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> snap <span class="token function">install</span> juju --classic</code></pre><h3 id="Create-a-cloud-on-localhost"><a href="#Create-a-cloud-on-localhost" class="headerlink" title="Create a cloud on localhost"></a>Create a cloud on localhost</h3><p>LXD manages operating system containers and makes the the “localhost” cloud available.</p><blockquote><p>LXD is a next generation system container manager. It offers a user experience similar to virtual machines but using Linux containers instead.<br>It’s image based with pre-made images available for a wide number of Linux distributions and is built around a very powerful, yet pretty simple, REST API.<br>— <a href="https://linuxcontainers.org/lxd/" target="_blank" rel="noopener">LXD website</a></p></blockquote><p>Install LXD with snap:</p><pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> snap <span class="token function">install</span> lxd</code></pre><p>LXD needs to be configured for its environment:</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># Use lxd help init for a list of all the options.</span>lxd init --auto</code></pre><p>Verify that the localhost cloud is available</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># Juju should have detected the presence of LXD and has added it as the localhost cloud.</span>juju clouds</code></pre><h3 id="Bootstrap-the-controller"><a href="#Bootstrap-the-controller" class="headerlink" title="Bootstrap the controller"></a>Bootstrap the controller</h3><p>Juju uses an active software agent, called the controller, to manage applications.</p><p>Install the controller through a bootstrap process.</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># During the bootstrap process, Juju connects with the cloud, then provision a machine to install the controller on, then install it.</span><span class="token comment" spellcheck="true"># juju help bootstrap</span>juju bootstrap localhost overlord</code></pre><h3 id="First-workload-Hello-Juju"><a href="#First-workload-Hello-Juju" class="headerlink" title="First workload: Hello Juju!"></a>First workload: Hello Juju!</h3><p>simple web application uses the Flask microframework to send “Hello Juju!” via HTTP.</p><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># The charm name hello-juju is resolved into an actual charm version by contacting the Charm Store.</span>juju deploy hello-juju</code></pre>]]></content>
       
-      
-      <categories>
-          
-          <category> Life </category>
-          
-      </categories>
       
       
         <tags>
@@ -438,7 +482,7 @@
       
       <categories>
           
-          <category> Life </category>
+          <category> Tech </category>
           
       </categories>
       
@@ -463,7 +507,7 @@
       
       <categories>
           
-          <category> Life </category>
+          <category> Tech </category>
           
       </categories>
       
@@ -488,7 +532,9 @@
       
       <categories>
           
-          <category> Life, MachineLearning </category>
+          <category> Tech </category>
+          
+          <category> MachineLearning </category>
           
       </categories>
       
@@ -496,6 +542,8 @@
         <tags>
             
             <tag> k8s </tag>
+            
+            <tag> kubeflow </tag>
             
         </tags>
       
@@ -510,12 +558,6 @@
       
         <content type="html"><![CDATA[<blockquote><p>Containers as a Service</p></blockquote><blockquote><p>Charmed Kubernetes provides a well integrated, turn-key Kubernetes® platform that is open, extensible, and secure.</p></blockquote><blockquote><p>Kubernetes uses Container Network Interface (CNI) as an interface between network providers and Kubernetes networking. </p></blockquote><blockquote><p>Canonical delivers a standardised set of open source log aggregation and systems monitoring dashboards with every cloud, using Prometheus, the Elasticsearch and Kibana stack (ELK), and Nagios.</p></blockquote>]]></content>
       
-      
-      <categories>
-          
-          <category> Life </category>
-          
-      </categories>
       
       
         <tags>
@@ -561,12 +603,6 @@
         <content type="html"><![CDATA[<p>From <a href="https://www.webopedia.com/TERM/C/caas-containers-as-a-service.html" target="_blank" rel="noopener">https://www.webopedia.com/TERM/C/caas-containers-as-a-service.html</a> By Forrest Stroud</p><blockquote><p>Containers-as-a-Service (CaaS) is an emerging services offering for container-based virtualization in which providers offer a complete framework to customers for deploying and managing containers, applications and clusters.</p></blockquote><blockquote><p>The Containers-as-a-Service model is designed to help both developers and IT departments develop, run and manage containerized applications. In a CaaS model, containers and clusters are provided as a service that can be deployed in on-premises data centers or over the cloud.</p></blockquote><p>Why is CaaS important?</p><p>From <a href="https://www.ibm.com/services/cloud/containers-as-a-service" target="_blank" rel="noopener">https://www.ibm.com/services/cloud/containers-as-a-service</a></p><blockquote><p>A model with broad application, CaaS helps developers streamline the process of constructing a fully scaled container and applications deployment. The model is a boon for IT departments, providing an enabled container deployment service that has governance control in a security-rich environment. The CaaS model helps enterprises simplify container management within their software-defined infrastructures.</p></blockquote>]]></content>
       
       
-      <categories>
-          
-          <category> Life </category>
-          
-      </categories>
-      
       
         <tags>
             
@@ -587,6 +623,8 @@
       
       
       <categories>
+          
+          <category> Tech </category>
           
           <category> MachineLearning </category>
           
@@ -620,7 +658,9 @@
       
         <tags>
             
-            <tag> 杂记, 思考 </tag>
+            <tag> 杂记 </tag>
+            
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -663,14 +703,18 @@
       
       <categories>
           
-          <category> Life, MachineLearning </category>
+          <category> Life </category>
+          
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 思考, 杂记 </tag>
+            <tag> 杂记 </tag>
+            
+            <tag> 思考 </tag>
             
         </tags>
       
@@ -688,14 +732,20 @@
       
       <categories>
           
-          <category> MachineLearning, Note </category>
+          <category> Note </category>
+          
+          <category> Tech </category>
+          
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 树模型,决策树 </tag>
+            <tag> 决策树 </tag>
+            
+            <tag> 树模型 </tag>
             
         </tags>
       
@@ -713,6 +763,8 @@
       
       <categories>
           
+          <category> Tech </category>
+          
           <category> MachineLearning </category>
           
       </categories>
@@ -720,7 +772,9 @@
       
         <tags>
             
-            <tag> 树模型,决策树 </tag>
+            <tag> 决策树 </tag>
+            
+            <tag> 树模型 </tag>
             
         </tags>
       
