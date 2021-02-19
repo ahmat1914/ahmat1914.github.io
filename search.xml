@@ -216,9 +216,9 @@
       
       <categories>
           
-          <category> Note </category>
-          
           <category> Tech </category>
+          
+          <category> Note </category>
           
           <category> MachineLearning </category>
           
@@ -245,14 +245,20 @@
       
       <categories>
           
-          <category> MachineLearning, Note </category>
+          <category> Tech </category>
+          
+          <category> Note </category>
+          
+          <category> MachineLearning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 决策树, 树模型 </tag>
+            <tag> 决策树 </tag>
+            
+            <tag> 树模型 </tag>
             
         </tags>
       
@@ -394,9 +400,9 @@
       
       <categories>
           
-          <category> Note </category>
-          
           <category> Tech </category>
+          
+          <category> Note </category>
           
           <category> MachineLearning </category>
           
@@ -658,9 +664,9 @@
       
         <tags>
             
-            <tag> 杂记 </tag>
-            
             <tag> 思考 </tag>
+            
+            <tag> 杂记 </tag>
             
         </tags>
       
@@ -712,9 +718,9 @@
       
         <tags>
             
-            <tag> 杂记 </tag>
-            
             <tag> 思考 </tag>
+            
+            <tag> 杂记 </tag>
             
         </tags>
       
@@ -732,9 +738,9 @@
       
       <categories>
           
-          <category> Note </category>
-          
           <category> Tech </category>
+          
+          <category> Note </category>
           
           <category> MachineLearning </category>
           
