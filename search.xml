@@ -510,8 +510,6 @@
       
       <categories>
           
-          <category> Tech </category>
-          
           <category> MachineLearning </category>
           
       </categories>
@@ -679,8 +677,6 @@
       
       <categories>
           
-          <category> Life </category>
-          
           <category> MachineLearning </category>
           
       </categories>
@@ -708,9 +704,9 @@
       
       <categories>
           
-          <category> Note </category>
-          
           <category> MachineLearning </category>
+          
+          <category> Note </category>
           
       </categories>
       
