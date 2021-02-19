@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Bias-Variance Tradeoff</title>
+      <link href="2021/02/19/bias-variance-tradeoff/"/>
+      <url>2021/02/19/bias-variance-tradeoff/</url>
+      
+        <content type="html"><![CDATA[<p>While training our model Bias and Variance plays a key role in achieving the required accuracy of the model.There need to be a balance or we can say compromise between Bias and Variance, so to avoid overfitting and underfitting of the model. This compromise is called Tradeoff.</p><a id="more"></a><h3 id="Bias（偏差）"><a href="#Bias（偏差）" class="headerlink" title="Bias（偏差）"></a>Bias（偏差）</h3><p>In the simplest terms, Bias is the difference between the Predicted Value and the Expected Value.<br>简而言之，偏差是预测值和实际值之间的误差。</p><p>μ = mean(Y’)<br>Bias = μ - Y</p><p><img src="/images/bias.png" alt=""></p><p>Model with high bias pays very little attention to the training data and oversimplifies the model causing leading to underfitting.</p><p>高偏差模型无法捕捉数据规律，导致欠拟合（underfitting）。一般情况下过于简单的模型导致高偏差欠拟合。</p><h3 id="Variance（方差）"><a href="#Variance（方差）" class="headerlink" title="Variance（方差）"></a>Variance（方差）</h3><p>简而言之，方差衡量预测结果的离散程度。<br>μ = mean(Y’)<br>variance(Y’) = (Y’ - μ)^2</p><p><img src="/images/variance.png" alt=""></p><p>Model with high variance pays a lot of attention to training data and does not generalize on the data which it hasn’t seen before. As a result, such models perform very well on training data but has high error rates on test data.</p><p>方差高的模型过于捕捉数据规律（甚至捕捉了噪声数据规律），导致无法泛化到新数据上。高方差的模型一般情况下训练数据上表现很好、测试数据上表现很差。</p><h3 id="Bias-Variance-Tradeoff"><a href="#Bias-Variance-Tradeoff" class="headerlink" title="Bias-Variance Tradeoff"></a>Bias-Variance Tradeoff</h3><p><img src="/images/bias-variance-tradeoff.png" alt=""></p><p>If our model is too simple and has very few parameters then it may have high bias and low variance. On the other hand if our model has large number of parameters then it’s going to have high variance and low bias.</p><p>So we need to find the right/good balance without overfitting and underfitting the data.</p><h3 id="Total-Error"><a href="#Total-Error" class="headerlink" title="Total Error"></a>Total Error</h3><p><img src="images/total-error.png" alt=""></p><p>To build a good model, we need to find a good balance between bias and variance such that it minimizes the total error.</p><p><img src="/images/optimal-balance-of-bias-and-variance.png" alt=""></p><p>An optimal balance of bias and variance would never overfit or underfit the model.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ensemble Learning</title>
       <link href="2021/02/19/ensemble-learning/"/>
       <url>2021/02/19/ensemble-learning/</url>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Ensemble Learning, ahmatjan">
+    <meta name="keywords" content="Bias-Variance Tradeoff, ahmatjan">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ensemble Learning | ahmatjan</title>
+    <title>Bias-Variance Tradeoff | ahmatjan</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/ensemble-learning.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/optimal-balance-of-bias-and-variance.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Ensemble Learning</h1>
+                    <h1 class="description center-align post-title">Bias-Variance Tradeoff</h1>
                 </div>
             </div>
         </div>
@@ -477,30 +477,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>集成多个算法结果得到比任何单个算法更好的结果，称为集成学习。</p>
+                <p>While training our model Bias and Variance plays a key role in achieving the required accuracy of the model.There need to be a balance or we can say compromise between Bias and Variance, so to avoid overfitting and underfitting of the model. This compromise is called Tradeoff.</p>
 <a id="more"></a>
 
-<p>常见的集成学习方法有：</p>
-<ul>
-<li>贝叶斯最优分类器</li>
-<li>Bootstrap aggregating（又称 Bagging）。代表算法随机森林。</li>
-<li>Boosting。代表算法 AdaBoost、XGBoost。</li>
-<li>贝叶斯参数平均（Bayesian Parameter Averaging， BPA）</li>
-<li>贝叶斯模型组合（BMC）</li>
-<li>桶模型（Bucket of models）</li>
-<li>Stacking（堆叠泛化）</li>
-</ul>
-<h3 id="Bootstrap-Aggregating"><a href="#Bootstrap-Aggregating" class="headerlink" title="Bootstrap Aggregating"></a>Bootstrap Aggregating</h3><p>又称 Bagging，代表算法随机森林。集成模型中的每个模型在投票时具有相同的权重。为了减小模型方差，Baging使用随机抽取的子训练集训练集成中的每个模型。例如，随机森林算法将随机决策树与Bagging相结合，以实现更高的分类准确度。</p>
-<ul>
-<li>每个基评估器相互独立。</li>
-<li>基评估器准确率得高于0.5。</li>
-</ul>
-<p>随机森林的效果为什么比单个模型好？<br>假设有三个分类器，每一个准确率是0.8。少数服从多数原则下投票时，任意两个以上分类正确，集成结果也会正确。任意两个以上分类正确的概率参考如下公式: 3* (0.8)^2<em>0.2+1</em>(0.8)^3*1=0.896<br>    <img src="/images/error-of-rf.png" alt=""></p>
-<h3 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h3><p>代表算法 AdaBoost、XGBoost。Boosting通过在训练新模型实例时更注重先前模型错误分类的实例来增量构建集成模型。在某些情况下，Boosting已被证明比Bagging可以得到更好的准确率，不过它也更倾向于对训练数据过拟合。</p>
-<ul>
-<li>基评估器是相关的、按顺序构建的。</li>
-</ul>
-<h3 id="Stacking（堆叠泛化）"><a href="#Stacking（堆叠泛化）" class="headerlink" title="Stacking（堆叠泛化）"></a>Stacking（堆叠泛化）</h3><p>首先，使用可用数据训练所有其他算法，然后训练组合器算法以使用其他算法的所有预测作为附加输入进行最终预测。通常用逻辑回归模型作为组合器。</p>
+<h3 id="Bias（偏差）"><a href="#Bias（偏差）" class="headerlink" title="Bias（偏差）"></a>Bias（偏差）</h3><p>In the simplest terms, Bias is the difference between the Predicted Value and the Expected Value.<br>简而言之，偏差是预测值和实际值之间的误差。</p>
+<p>μ = mean(Y’)<br>Bias = μ - Y</p>
+<p><img src="/images/bias.png" alt=""></p>
+<p>Model with high bias pays very little attention to the training data and oversimplifies the model causing leading to underfitting.</p>
+<p>高偏差模型无法捕捉数据规律，导致欠拟合（underfitting）。一般情况下过于简单的模型导致高偏差欠拟合。</p>
+<h3 id="Variance（方差）"><a href="#Variance（方差）" class="headerlink" title="Variance（方差）"></a>Variance（方差）</h3><p>简而言之，方差衡量预测结果的离散程度。<br>μ = mean(Y’)<br>variance(Y’) = (Y’ - μ)^2</p>
+<p><img src="/images/variance.png" alt=""></p>
+<p>Model with high variance pays a lot of attention to training data and does not generalize on the data which it hasn’t seen before. As a result, such models perform very well on training data but has high error rates on test data.</p>
+<p>方差高的模型过于捕捉数据规律（甚至捕捉了噪声数据规律），导致无法泛化到新数据上。高方差的模型一般情况下训练数据上表现很好、测试数据上表现很差。</p>
+<h3 id="Bias-Variance-Tradeoff"><a href="#Bias-Variance-Tradeoff" class="headerlink" title="Bias-Variance Tradeoff"></a>Bias-Variance Tradeoff</h3><p><img src="/images/bias-variance-tradeoff.png" alt=""></p>
+<p>If our model is too simple and has very few parameters then it may have high bias and low variance. On the other hand if our model has large number of parameters then it’s going to have high variance and low bias.</p>
+<p>So we need to find the right/good balance without overfitting and underfitting the data.</p>
+<h3 id="Total-Error"><a href="#Total-Error" class="headerlink" title="Total Error"></a>Total Error</h3><p><img src="images/total-error.png" alt=""></p>
+<p>To build a good model, we need to find a good balance between bias and variance such that it minimizes the total error.</p>
+<p><img src="/images/optimal-balance-of-bias-and-variance.png" alt=""></p>
+<p>An optimal balance of bias and variance would never overfit or underfit the model.</p>
 
                 
             </div>
@@ -527,7 +522,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ahmat1914.github.io/2021/02/19/ensemble-learning/">https://ahmat1914.github.io/2021/02/19/ensemble-learning/</a>
+                    <a href="https://ahmat1914.github.io/2021/02/19/bias-variance-tradeoff/">https://ahmat1914.github.io/2021/02/19/bias-variance-tradeoff/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -736,9 +731,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2021/02/19/bias-variance-tradeoff/">
                     <div class="card-image">
@@ -755,9 +751,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -770,6 +766,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -788,18 +785,18 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/19/sui-ji-sen-lin/">
+                <a href="/2021/02/19/ensemble-learning/">
                     <div class="card-image">
                         
-                        <img src="/images/randomforest.png" class="responsive-img" alt="随机森林">
+                        <img src="/images/ensemble-learning.png" class="responsive-img" alt="Ensemble Learning">
                         
-                        <span class="card-title">随机森林</span>
+                        <span class="card-title">Ensemble Learning</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            随机森林是一种具有代表性的 Bagging（装袋法）集成算法。
+                            集成多个算法结果得到比任何单个算法更好的结果，称为集成学习。
                         
                     </div>
                     <div class="publish-info">
