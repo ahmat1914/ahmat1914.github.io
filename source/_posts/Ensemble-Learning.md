@@ -3,7 +3,7 @@ title: Ensemble Learning
 category: 技术
 tags: 笔记
 date: 2021-02-19 15:52:08
-img:
+img: /images/ensemble-learning.png
 ---
 
 集成多个算法结果得到比任何单个算法更好的结果，称为集成学习。
