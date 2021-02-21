@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="k-means 习题, ahmatjan">
+    <meta name="keywords" content="朴素贝叶斯方法概览, ahmatjan">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>k-means 习题 | ahmatjan</title>
+    <title>朴素贝叶斯方法概览 | ahmatjan</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -258,12 +258,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/SilhouetteCoefficient.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/Posterior-Probability.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">k-means 习题</h1>
+                    <h1 class="description center-align post-title">朴素贝叶斯方法概览</h1>
                 </div>
             </div>
         </div>
@@ -379,8 +379,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/k-means/">
-                                <span class="chip bg-color">k-means</span>
+                            <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                                <span class="chip bg-color">贝叶斯</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">
+                                <span class="chip bg-color">概率论</span>
                             </a>
                         
                     </div>
@@ -395,10 +399,6 @@
                                 MachineLearning
                             </a>
                         
-                            <a href="/categories/MachineLearning/exercises/" class="post-category">
-                                exercises
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -408,28 +408,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-01-12
+                    2021-02-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-19
+                    2021-02-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    459
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    1 Min
                 </div>
                 
 
@@ -449,97 +449,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li>简述一下K-means算法的原理和工作流程<ol>
-<li>输入k，表示数据聚类到k簇</li>
-<li>随机选出 k个质心</li>
-<li>将每个点归到距离最近的质心所属簇</li>
-<li>求簇中每个点均值，求出该质心新的位置</li>
-<li>循环3、4</li>
-<li>当质心不再发生变化停止迭代</li>
-</ol>
-</li>
-<li>K-means中常用的到中心距离的度量有哪些？<ol>
-<li>欧几里得距离</li>
-<li>曼哈顿距离</li>
-<li>余弦相似度</li>
-</ol>
-</li>
-<li>K-means 中的k值如何选取?<ol>
-<li>随机选取，画出k和轮廓系数（Silhouette Coefficient）的学习曲线，选择最佳k值</li>
-<li>手肘法：</li>
-</ol>
-</li>
-<li>K-means 算法中初始点的选择对最终结果有影响吗？<ol>
-<li>不同的初始值结果可能不一样</li>
-<li>对计算速度有影响。更好的选取初始点，可以加快聚类速度</li>
-</ol>
-</li>
-<li>K-means 聚类中每个类别中心的初始点如何选择？<ol>
-<li>随机选择初始质心</li>
-<li>不停更新质心，求出更佳中心</li>
-</ol>
-</li>
-<li>K-means 中空聚类的处理<ol>
-<li>选择一个距离当前任何质心最远的点。这将消除当前对总平方误差影响最大的点。</li>
-<li>从具有最大SSE的簇中选择一个替补的质心，这将分裂簇并降低聚类的总SSE。如果有多个空簇，则该过程重复多次。</li>
-<li>如果噪点或者孤立点过多，考虑更换算法，如密度聚类</li>
-</ol>
-</li>
-<li>K-means 是否会一直陷入选择质心的循环停不下来？<ol>
-<li>不会，有数学证明Kmeans一定会收敛，大概思路是利用SSE的概念（也就是误差平方和），即每个点到自身所归属质心的距离的平方和，这个平方和是一个凸函数，通过迭代一定可以到达它的局部最优解。（不一定是全局最优解）</li>
-<li>但同时为了让模型更快，可以设置：<ol>
-<li>迭代次数设置</li>
-<li>设定收敛判断距离</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>如何快速收敛数据量超大的 K-means？<ol>
-<li>方法1：洗牌后的数据，先选区部分数据，求出质心，确定局部最佳 k 值；使用上述求出的质心，作为初始质心，聚类全量数据</li>
-<li>方法2：Mini Batch Kmeans使用了一种叫做Mini Batch（分批处理）的方法对数据点之间的距离进行计算。Mini Batch的好处是计算过程中不必使用所有的数据样本，而是从不同类别的样本中抽取一部分样本来代表各自类型进行计算。由于计算样本数量少，所以会相应的减少运行时间，但另一方面抽样页必然会带来准确度的下降。</li>
-</ol>
-</li>
-<li>K-means算法的优点和缺点是什么？<ol>
-<li>缺点：<ol>
-<li>需要人为输入 k值，且很难确定；</li>
-<li>局部最优；</li>
-<li>对噪音和异常点敏感；</li>
-<li>需样本存在均值（限定数据种类）；</li>
-<li>聚类效果依赖于聚类中心的初始化；</li>
-<li>对于非凸数据集或类别规模差异太大的数据效果不好</li>
-</ol>
-</li>
-<li>优点：</li>
-<li>简单、易于理解、实现容易；</li>
-<li>可解释性强；</li>
-<li>基于少量数据也可达到较好效果。</li>
-</ol>
-</li>
-<li>如何对K-means聚类效果进行评估？<ol>
-<li>簇内距离最小化，簇外距离最大化</li>
-<li>计算每个点轮廓系数；观察每个类中各个点轮廓系数分布<ol>
-<li>a是Xi与同簇的其他样本的平均距离，称为凝聚度</li>
-<li>b是Xi与最近簇中所有样本的平均距离，称分离度</li>
-<li>1 - a/max(a,b)<ol>
-<li>当 a==b，轮廓系数=0，说明这两个簇中数据应该属于同一个簇</li>
-<li>a &gt; b, 轮廓系数负数，说明聚类效果不好</li>
-<li>a &lt; b ，轮廓系数越接近1，说明聚类效果越好</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>K-Means与KNN有什么区别<ol>
-<li>KNN是分类算法，K-means是聚类算法；</li>
-<li>KNN是监督学习，K-means是非监督学习</li>
-<li>KNN喂给它的数据集是带Label的数据，已经是完全正确的数据，K-means喂给它的数据集是无label的数据，是杂乱无章的，经过聚类后才变得有点顺序，先无序，后有序。</li>
-<li>KNN没有明显的前期训练过程，K-means有明显的前期训练过程</li>
-<li>K的含义KNN来了一个样本x,要给它分类，即求出它的y,就从数据集中，在X附近找距离它最近的K个数据点，这K个数据点，类别C占的个数最多，就把x的label设为c.</li>
-<li>K-means中K是人工固定好的数字，假设数据集合可以分为k个簇，由于是依靠人工定好，需要一些先验知识。</li>
-</ol>
-</li>
+                <p>源于托马斯·贝叶斯（Thomas Bayes）生前为解决一个“逆概”问题写的一篇文章，而这篇文章是在他死后才由他的一位朋友发表出来的。</p>
+<a id="more"></a>
+
+<h3 id="什么叫逆概问题"><a href="#什么叫逆概问题" class="headerlink" title="什么叫逆概问题"></a>什么叫逆概问题</h3><p>在贝叶斯写这篇文章之前，人们已经能够计算“正向概率”，如“假设袋子里面有N个白球，M个黑球，你伸手进去摸一把，摸出黑球的概率是多大”。<br>而一个自然而然的问题是反过来：“如果我们事先并不知道袋子里面黑白球的比例，而是闭着眼睛摸出一个（或好几个）球，观察这些取出来的球的颜色之后，那么我们可以就此对袋子里面的黑白球的比例作出什么样的推测”。这个问题，就是所谓的逆概问题。</p>
+<h3 id="机器学习与贝叶斯方法"><a href="#机器学习与贝叶斯方法" class="headerlink" title="机器学习与贝叶斯方法"></a>机器学习与贝叶斯方法</h3><p>后来，贝叶斯方法席卷了概率论，并将应用延伸到各个问题领域，所有需要作出概率预测的地方都可以见到贝叶斯方法的影子，特别地，贝叶斯是机器学习的核心方法之一。<br>这背后的深刻原因在于，现实世界本身就是不确定的，人类的观察能力是有局限性的。</p>
+<h3 id="贝叶斯方法思路"><a href="#贝叶斯方法思路" class="headerlink" title="贝叶斯方法思路"></a>贝叶斯方法思路</h3><ol>
+<li>首先提出猜测（hypothesis，更为严格的说法是“假设”，这里用“猜测”更通俗易懂一点）</li>
+<li>算出各种不同猜测的可能性大小。就是计算特定猜测的后验概率，对于连续的猜测空间则是计算猜测的概率密度函数。</li>
+<li>算出最靠谱的猜测是什么。所谓的模型比较，模型比较如果不考虑先验概率的话就是最大似然方法。</li>
 </ol>
 
                 
@@ -567,7 +485,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ahmat1914.github.io/2021/01/12/k-means-xi-ti/">https://ahmat1914.github.io/2021/01/12/k-means-xi-ti/</a>
+                    <a href="https://ahmat1914.github.io/2021/02/21/po-su-bei-xie-si-fang-fa-gai-lan/">https://ahmat1914.github.io/2021/02/21/po-su-bei-xie-si-fang-fa-gai-lan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -605,8 +523,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/k-means/">
-                                    <span class="chip bg-color">k-means</span>
+                                <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                                    <span class="chip bg-color">贝叶斯</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">
+                                    <span class="chip bg-color">概率论</span>
                                 </a>
                             
                         </div>
@@ -649,28 +571,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/01/20/zhi-chi-xiang-liang-ji-nei-rong-gai-yao/">
+                <a href="/2021/02/21/po-su-bei-xie-si-fang-fa-gai-lan/">
                     <div class="card-image">
                         
-                        <img src="/images/SVM.png" class="responsive-img" alt="支持向量机内容概要">
+                        <img src="/images/Posterior-Probability.png" class="responsive-img" alt="朴素贝叶斯方法概览">
                         
-                        <span class="card-title">支持向量机内容概要</span>
+                        <span class="card-title">朴素贝叶斯方法概览</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            源于托马斯·贝叶斯（Thomas Bayes）生前为解决一个“逆概”问题写的一篇文章，而这篇文章是在他死后才由他的一位朋友发表出来的。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -683,11 +606,16 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/svm/">
-                        <span class="chip bg-color">svm</span>
+                    <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                        <span class="chip bg-color">贝叶斯</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">
+                        <span class="chip bg-color">概率论</span>
                     </a>
                     
                 </div>
@@ -701,23 +629,23 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/12/k-means-suan-fa-zhi-shi-dian-shu-li/">
+                <a href="/2021/02/21/xian-yan-gai-lu-he-hou-yan-gai-lu/">
                     <div class="card-image">
                         
-                        <img src="/images/k-means-clustering.png" class="responsive-img" alt="k-means 算法知识点梳理">
+                        <img src="/images/Posterior-Probability.png" class="responsive-img" alt="先验概率和后验概率">
                         
-                        <span class="card-title">k-means 算法知识点梳理</span>
+                        <span class="card-title">先验概率和后验概率</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            讲解先验概率（Prior probability）和后验概率（Posterior probability）最好的方法是举例子。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
                             </span>
                         <span class="publish-author">
                             
@@ -727,10 +655,6 @@
                                     MachineLearning
                                 </a>
                             
-                            <a href="/categories/MachineLearning/Note/" class="post-category">
-                                    Note
-                                </a>
-                            
                             
                         </span>
                     </div>
@@ -738,8 +662,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/k-means/">
-                        <span class="chip bg-color">k-means</span>
+                    <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                        <span class="chip bg-color">贝叶斯</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">
+                        <span class="chip bg-color">概率论</span>
                     </a>
                     
                 </div>
@@ -870,6 +798,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

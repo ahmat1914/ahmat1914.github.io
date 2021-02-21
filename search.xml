@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>朴素贝叶斯方法概览</title>
+      <link href="2021/02/21/po-su-bei-xie-si-fang-fa-gai-lan/"/>
+      <url>2021/02/21/po-su-bei-xie-si-fang-fa-gai-lan/</url>
+      
+        <content type="html"><![CDATA[<p>源于托马斯·贝叶斯（Thomas Bayes）生前为解决一个“逆概”问题写的一篇文章，而这篇文章是在他死后才由他的一位朋友发表出来的。</p><a id="more"></a><h3 id="什么叫逆概问题"><a href="#什么叫逆概问题" class="headerlink" title="什么叫逆概问题"></a>什么叫逆概问题</h3><p>在贝叶斯写这篇文章之前，人们已经能够计算“正向概率”，如“假设袋子里面有N个白球，M个黑球，你伸手进去摸一把，摸出黑球的概率是多大”。<br>而一个自然而然的问题是反过来：“如果我们事先并不知道袋子里面黑白球的比例，而是闭着眼睛摸出一个（或好几个）球，观察这些取出来的球的颜色之后，那么我们可以就此对袋子里面的黑白球的比例作出什么样的推测”。这个问题，就是所谓的逆概问题。</p><h3 id="机器学习与贝叶斯方法"><a href="#机器学习与贝叶斯方法" class="headerlink" title="机器学习与贝叶斯方法"></a>机器学习与贝叶斯方法</h3><p>后来，贝叶斯方法席卷了概率论，并将应用延伸到各个问题领域，所有需要作出概率预测的地方都可以见到贝叶斯方法的影子，特别地，贝叶斯是机器学习的核心方法之一。<br>这背后的深刻原因在于，现实世界本身就是不确定的，人类的观察能力是有局限性的。</p><h3 id="贝叶斯方法思路"><a href="#贝叶斯方法思路" class="headerlink" title="贝叶斯方法思路"></a>贝叶斯方法思路</h3><ol><li>首先提出猜测（hypothesis，更为严格的说法是“假设”，这里用“猜测”更通俗易懂一点）</li><li>算出各种不同猜测的可能性大小。就是计算特定猜测的后验概率，对于连续的猜测空间则是计算猜测的概率密度函数。</li><li>算出最靠谱的猜测是什么。所谓的模型比较，模型比较如果不考虑先验概率的话就是最大似然方法。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> MachineLearning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 贝叶斯 </tag>
+            
+            <tag> 概率论 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>先验概率和后验概率</title>
       <link href="2021/02/21/xian-yan-gai-lu-he-hou-yan-gai-lu/"/>
       <url>2021/02/21/xian-yan-gai-lu-he-hou-yan-gai-lu/</url>
