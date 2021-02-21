@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>先验概率和后验概率</title>
+      <link href="2021/02/21/xian-yan-gai-lu-he-hou-yan-gai-lu/"/>
+      <url>2021/02/21/xian-yan-gai-lu-he-hou-yan-gai-lu/</url>
+      
+        <content type="html"><![CDATA[<p>讲解先验概率（Prior probability）和后验概率（Posterior probability）最好的方法是举例子。</p><a id="more"></a><h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子 1"></a>例子 1</h3><p>一般情况下发生了交通事故，更容易堵车。</p><ul><li><p>先验概率：今天出门堵车的可能性 P(堵车)</p></li><li><p>条件概率：新闻上说发生了交通事故，今天出门堵车的概率 P(堵车|交通事故)</p></li><li><p>后验概率：已经堵车了，有发生交通事故的概率 P(交通事故|堵车)</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> MachineLearning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 贝叶斯 </tag>
+            
+            <tag> 概率论 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Bias-Variance Tradeoff</title>
       <link href="2021/02/19/bias-variance-tradeoff/"/>
       <url>2021/02/19/bias-variance-tradeoff/</url>
