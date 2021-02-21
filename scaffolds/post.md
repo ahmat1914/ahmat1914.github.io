@@ -7,4 +7,5 @@ tags:
 - 决策树
 - 画图
 img:
+mathjax: false
 ---
