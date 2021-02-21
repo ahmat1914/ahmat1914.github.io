@@ -422,7 +422,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    332
+                    333
                 </div>
                 
 
@@ -456,24 +456,24 @@
 <ul>
 <li><p>先验概率：今天出门堵车的可能性 $P(堵车)$</p>
 </li>
-<li><p>条件概率：新闻上说发生了交通事故，今天出门堵车的概率 P(堵车|交通事故)</p>
+<li><p>条件概率：新闻上说发生了交通事故，今天出门堵车的概率 $P(堵车|交通事故)$</p>
 </li>
-<li><p>后验概率：已经堵车了，有发生交通事故的概率 P(交通事故|堵车)</p>
+<li><p>后验概率：已经堵车了，有发生交通事故的概率 $P(交通事故|堵车)$</p>
 </li>
 </ul>
 <h3 id="例子-2"><a href="#例子-2" class="headerlink" title="例子 2"></a>例子 2</h3><p>玩lol占总人口60%，不玩lol的人占40%；</p>
-<p>先验概率：P(X=玩lol)=0.6；P(X=不玩lol)=0.4</p>
+<p>先验概率：$P(X=玩lol)=0.6；P(X=不玩lol)=0.4$</p>
 <p>玩 lol 人中80%是男性，20%是女性；不玩 lol 人中20%是男性，80%是女性</p>
 <p>条件概率分布：</p>
 <ul>
-<li><p>P(Y=男性|X=玩lol)=0.8；P(Y=女性|X=玩lol)=0.2</p>
+<li><p>$P(Y=男性|X=玩lol)=0.8；P(Y=女性|X=玩lol)=0.2$</p>
 </li>
-<li><p>P(Y=男性|X=不玩lol)=0.2；P(Y=女性|X=不玩lol)=0.8</p>
+<li><p>$P(Y=男性|X=不玩lol)=0.2；P(Y=女性|X=不玩lol)=0.8$</p>
 </li>
 </ul>
 <p>那么已知玩家为男性的情况下，他是lol玩家的概率是多少？</p>
 <p>依据贝叶斯准则可得：</p>
-<p>$$<br>P(X=玩lol|Y=男性)=P(Y=男性|X=玩lol)<em>P(X=玩lol)/<br>[ P(Y=男性|X=玩lol)</em>P(X=玩lol)+P(Y=男性|X=不玩lol)*P(X=不玩lol)]<br>$$</p>
+<p>$ P(X=玩lol|Y=男性) = \frac{P(Y=男性|X=玩lol) * P(X=玩lol)}{P(Y=男性|X=玩lol) * P(X=玩lol) + P(Y=男性|X=不玩lol) * P(X=不玩lol)}$</p>
 <p>最后算出的 $P(X=玩lol|Y=男性)$ 称之为X的后验概率，即它获得是在观察到事件Y发生后得到的。</p>
 
                 
