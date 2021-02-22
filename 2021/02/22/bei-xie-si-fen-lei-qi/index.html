@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="What is LXD?, ahmatjan">
+    <meta name="keywords" content="贝叶斯分类器, ahmatjan">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>What is LXD? | ahmatjan</title>
+    <title>贝叶斯分类器 | ahmatjan</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -258,12 +258,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/LXD-Containers-Ubuntu-Submit-2015.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">What is LXD?</h1>
+                    <h1 class="description center-align post-title">贝叶斯分类器</h1>
                 </div>
             </div>
         </div>
@@ -379,8 +379,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/LXD/">
-                                <span class="chip bg-color">LXD</span>
+                            <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                                <span class="chip bg-color">贝叶斯</span>
                             </a>
                         
                     </div>
@@ -391,8 +391,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Tech/" class="post-category">
-                                Tech
+                            <a href="/categories/MachineLearning/" class="post-category">
+                                MachineLearning
+                            </a>
+                        
+                            <a href="/categories/MachineLearning/Note/" class="post-category">
+                                Note
                             </a>
                         
                     </div>
@@ -404,28 +408,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-05-03
+                    2021-02-22
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-19
+                    2021-02-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    718
+                    510
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    1 Min
                 </div>
                 
 
@@ -445,85 +449,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>From <a href="https://linuxcontainers.org/lxd/" target="_blank" rel="noopener">https://linuxcontainers.org/lxd/</a></p>
-<hr>
-<p>LXD is a next generation system container manager. It offers a user experience similar to virtual machines but using Linux containers instead.</p>
-<p>LXD isn’t a rewrite of LXC, in fact it’s building on top of LXC to provide a new, better user experience. </p>
-<p>LXD is written in Go, it’s free software and is developed under the Apache 2 license.</p>
-<p>The LXD project was founded and is currently led by Canonical Ltd with contributions from a range of other companies and individual contributors.</p>
-<p>LXD is image based.</p>
-<p>Support for Cross-host container and image transfer</p>
-<p>Advanced resource control (cpu, memory, network I/O, block I/O, disk usage and kernel resources)</p>
-<p>Device passthrough (USB, GPU, unix character and block devices, NICs, disks and paths)</p>
-<p>Network management (bridge creation and configuration, cross-host tunnels, …)</p>
-<p>Storage management (support for multiple storage backends, storage pools and storage volumes)</p>
-<h3 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h3><p>The core of LXD is a privileged daemon which exposes a REST API over a local unix socket as well as over the network (if enabled).</p>
-<p>Clients, such as the command line tool provided with LXD itself then do everything through that REST API. It means that whether you’re talking to your local host or a remote server, everything works the same way.</p>
-<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><pre class=" language-bash"><code class="language-bash">snap <span class="token function">install</span> lxd
-<span class="token comment" spellcheck="true"># or apt install lxd lxd-client</span></code></pre>
-<h3 id="Initial-configuration"><a href="#Initial-configuration" class="headerlink" title="Initial configuration"></a>Initial configuration</h3><p>Before you can create containers, you need to tell LXD a little bit about your storage and network needs.</p>
-<pre class=" language-bash"><code class="language-bash">lxd init</code></pre>
-<h3 id="Access-control"><a href="#Access-control" class="headerlink" title="Access control"></a>Access control</h3><p>Access control for LXD is based on group membership.</p>
-<ul>
-<li>The root user as well as members of the “lxd” group can interact with the local daemon.</li>
-<li>Anyone with access to the LXD socket can fully control LXD, which includes the ability to attach host devices and filesystems, this should therefore only be given to users who would be trusted with root access to the host.</li>
-</ul>
-<h3 id="Creating-and-using-your-first-container"><a href="#Creating-and-using-your-first-container" class="headerlink" title="Creating and using your first container"></a>Creating and using your first container</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># create and start a new Ubuntu 18.04 named first</span>
-lxc launch ubuntu:18.04 first
-<span class="token comment" spellcheck="true"># list all running containers</span>
-lxc list
-<span class="token comment" spellcheck="true"># you can get a shell inside it with:</span>
-lxc <span class="token function">exec</span> first -- /bin/bash
-<span class="token comment" spellcheck="true"># Or just run a command directly:</span>
-lxc <span class="token function">exec</span> first -- <span class="token function">apt-get</span> update
-<span class="token comment" spellcheck="true"># To pull/push a file from the container, use:</span>
-lxc <span class="token function">file</span> pull first/etc/hosts <span class="token keyword">.</span>
-lxc <span class="token function">file</span> push hosts first/tmp/
-<span class="token comment" spellcheck="true"># To stop the container, simply do:</span>
-lxc stop first
-<span class="token comment" spellcheck="true"># And to remove it entirely:</span>
-lxc delete first</code></pre>
-<h3 id="Container-images"><a href="#Container-images" class="headerlink" title="Container images"></a>Container images</h3><p>LXD is image based. Containers must be created from an image and so the image store must get some images before you can do much with LXD.</p>
-<p>There are three ways to feed that image store:</p>
-<ol>
-<li>Use one of the the built-in image remotes</li>
-<li>Use a remote LXD as an image server</li>
-<li>Manually import an image tarball</li>
-</ol>
-<p><strong>Using the built-in image remotes</strong></p>
-<p>LXD comes with 3 default remotes providing images:</p>
-<ol>
-<li>ubuntu: (for stable Ubuntu images)</li>
-<li>ubuntu-daily: (for daily Ubuntu images)</li>
-<li>images: (for a <a href="https://images.linuxcontainers.org/" target="_blank" rel="noopener">bunch of other distros</a>)</li>
-</ol>
-<pre class=" language-bash"><code class="language-bash">lxc launch ubuntu:16.04 my-ubuntu
-lxc launch ubuntu-daily:18.04 my-ubuntu-dev
-lxc launch images:centos/6/amd64 my-centos</code></pre>
-<p><strong>Using a remote LXD as an image server</strong></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># add a remote image server</span>
-lxc remote add my-images 1.2.3.4
-<span class="token comment" spellcheck="true"># use a remote image server</span>
-lxc launch my-images:image-name your-container
+                <h3 id="贝叶斯决策论"><a href="#贝叶斯决策论" class="headerlink" title="贝叶斯决策论"></a>贝叶斯决策论</h3><p>贝叶斯决策论（Bayesian decision theory）是概率框架下实施决策的基本方法。</p>
+<a id="more"></a>
 
-<span class="token comment" spellcheck="true"># list obtained images:</span>
-lxc image list my-images:</code></pre>
-<p><strong>Manually importing an image</strong></p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># If you already have a lxd-compatible image file, you can import it with:</span>
-lxc image <span class="token function">import</span> <span class="token operator">&lt;</span>file<span class="token operator">></span> --alias my-alias
-<span class="token comment" spellcheck="true">#  start a container with it:</span>
-lxc launch my-alias my-container</code></pre>
-<h3 id="Multiple-hosts"><a href="#Multiple-hosts" class="headerlink" title="Multiple hosts"></a>Multiple hosts</h3><p>The “lxc” command line tool can talk to multiple LXD servers and defaults to talking to the local one.</p>
-<p>set a server work as remote server:</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#  tell LXD to bind all addresses on port 8443. </span>
-lxc config <span class="token keyword">set</span> core.https_address <span class="token string">"[::]"</span>
-<span class="token comment" spellcheck="true"># set a trust password to be used by new clients.</span>
-lxc config <span class="token keyword">set</span> core.trust_password some-password</code></pre>
-<p>Add a remote server and use it</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># This will prompt you to confirm the remote server fingerprint and then ask you for the password.</span>
-lxc remote add host-a <span class="token operator">&lt;</span>ip address or DNS<span class="token operator">></span>
-<span class="token comment" spellcheck="true"># use all the same command as above but prefixing the container and images name with the remote host like:</span>
-lxc <span class="token function">exec</span> host-a:first -- <span class="token function">apt-get</span> update</code></pre>
+<h3 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h3><p>估计类条件概率的一种常用策略是先假定其具有某种确定的概率分布，再基于训练样本对概率分布的参数进行估计。</p>
+<h3 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h3><p>不难发现，基于贝叶斯公式来估计后验概率 P(c|x) 的主要困难在于：类条件概率P(x|c) 是所有属性上的联合概率，难以从有限的训练样本直接估计而得。为避开这个问题，朴素贝叶斯分类器(naive Bayes classifier)采用了”属性条件独立性假设“(attribute conditional independence assumption)：对已知类别，假设所有属性相互独立。换言之，假设每个属性独立地对分类结果产生影响。</p>
+<h3 id="半朴素贝叶斯分类器"><a href="#半朴素贝叶斯分类器" class="headerlink" title="半朴素贝叶斯分类器"></a>半朴素贝叶斯分类器</h3><p>为了降低贝叶斯公式中估计后验概率的困难，朴素贝叶斯分类器采用了属性条件独立性假设，但在现实任务中这个假设往往很难成立。于是，人们尝试对属性条件独立性假设进行一定程度的放松，由此产生了一类称为”半朴素贝叶斯分类器“(semi-naive Bayes classifiers) 的学习方法。</p>
+<h3 id="贝叶斯网"><a href="#贝叶斯网" class="headerlink" title="贝叶斯网"></a>贝叶斯网</h3><p>贝叶斯网(Bayesian Network)也称信念网 (Belief Network)，它借助有向无环图（Directed Acyclic Graph， 简称 DAG）来刻画属性之间的依赖关系，并使用条件概率表（Conditional Probability Table，简称 CPT）来描述属性的联合概率分布。</p>
+<h3 id="EM算法"><a href="#EM算法" class="headerlink" title="EM算法"></a>EM算法</h3><p>现实应用中往往会遇到”不完整“的训练样本。在这种数据不完整情况下，是否仍能对模型参数进行估计呢？<br>数据缺失的变量称”隐变量“（latent variable）。<br>EM（Expectation-Maximization）算法是常用的估计参数隐变量的利器。它是一种迭代式方法。</p>
+<h3 id="阅读材料"><a href="#阅读材料" class="headerlink" title="阅读材料"></a>阅读材料</h3><ul>
+<li>《机器学习》-周志华</li>
+</ul>
 
                 
             </div>
@@ -550,7 +486,7 @@ lxc <span class="token function">exec</span> host-a:first -- <span class="token 
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ahmat1914.github.io/2020/05/03/what-is-lxd/">https://ahmat1914.github.io/2020/05/03/what-is-lxd/</a>
+                    <a href="https://ahmat1914.github.io/2021/02/22/bei-xie-si-fen-lei-qi/">https://ahmat1914.github.io/2021/02/22/bei-xie-si-fen-lei-qi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -588,8 +524,8 @@ lxc <span class="token function">exec</span> host-a:first -- <span class="token 
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/LXD/">
-                                    <span class="chip bg-color">LXD</span>
+                                <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                                    <span class="chip bg-color">贝叶斯</span>
                                 </a>
                             
                         </div>
@@ -632,45 +568,52 @@ lxc <span class="token function">exec</span> host-a:first -- <span class="token 
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/05/03/what-is-mass/">
+                <a href="/2021/02/22/bei-xie-si-fen-lei-qi/">
                     <div class="card-image">
                         
-                        <img src="/images/c7ab255f51a3931815b5beeaf19119a42ea0e9e4.png" class="responsive-img" alt="What is MASS?">
                         
-                        <span class="card-title">What is MASS?</span>
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="贝叶斯分类器">
+                        
+                        <span class="card-title">贝叶斯分类器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            贝叶斯决策论贝叶斯决策论（Bayesian decision theory）是概率框架下实施决策的基本方法。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Tech/" class="post-category">
-                                    Tech
+                            <a href="/categories/MachineLearning/" class="post-category">
+                                    MachineLearning
+                                </a>
+                            
+                            <a href="/categories/MachineLearning/Note/" class="post-category">
+                                    Note
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MASS/">
-                        <span class="chip bg-color">MASS</span>
+                    <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                        <span class="chip bg-color">贝叶斯</span>
                     </a>
                     
                 </div>
@@ -684,23 +627,23 @@ lxc <span class="token function">exec</span> host-a:first -- <span class="token 
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/27/what-is-kubeflow/">
+                <a href="/2021/02/21/po-su-bei-xie-si-fang-fa-gai-lan/">
                     <div class="card-image">
                         
-                        <img src="/images/82181d5c5d46c27929e593d5373f47be.png" class="responsive-img" alt="What is Kubeflow?">
+                        <img src="/images/Posterior-Probability.png" class="responsive-img" alt="朴素贝叶斯方法概览">
                         
-                        <span class="card-title">What is Kubeflow?</span>
+                        <span class="card-title">朴素贝叶斯方法概览</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            源于托马斯·贝叶斯（Thomas Bayes）生前为解决一个“逆概”问题写的一篇文章，而这篇文章是在他死后才由他的一位朋友发表出来的。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
                             </span>
                         <span class="publish-author">
                             
@@ -717,12 +660,12 @@ lxc <span class="token function">exec</span> host-a:first -- <span class="token 
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/k8s/">
-                        <span class="chip bg-color">k8s</span>
+                    <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                        <span class="chip bg-color">贝叶斯</span>
                     </a>
                     
-                    <a href="/tags/kubeflow/">
-                        <span class="chip bg-color">kubeflow</span>
+                    <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">
+                        <span class="chip bg-color">概率论</span>
                     </a>
                     
                 </div>

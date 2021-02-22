@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>贝叶斯分类器</title>
+      <link href="2021/02/22/bei-xie-si-fen-lei-qi/"/>
+      <url>2021/02/22/bei-xie-si-fen-lei-qi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="贝叶斯决策论"><a href="#贝叶斯决策论" class="headerlink" title="贝叶斯决策论"></a>贝叶斯决策论</h3><p>贝叶斯决策论（Bayesian decision theory）是概率框架下实施决策的基本方法。</p><a id="more"></a><h3 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h3><p>估计类条件概率的一种常用策略是先假定其具有某种确定的概率分布，再基于训练样本对概率分布的参数进行估计。</p><h3 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h3><p>不难发现，基于贝叶斯公式来估计后验概率 P(c|x) 的主要困难在于：类条件概率P(x|c) 是所有属性上的联合概率，难以从有限的训练样本直接估计而得。为避开这个问题，朴素贝叶斯分类器(naive Bayes classifier)采用了”属性条件独立性假设“(attribute conditional independence assumption)：对已知类别，假设所有属性相互独立。换言之，假设每个属性独立地对分类结果产生影响。</p><h3 id="半朴素贝叶斯分类器"><a href="#半朴素贝叶斯分类器" class="headerlink" title="半朴素贝叶斯分类器"></a>半朴素贝叶斯分类器</h3><p>为了降低贝叶斯公式中估计后验概率的困难，朴素贝叶斯分类器采用了属性条件独立性假设，但在现实任务中这个假设往往很难成立。于是，人们尝试对属性条件独立性假设进行一定程度的放松，由此产生了一类称为”半朴素贝叶斯分类器“(semi-naive Bayes classifiers) 的学习方法。</p><h3 id="贝叶斯网"><a href="#贝叶斯网" class="headerlink" title="贝叶斯网"></a>贝叶斯网</h3><p>贝叶斯网(Bayesian Network)也称信念网 (Belief Network)，它借助有向无环图（Directed Acyclic Graph， 简称 DAG）来刻画属性之间的依赖关系，并使用条件概率表（Conditional Probability Table，简称 CPT）来描述属性的联合概率分布。</p><h3 id="EM算法"><a href="#EM算法" class="headerlink" title="EM算法"></a>EM算法</h3><p>现实应用中往往会遇到”不完整“的训练样本。在这种数据不完整情况下，是否仍能对模型参数进行估计呢？<br>数据缺失的变量称”隐变量“（latent variable）。<br>EM（Expectation-Maximization）算法是常用的估计参数隐变量的利器。它是一种迭代式方法。</p><h3 id="阅读材料"><a href="#阅读材料" class="headerlink" title="阅读材料"></a>阅读材料</h3><ul><li>《机器学习》-周志华</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> MachineLearning </category>
+          
+          <category> Note </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 贝叶斯 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>朴素贝叶斯方法概览</title>
       <link href="2021/02/21/po-su-bei-xie-si-fang-fa-gai-lan/"/>
       <url>2021/02/21/po-su-bei-xie-si-fang-fa-gai-lan/</url>
