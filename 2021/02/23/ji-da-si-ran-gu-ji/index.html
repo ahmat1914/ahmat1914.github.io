@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="决策树介绍, ahmatjan">
+    <meta name="keywords" content="极大似然估计, ahmatjan">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>决策树介绍 | ahmatjan</title>
+    <title>极大似然估计 | ahmatjan</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -258,12 +258,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">决策树介绍</h1>
+                    <h1 class="description center-align post-title">极大似然估计</h1>
                 </div>
             </div>
         </div>
@@ -379,12 +379,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
-                                <span class="chip bg-color">决策树</span>
+                            <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                                <span class="chip bg-color">贝叶斯</span>
                             </a>
                         
-                            <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/">
-                                <span class="chip bg-color">树模型</span>
+                            <a href="/tags/%E6%A6%82%E7%8E%87/">
+                                <span class="chip bg-color">概率</span>
                             </a>
                         
                     </div>
@@ -408,28 +408,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2018-04-12
+                    2021-02-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-19
+                    2021-02-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    958
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    4 Min
                 </div>
                 
 
@@ -449,93 +449,41 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="什么是决策树"><a href="#什么是决策树" class="headerlink" title="什么是决策树"></a>什么是决策树</h3><p>决策树是一种用树结构进行学习、预测的监督学习方法。英文 Decision Tree。</p>
-<p>树结构包含节点和边。节点可分为根节点、内部节点、叶子节点。如下图</p>
-<p><img src="/images/83559e0ada20ea6fada523135ccb9e18.png" alt="83559e0ada20ea6fada523135ccb9e18.png"></p>
-<p><strong>学习（训练）过程：</strong></p>
-<ol>
-<li>数据从根节点流入</li>
-<li>寻找<strong>最佳决策问题</strong>，作为切分数据的依据，数据分流入各个边。</li>
-<li>如果某一节点上找不到最佳决策问题（或满足<strong>停止生长要求</strong>），本节点被标为叶子节点并返回。</li>
-</ol>
+                <p>在统计学中，最大似然估计（英语：Maximum Likelihood Estimation，简作MLE），也称极大似然估计，是用来估计一个概率模型的参数的一种方法。</p>
+<a id="more"></a>
+
+<h3 id="频率学派-vs-贝叶斯学派"><a href="#频率学派-vs-贝叶斯学派" class="headerlink" title="频率学派 vs 贝叶斯学派"></a>频率学派 vs 贝叶斯学派</h3><p>频率学派与贝叶斯学派探讨「不确定性」这件事时的出发点与立足点不同</p>
 <ul>
-<li>数据不纯度下降最多，作为<strong>最佳决策问题</strong>的衡量标准。常用基尼系数(gini impurity)和信息熵(entropy)衡量数据不纯度。</li>
-<li><strong>停止生长要求</strong>是为了防止过拟合。</li>
+<li>频率学派认为世界是确定的，有一个本体，这个本体的真值是不变的，我们的目标就是要找到这个真值或真值所在的范围；</li>
+<li>贝叶斯学派认为世界是不确定的，人们对世界先有一个预判，而后通过观测数据对这个预判做调整，我们的目标是要找到最优的描述这个世界的概率分布。</li>
 </ul>
-<blockquote>
-<p>决策树算法遵循“分而治之”的思路。</p>
-</blockquote>
-<p>寻找最佳决策问题序列并生成树的过程就是学习过程。</p>
-<p><strong>预测过程：</strong></p>
+<p>频率学派和贝叶斯学派解决问题的角度不同</p>
+<ul>
+<li>频率学派从「自然」角度出发，试图直接为「事件」本身建模，即事件在独立重复试验中发生的频率趋于极限，那么这个极限就是该事件的概率。</li>
+<li>贝叶斯学派并不从试图刻画「事件」本身，而从「观察者」角度出发。贝叶斯学派并不试图说「事件本身是随机的」，或者「世界的本体带有某种随机性」，这套理论根本不言说关于「世界本体」的东西，而只是从「观察者知识不完备」这一出发点开始，构造一套在贝叶斯概率论的框架下可以对不确定知识做出推断的方法。</li>
+</ul>
+<h3 id="概率函数"><a href="#概率函数" class="headerlink" title="概率函数"></a>概率函数</h3><p>概率研究的是，已经知道了模型和参数后，给出一个事件发生的概率（频率）。<br>$$<br>概率函数：参数 + 观测 –&gt; 结果<br>$$</p>
+<p>如果$θ$ 是已知确定的，$X$ 是变量，这个函数叫做概率函数(probability function)，它描述对于不同的样本点$X$，其出现概率是多少（表示不同$X$出现的概率）。</p>
+<p>概率函数用于在已知一些参数的情况下，预测接下来的观测所得到的结果。</p>
+<h3 id="似然函数"><a href="#似然函数" class="headerlink" title="似然函数"></a>似然函数</h3><p>统计是根据给出的观测数据，利用这些数据进行建模和参数的预测。（例如推测是一个高斯模型，以及得到该模型的具体的参数 $σ,μ$ 等）。</p>
+<p>$$<br>似然函数: 观测 + 结果 –&gt; 参数<br>$$</p>
+<p>如果$X$ 是已知确定的，$θ$ 是变量，这个函数叫做似然函数(likelihood function), 它描述对于不同的模型参数$θ$，出现 $x$ 这个样本点的概率是多少(表示不同$θ$下，$X$出现的概率）。此时的函数也记作 $L(θ|x)$ 或 $L(x;θ)$ 或 $f(x;θ)$</p>
+<p>似然函数是一种关于统计模型中的参数的函数，表示模型参数中的似然性(可能性)。就是给定一组观测数据，对有关事物的性质的参数进行估计，即已知具体样本数据，对于模型的参数进行分析预测。</p>
+<p><strong>最大似然</strong>就是模型参数的最大可能性。</p>
+<h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>最大似然估计是一种“模型已定，参数未知”的方法。即利用已知的样本的结果，在使用某个模型的基础上，反推最有可能导致这样结果的模型参数值。</p>
+<p>最大似然估计的思想: 使得观测数据（样本）发生概率最大的参数就是最好的参数。</p>
+<p>极大似然估计是典型的频率学派观点，它的基本思想是：待估计参数 $θ$ 是客观存在的，只是未知而已，当 $θ-mle$ 满足 $θ = θ-mle$ 时，该组观测样本 $(X1,X2,…,Xn) = (x1, x2,…,xn)$ 更容易被观测到，我们就说 $[θ-mle]$ 是 $[θ]$ 的极大似然估计值。也即，估计值 $[θ-mle]$ 使得事件发生的可能性最大。</p>
+<p>假设分布率为 $P=p(x;θ)$，$x$ 是发生的样本，$θ$ 是代估计的参数，$p(x;θ)$ 表示估计参数为$θ$时，发生$x$的的概率。<br>那么当我们的样本值为：$x1,x2,…,xn$ 时，</p>
+<p>$$<br>L(θ) = L(x1,x2,…,xn;θ) = p(x1|θ)<em>p(x2|θ)</em> …p(xn|θ)<br>$$<br>其中$L(θ)$ 成为样本的似然函数。假设有 $θ^$ 使得 $L(θ)$ 的取值最大，那么 $θ^$ 就叫做参数 $θ$ 的极大似然估计值。</p>
+<h3 id="求解过程"><a href="#求解过程" class="headerlink" title="求解过程"></a>求解过程</h3><p>求极大似然函数估计值的一般步骤：</p>
 <ol>
-<li><p><strong>测试数据</strong>流入根节点，依据决策问题分流入边，直至叶子节点。</p>
-</li>
-<li><p>返回叶子节点的<strong>训练数据</strong>所属类别作为分类结果。（回归树中，返回叶子节点的<strong>训练数据</strong>标签均值作为预测结果。</p>
-</li>
+<li>写出似然函数；</li>
+<li>对似然函数取对数，并整理；</li>
+<li>求导数 ；</li>
+<li>求对数似然函数的最大值（求导，解似然方程）。如果似然函数可导，那么就可以通过求导数的方式得到驻点，从而算出极大值。</li>
 </ol>
-<h3 id="决策树特点"><a href="#决策树特点" class="headerlink" title="决策树特点"></a>决策树特点</h3><p>决策数是一种<strong>监督学习</strong>方法。既可用于分类问题，也可用于回归问题。</p>
-<blockquote>
-<p>决策树的数据（特征和目标数据）可以是离散型，也可以是连续型。</p>
-</blockquote>
-<p><img src="/images/3780d8c9748ea2e6c33547fa6a02d38f.png" alt="3780d8c9748ea2e6c33547fa6a02d38f.png"></p>
-<blockquote>
-<p>根据目标数据是离散的还是连续，分为<strong>分类树</strong>和<strong>回归树</strong>。</p>
-</blockquote>
-<p>决策树属于基于信息的学习算法。</p>
-<blockquote>
-<p>Decision trees are assigned to the information based learning algorithms which use different measures of information gain for learning.</p>
-</blockquote>
-<h3 id="决策树算法"><a href="#决策树算法" class="headerlink" title="决策树算法"></a>决策树算法</h3><p>ID3算法原型见于J.R Quinlan的博士论文，是基础理论较为完善，使用较为广泛的决策树模型。<br>在ID3基础上 J.RQuinlan 进行优化后，陆续推出了C4.5和C5.0决策树算法，后二者现已称为当前最流行的决策树算法。</p>
-<p>CART树本质其实和C4.5区别不大，只不过CART树所有的层都是二叉树，<br>也就是每层只有两个分枝。</p>
-<p>决策树算法一般使用递归实现，伪代码如下</p>
-<blockquote>
-<p>参考 <a href=":/9caaf2f5afea4cd0b698a774b1286d9d">决策树工作原理示例</a></p>
-</blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>dta<span class="token punctuation">,</span> l_branch<span class="token operator">=</span>None<span class="token punctuation">,</span> r_branch<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    self<span class="token punctuation">.</span>data <span class="token operator">=</span> dta
-    self<span class="token punctuation">.</span>left_branch <span class="token operator">=</span> l_branch
-     self<span class="token punctuation">.</span>right_branch <span class="token operator">=</span> r_branch
-
-bst_tree<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    bst_question<span class="token punctuation">,</span> left_data<span class="token punctuation">,</span> right_data <span class="token operator">=</span> find_bst_question<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-
-    <span class="token keyword">if</span> bst_question 达不到条件<span class="token punctuation">:</span>
-        <span class="token keyword">return</span> Node<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-
-    left_branch <span class="token operator">=</span> bst_tree<span class="token punctuation">(</span>left_data<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># &lt;== 递归</span>
-    right_branch <span class="token operator">=</span> bst_tree<span class="token punctuation">(</span>right_data<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># &lt;== 递归</span>
-
-    tree <span class="token operator">=</span> Node<span class="token punctuation">(</span>data<span class="token punctuation">,</span> left_branch<span class="token punctuation">,</span> right_branch<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> tree</code></pre>
-<p>基于决策树的集成学习（ensemble learning）方法效果很好，如<br>装袋法（Bagging）突出代表 Random Forests；提升法（Boosting）突出代表 Adaboost,Gradient Boost,XGBoost。</p>
-<h3 id="决策树的优势"><a href="#决策树的优势" class="headerlink" title="决策树的优势"></a>决策树的优势</h3><ol>
-<li><p>白盒，可解释性强</p>
-<blockquote>
-<p>从根节点到叶子节点的路径就是决策依据</p>
-<p>树形结构容易可视化。</p>
-<p>参考 <a href="https://blog.csdn.net/llh_1178/article/details/78516774" target="_blank" rel="noopener">可视化决策树之Python实现</a></p>
-</blockquote>
-</li>
-<li><p>特征不需要标准化（Normalization）</p>
-<blockquote>
-<p>特征标准化是为了使不同特征值处于相同的量级范围，不至于出现部分特征主导输出结果的情况。</p>
-<p>简单的决策树来说，计算基尼指数、信息增益等量基于概率值，因此特征值的量级对决策依据没有影响。</p>
-</blockquote>
-</li>
-<li><p>既能用于分类问题，也能用于回归问题。</p>
-<blockquote>
-<p>根据目标数据是离散还是连续的，分为<strong>分类树</strong>和<strong>回归树</strong>。</p>
-</blockquote>
-</li>
-<li><p>可以建模（捕捉）特征间的非线性(non-linear)关系</p>
-<blockquote>
-<p>线性(linear)，指量与量之间按比例、成直线的关系，在数学上可以理解为一阶导数为常数的函数；如 $k_1X_1+k_2X_2+k_3X_3 + … + k_nX_n=0$，其中$k_n$ 是常数</p>
-<p>非线性(non-linear)则指不按比例、不成直线的关系，一阶导数不为常数。</p>
-</blockquote>
-</li>
-<li><p>可以建模（捕捉）不同可解释特征间的相互作用。</p>
-</li>
-</ol>
+<p>对一个独立同分布的样本集来说，总体的似然就是每个样本似然的乘积。总体的似然就是每个样本似然的乘积，但是连乘计算起来比较麻烦，为了求解方便，我们通常会将似然函数取对数，从而转成对数似然函数。</p>
+<h3 id="贝叶斯方法中的应用"><a href="#贝叶斯方法中的应用" class="headerlink" title="贝叶斯方法中的应用"></a>贝叶斯方法中的应用</h3><p>待续</p>
 
                 
             </div>
@@ -562,7 +510,7 @@ bst_tree<span class="token punctuation">(</span>data<span class="token punctuati
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ahmat1914.github.io/2018/04/12/jue-ce-shu-jie-shao/">https://ahmat1914.github.io/2018/04/12/jue-ce-shu-jie-shao/</a>
+                    <a href="https://ahmat1914.github.io/2021/02/23/ji-da-si-ran-gu-ji/">https://ahmat1914.github.io/2021/02/23/ji-da-si-ran-gu-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -600,12 +548,12 @@ bst_tree<span class="token punctuation">(</span>data<span class="token punctuati
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
-                                    <span class="chip bg-color">决策树</span>
+                                <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                                    <span class="chip bg-color">贝叶斯</span>
                                 </a>
                             
-                                <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/">
-                                    <span class="chip bg-color">树模型</span>
+                                <a href="/tags/%E6%A6%82%E7%8E%87/">
+                                    <span class="chip bg-color">概率</span>
                                 </a>
                             
                         </div>
@@ -648,28 +596,83 @@ bst_tree<span class="token punctuation">(</span>data<span class="token punctuati
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2018/04/12/jue-ce-shu-gong-zuo-yuan-li-shi-li/">
+                <a href="/2021/02/23/ji-da-si-ran-gu-ji/">
                     <div class="card-image">
                         
-                        <img src="/images/%E5%86%B3%E7%AD%96%E6%A0%91%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E7%A4%BA%E4%BE%8B-cover.jpeg" class="responsive-img" alt="决策树工作原理示例">
                         
-                        <span class="card-title">决策树工作原理示例</span>
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="极大似然估计">
+                        
+                        <span class="card-title">极大似然估计</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            在统计学中，最大似然估计（英语：Maximum Likelihood Estimation，简作MLE），也称极大似然估计，是用来估计一个概率模型的参数的一种方法。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-04-12
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MachineLearning/" class="post-category">
+                                    MachineLearning
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                        <span class="chip bg-color">贝叶斯</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A6%82%E7%8E%87/">
+                        <span class="chip bg-color">概率</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/22/bei-xie-si-fen-lei-qi/">
+                    <div class="card-image">
+                        
+                        <img src="/images/watermelon.jpg" class="responsive-img" alt="贝叶斯分类器">
+                        
+                        <span class="card-title">贝叶斯分类器</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            贝叶斯决策论贝叶斯决策论（Bayesian decision theory）是概率框架下实施决策的基本方法。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -689,61 +692,8 @@ bst_tree<span class="token punctuation">(</span>data<span class="token punctuati
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
-                        <span class="chip bg-color">决策树</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/">
-                        <span class="chip bg-color">树模型</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2013/05/23/algorithms-4-note-1-4/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Algorithms 4 Note 1.4">
-                        
-                        <span class="card-title">Algorithms 4 Note 1.4</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2013-05-23
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Note/" class="post-category">
-                                    Note
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">算法与数据结构</span>
+                    <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
+                        <span class="chip bg-color">贝叶斯</span>
                     </a>
                     
                 </div>
