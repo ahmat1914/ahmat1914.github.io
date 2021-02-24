@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>联合概率分布</title>
+      <link href="2021/02/24/lian-he-gai-lu-fen-bu/"/>
+      <url>2021/02/24/lian-he-gai-lu-fen-bu/</url>
+      
+        <content type="html"><![CDATA[<p>在概率论中, 对两个随机变量X和Y，其联合分布是同时对于X和Y的概率分布。</p><a id="more"></a><h3 id="离散随机变量的联合分布"><a href="#离散随机变量的联合分布" class="headerlink" title="离散随机变量的联合分布"></a>离散随机变量的联合分布</h3><p>对离散随机变量而言，联合分布概率质量函数为 $$Pr(X = x &amp; Y = y)$$，即</p><p>$${\displaystyle P(X=x;\mathrm {and} ;Y=y);=;P(Y=y|X=x)P(X=x)=P(X=x|Y=y)P(Y=y).;}P(X=x;\mathrm{and};Y=y);=;P(Y=y|X=x)P(X=x)= P(X=x|Y=y)P(Y=y).;$$</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MachineLearning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 决策树 </tag>
+            
+            <tag> 画图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>极大似然估计</title>
       <link href="2021/02/23/ji-da-si-ran-gu-ji/"/>
       <url>2021/02/23/ji-da-si-ran-gu-ji/</url>
