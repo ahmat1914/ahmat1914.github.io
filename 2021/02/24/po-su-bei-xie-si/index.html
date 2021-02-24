@@ -422,7 +422,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    722
+                    775
                 </div>
                 
 
@@ -472,12 +472,14 @@
 <li>那么条件概率分布 $P(X^{(1)}=x^{(1)}, X^{(2)}=x^{(2)},… X^{(n)}=x^{(n)}|Y=c_k)$ 中参数个数为 $K * \prod_{i=0}^n{S_n}$</li>
 </ul>
 <p>于是，朴素贝叶斯对条件概率分布做了条件独立性假设，使用离散型独立变量的联合分布计算公式<br>$$P(A, B)=P(A) * P(B)$$<br>$$P(A, B|C)=P(A|C) * P(B|C)$$<br>具体的条件独立性假设如下：</p>
-<p>$P(X=x|Y=c_k)=P(X^{(1)}=x^{(1)}, X^{(2)}=x^{(2)},… X^{(n)}=x^{(n)}|Y=c_k)=\prod_{j=1}^jP(X^{(j)}|Y=c_k)$</p>
+<p>$P(X=x|Y=c_k)=P(X^{(1)}=x^{(1)}, X^{(2)}=x^{(2)},… X^{(n)}=x^{(n)}|Y=c_k)=\prod_{j=1}^jP(X^{(j)}=x^{(j)}|Y=c_k)$</p>
 <p>特征之间相互独立，意味着每个特征独立的对结果产生影响。条件独立性假设在实际应用中是不现实的，因此得名“朴素“贝叶斯。</p>
 <p>对于给定的 x，使用学习到的模型计算后验概率分布 $P(Y=c_k|X=x)$，将后验概率最大的类 C作为x的分类结果输出。后验概率使用贝叶斯公式计算：<br>$$P(Y=c_k|X=x) = \frac{P(X=x|Y=c_k) * P(Y=c_k)}{P(X=x)}$$</p>
 <p>其中，转化一下$P(X=x)$<br>$$P(X=x) = \sum_{k=1}^{k}P(X=x, Y=c_k)=\sum_{k=1}^{k}P(X=x|Y=c_k) * P(Y=c_k)$$<br>于是后验概率计算公式变为：<br>$$P(Y=c_k|X=x) = \frac{P(X=x|Y=c_k) * P(Y=c_k)}{\sum_{k=1}^{k}P(X=x|Y=c_k) * P(Y=c_k)}$$</p>
-<p>其中，已计算得先验概率$P(Y=c_k)$、 条件概率分布 $P(X=x|Y=c_k)=\prod_{j=1}^jP(X^{(j)}|Y=c_k)$</p>
-<p>于是朴素贝叶斯分类器可表示为：<br>$$<br>y=f(x)=\argmax_{c_k}\frac{P(Y=c_k) * P(X=x|Y=c_k)}{\sum_{k=1}^{k}P(Y=c_k) * P(X=x|Y=c_k)}=\argmax_{c_k}\frac{P(Y=c_k) * \prod_{j=1}^jP(X^{(j)}|Y=c_k)}{\sum_{k=1}^{k}P(Y=c_k) * \prod_{j=1}^jP(X^{(j)}|Y=c_k)}<br>$$</p>
+<p>其中，已计算得先验概率$P(Y=c_k)$、 条件概率分布 $P(X=x|Y=c_k)=\prod_{j=1}^jP(X^{(j)}=x^{(j)}|Y=c_k)$</p>
+<p>于是朴素贝叶斯分类器可表示为：<br>$$y=f(x)=\underset{c_k}{\operatorname{argmax}}\frac{P(Y=c_k) * P(X=x|Y=c_k)}{\sum_{k=1}^{k}P(Y=c_k) * P(X=x|Y=c_k)}$$<br>$$=\underset{c_k}{\operatorname{argmax}}\frac{P(Y=c_k) * \prod_{j=1}^jP(X^{(j)}=x^{(j)}|Y=c_k)}{\sum_{k=1}^{k}P(Y=c_k) * \prod_{j=1}^jP(X^{(j)}=x^{(j)}|Y=c_k)}$$</p>
+<p>因为，对于所有$Y=c_k$分母都是相同的，所以可简写为：</p>
+<p>$$y=f(x)=\underset{c_k}{\operatorname{argmax}}P(Y=c_k) * \prod_{j=1}^jP(X^{(j)}=x^{(j)}|Y=c_k)$$</p>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
 <li>《统计学习方法》-李航</li>
 </ul>
