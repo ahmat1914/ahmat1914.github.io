@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>朴素贝叶斯</title>
+      <link href="2021/02/24/po-su-bei-xie-si/"/>
+      <url>2021/02/24/po-su-bei-xie-si/</url>
+      
+        <content type="html"><![CDATA[<p>朴素贝叶斯方法是基于贝叶斯定于和特征条件独立假设的分类方法。</p><a id="more"></a><p>对于给定的训练数据集</p><ol><li>首先基于条件独立假设学习输入输出的联合概率分布；</li><li>然后基于此模型，对给定的输入x，利用贝叶斯定理求出后验概率最大的输出 y。</li></ol><p>朴素贝叶斯法优点</p><ul><li>实现简单</li><li>学习与预测效率都高</li></ul><h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><p>朴素贝叶斯法国训练数据学习联合概率分布。具体的学习先验概率分布和条件概率分布。</p><p>对离散随机变量而言，联合分布概率质量函数为 $Pr(X = x &amp; Y = y)$</p><p>$$P(X=x\ and\ Y=y)=P(X=x) * P(Y=y|X=x)=P(Y=y) * P(=X=x|Y=y)$$</p><p>计算条件概率分布 P(=X=x|Y=y) 是有困难（有指数级数量的参数）：</p><ul><li>假设 X 是[m, n]维数据，即训练集有n个特征，每一个是离散型变量，有$S_n$ 种取值；</li><li>Y是[m, 1]维数据，Y 是离散型变量，有 K 种取值；</li><li>那么参数个数为 $K * \prod_{i=0}^n{S_n}$</li></ul><p>于是，朴素贝叶斯对条件概率分布做了条件独立性假设，使用离散型独立变量的联合分布计算公式 $$P(X=x\ and\ Y=y)=P(X=x) * P(Y=y)$$，避免了计算条件概率分布，因此得名朴素。</p><p>参考文献</p><ul><li>《统计学习方法》-李航</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> MachineLearning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 决策树 </tag>
+            
+            <tag> 画图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>联合概率分布</title>
       <link href="2021/02/24/lian-he-gai-lu-fen-bu/"/>
       <url>2021/02/24/lian-he-gai-lu-fen-bu/</url>
