@@ -415,21 +415,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-24
+                    2021-02-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    775
+                    991
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    4 Min
                 </div>
                 
 
@@ -480,6 +480,14 @@
 <p>于是朴素贝叶斯分类器可表示为：<br>$$y=f(x)=\underset{c_k}{\operatorname{argmax}}\frac{P(Y=c_k) * P(X=x|Y=c_k)}{\sum_{k=1}^{k}P(Y=c_k) * P(X=x|Y=c_k)}$$<br>$$=\underset{c_k}{\operatorname{argmax}}\frac{P(Y=c_k) * \prod_{j=1}^jP(X^{(j)}=x^{(j)}|Y=c_k)}{\sum_{k=1}^{k}P(Y=c_k) * \prod_{j=1}^jP(X^{(j)}=x^{(j)}|Y=c_k)}$$</p>
 <p>因为，对于所有$Y=c_k$分母都是相同的，所以可简写为：</p>
 <p>$$y=f(x)=\underset{c_k}{\operatorname{argmax}}P(Y=c_k) * \prod_{j=1}^jP(X^{(j)}=x^{(j)}|Y=c_k)$$</p>
+<h3 id="学习与分类算法"><a href="#学习与分类算法" class="headerlink" title="学习与分类算法"></a>学习与分类算法</h3><p>输入数据 $T={(x_1, y_1), (x_2, y_2), (x_3, y_3), … (x_N, y_N) }$，其中 $x_i=(x_i^{(1)}, x_i^{(2)}, x_i^{(3)}, … x_i^{(n)})$，$x_i^{(j)}$ 是第i个样本第j个特征，$x_i^{(j)}\in {a_{j1}, a_{j2}, a_{j3}, … a_{jS_j} }$，a_{jl} 是第j个特征可能取的第l个值，$j=1,2,3,…,n$，$l=1,2,3,…,S_j$，$y_i \in {c_1, c_2, c_3, …, c_K}$；实例 $x$</p>
+<p>问题：求实例 $x$ 所属分类</p>
+<p>答题思路：</p>
+<ol>
+<li>计算先验概率和条件概率<br>$$P(Y=c_k)= \frac{\sum_{i=1}^{N}I(y_i=c_k)}{N}, k=1,2, …, K$$</li>
+</ol>
+<p>$$P(X^{(j)}=a_{jl}|Y=c_k)=\frac{\sum_{i=1}^NI(x_i^{(j)}=a_{jl}, y_i=c_k)}{\sum_{i=1}^{N}I(y_i=c_k)}, \\<br>j=1, 2, …, n;l=1,2,…,Sj;k=1,2,…, K$$<br>2. 对于给定的实例 $x_i=(x_i^{(1)}, x_i^{(2)}, x_i^{(3)}, … x_i^{(n)})$，计算朴素贝叶斯分类器：<br>$$y=f(x)=\underset{c_k}{\operatorname{argmax}}P(Y=c_k) * \prod_{j=1}^JP(X^{(j)}=x^{(j)}|Y=c_k)$$</p>
+<p>习题1<br><img src="/images/exercise-bayes-metho-1.png" alt=""></p>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
 <li>《统计学习方法》-李航</li>
 </ul>
@@ -841,7 +849,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32.3k</span>&nbsp;字
+                class="white-color">32.5k</span>&nbsp;字
             
             
             
