@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>指示函数</title>
+      <link href="2021/02/25/zhi-shi-han-shu/"/>
+      <url>2021/02/25/zhi-shi-han-shu/</url>
+      
+        <content type="html"><![CDATA[<p>在集合论中，指示函数(Indicator function)是定义在某集合X上的函数，表示其中有哪些元素属于某一子集A。</p><a id="more"></a><p>集X的子集A的指示函数是函数${1_{A}:X\to \lbrace 0,1\rbrace }$ ，定义为:</p><p>$$<br>1_{A}(x)={\begin{cases}<br>  \displaystyle 1 &amp; 若 {x \in A} \\<br>  0 &amp; 若 {x \notin A}<br>  \end{cases}}<br>$$</p><p>A的指示函数也记作 $\chi_{A}(x)$ 或 $I_{A}(x)$。</p><blockquote><p>mathjax语法提示：<em>公式中用<code>\\</code>表示回车到下一行。为了和 <code>marked.js</code> 兼容，公式内改为4个反斜线<code>\\\\</code>换行。</em></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> MachineLearning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 概率 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>朴素贝叶斯</title>
       <link href="2021/02/24/po-su-bei-xie-si/"/>
       <url>2021/02/24/po-su-bei-xie-si/</url>
