@@ -415,21 +415,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-25
+                    2021-02-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    991
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    6 Min
                 </div>
                 
 
@@ -488,6 +488,22 @@
 </ol>
 <p>$$P(X^{(j)}=a_{jl}|Y=c_k)=\frac{\sum_{i=1}^NI(x_i^{(j)}=a_{jl}, y_i=c_k)}{\sum_{i=1}^{N}I(y_i=c_k)}, \\<br>j=1, 2, …, n;l=1,2,…,Sj;k=1,2,…, K$$<br>2. 对于给定的实例 $x_i=(x_i^{(1)}, x_i^{(2)}, x_i^{(3)}, … x_i^{(n)})$，计算朴素贝叶斯分类器：<br>$$y=f(x)=\underset{c_k}{\operatorname{argmax}}P(Y=c_k) * \prod_{j=1}^JP(X^{(j)}=x^{(j)}|Y=c_k)$$</p>
 <p>习题1<br><img src="/images/exercise-bayes-metho-1.png" alt=""></p>
+<h3 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h3><p>用极大似然估计可能会出现所要估计的概率值为0的情况。这会影响后验概率的计算结果，使之产生偏差。解决这一问题的方法是采用贝叶斯估计。</p>
+<p>条件概率的贝叶斯估计如下：<br>$$<br>P_\lambda(X^{(j)}=a_{jl}|Y=c_k)=\frac{\sum_{i=1}^NI(x_i^{(j)}=a_{jl}, y_i=c_k)}{\sum_{i=1}^NI(y_i=c_k) + S_j*\lambda}<br>$$<br>其中，$\lambda \ge 0$。当$\lambda = 0$时就是极大似然估计。常取$\lambda=1$，这时称为拉普拉斯平滑（Laplacian smoothing）</p>
+<p>类似，先验概率的贝叶斯估计如下：<br>$$<br>P_\lambda(Y=c_k)=\frac{\sum_{i=1}^NI(y_i=c_k) + \lambda}{N + K\lambda}<br>$$</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>朴素贝叶斯法是典型的生成学习方法。</p>
+<ol>
+<li>由训练数据学习联合概率分布$P(X, Y)$<ol>
+<li>由训练数据学习 $P(X|Y)$ 和 $P(Y)$的<strong>估计</strong>，从而得到联合概率分布。<ol>
+<li>估计$P(X|Y)$时假设条件独立以降低计算困难。因为这个假设，模型需要计算的条件概率的量大大减少，朴素贝叶斯法的学习和训练大为简化。当然同时牺牲了一些分类准确率。</li>
+</ol>
+</li>
+<li>概率估计可以用极大似然估计或贝叶斯估计。</li>
+</ol>
+</li>
+<li>然后使用贝叶斯公式求得后验概率分布 $P(Y|X)$。</li>
+<li>将输入 x分到后验概率最大的类 y。后验概率最大相当于 0-1 损失函数时的期望风险最小化。<br>$$<br>y= \underset{c_k}{\operatorname{argmax}}P(Y=c_k) * \prod_{j=1}^JP(X^{(j)}=a_{jl}|Y=c_k)<br>$$</li>
+</ol>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
 <li>《统计学习方法》-李航</li>
 </ul>
@@ -849,7 +865,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32.5k</span>&nbsp;字
+                class="white-color">32.9k</span>&nbsp;字
             
             
             
