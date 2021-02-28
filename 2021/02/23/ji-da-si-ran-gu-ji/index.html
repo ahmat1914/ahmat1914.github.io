@@ -415,21 +415,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-23
+                    2021-02-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.3k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
 
@@ -484,7 +484,19 @@
 <li>求对数似然函数的最大值（求导，解似然方程）。如果似然函数可导，那么就可以通过求导数的方式得到驻点，从而算出极大值。</li>
 </ol>
 <p>对一个独立同分布的样本集来说，总体的似然就是每个样本似然的乘积。总体的似然就是每个样本似然的乘积，但是连乘计算起来比较麻烦，为了求解方便，我们通常会将似然函数取对数，从而转成对数似然函数。</p>
-<h3 id="贝叶斯方法中的应用"><a href="#贝叶斯方法中的应用" class="headerlink" title="贝叶斯方法中的应用"></a>贝叶斯方法中的应用</h3><p>待续</p>
+<h3 id="贝叶斯方法中的应用"><a href="#贝叶斯方法中的应用" class="headerlink" title="贝叶斯方法中的应用"></a>贝叶斯方法中的应用</h3><p>贝叶斯方法思路如下：</p>
+<ol>
+<li>由训练数据学习联合概率分布$P(X, Y)$<ol>
+<li>由训练数据学习 $P(X|Y)$ 和 $P(Y)$的<strong>估计</strong>，从而得到联合概率分布。<ol>
+<li>估计$P(X|Y)$时假设条件独立以降低计算困难。因为这个假设，模型需要计算的条件概率的量大大减少，朴素贝叶斯法的学习和训练大为简化。当然同时牺牲了一些分类准确率。</li>
+</ol>
+</li>
+<li>概率估计可以用<strong>极大似然估计</strong>或贝叶斯估计。</li>
+</ol>
+</li>
+<li>然后使用贝叶斯公式求得后验概率分布 $P(Y|X)=\frac{P(X, Y)}{P(X)}$。</li>
+<li>将输入 x 分到后验概率最大的类 y。后验概率最大相当于 0-1 损失函数时的期望风险最小化。</li>
+</ol>
 
                 
             </div>
@@ -612,7 +624,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在概率论中, 对两个随机变量X和Y，其联合分布(Joint probability distribution)是同时对于X和Y的概率分布。事件A和B同时发生概率记为 $P(A, B)$。
+                            在概率论中, 对两个随机变量X和Y，其联合分布 （Joint probability distribution） 是同时对于X和Y的概率分布。事件A和B同时发生概率记为 $P(A, B)$。
                         
                     </div>
                     <div class="publish-info">
@@ -847,7 +859,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32.9k</span>&nbsp;字
+                class="white-color">33.4k</span>&nbsp;字
             
             
             

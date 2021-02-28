@@ -501,8 +501,8 @@
 <li>概率估计可以用极大似然估计或贝叶斯估计。</li>
 </ol>
 </li>
-<li>然后使用贝叶斯公式求得后验概率分布 $P(Y|X)$。</li>
-<li>将输入 x分到后验概率最大的类 y。后验概率最大相当于 0-1 损失函数时的期望风险最小化。<br>$$<br>y= \underset{c_k}{\operatorname{argmax}}P(Y=c_k) * \prod_{j=1}^JP(X^{(j)}=a_{jl}|Y=c_k)<br>$$</li>
+<li>然后使用贝叶斯公式求得后验概率分布 $P(Y|X)=\frac{P(X, Y)}{P(X)}$。</li>
+<li>将输入 x 分到后验概率最大的类 y。后验概率最大相当于 0-1 损失函数时的期望风险最小化。<br>$$<br>y= \underset{c_k}{\operatorname{argmax}}P(Y=c_k) * \prod_{j=1}^JP(X^{(j)}=a_{jl}|Y=c_k)<br>$$</li>
 </ol>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
 <li>《统计学习方法》-李航</li>
@@ -682,7 +682,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在概率论中, 对两个随机变量X和Y，其联合分布(Joint probability distribution)是同时对于X和Y的概率分布。事件A和B同时发生概率记为 $P(A, B)$。
+                            在概率论中, 对两个随机变量X和Y，其联合分布 （Joint probability distribution） 是同时对于X和Y的概率分布。事件A和B同时发生概率记为 $P(A, B)$。
                         
                     </div>
                     <div class="publish-info">
@@ -865,7 +865,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">32.9k</span>&nbsp;字
+                class="white-color">33.4k</span>&nbsp;字
             
             
             
