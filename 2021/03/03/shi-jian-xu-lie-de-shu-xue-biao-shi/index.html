@@ -418,7 +418,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    49
+                    165
                 </div>
                 
 
@@ -449,7 +449,14 @@
 <ul>
 <li>第 $i$ 个商品在 $t$ 时刻的销量 $Z$ 表示为 $Z_{i, t}$；<a id="more"></a></li>
 <li>我们预测条件分布 $P(Z_{i,t}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li>
+<li>进一步预测更多(截止 T)时间上的条件分布 $P(Z_{i,t}, Z_{i,t+1}, Z_{i,t+2}, …, Z_{i,T}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li>
 </ul>
+<p>我们已知，</p>
+<ul>
+<li>商品历史销量 $Z_{i,1:t-1}:=Z_{i, 1}, Z_{i, 2}, …, Z_{i, t-1}$</li>
+<li>特征 $X_{i, 1:T}:=X_{i,1}, X_{i,2}, …, X_{i, t-1}, X_{i, t}, X_{i, t+1},…, X_{i, T}$</li>
+</ul>
+<p>也就是说，已知历史 $conditional\ range:=[1, t-1]$，预测未来 $prediction\ range:=[t, T]$</p>
 
                 
             </div>
@@ -804,7 +811,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">33.4k</span>&nbsp;字
+                class="white-color">33.6k</span>&nbsp;字
             
             
             

@@ -8,7 +8,7 @@
       <link href="2021/03/03/shi-jian-xu-lie-de-shu-xue-biao-shi/"/>
       <url>2021/03/03/shi-jian-xu-lie-de-shu-xue-biao-shi/</url>
       
-        <content type="html"><![CDATA[<p>以商品销量举例，</p><ul><li>第 $i$ 个商品在 $t$ 时刻的销量 $Z$ 表示为 $Z_{i, t}$；<a id="more"></a></li><li>我们预测条件分布 $P(Z_{i,t}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li></ul>]]></content>
+        <content type="html"><![CDATA[<p>以商品销量举例，</p><ul><li>第 $i$ 个商品在 $t$ 时刻的销量 $Z$ 表示为 $Z_{i, t}$；<a id="more"></a></li><li>我们预测条件分布 $P(Z_{i,t}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li><li>进一步预测更多(截止 T)时间上的条件分布 $P(Z_{i,t}, Z_{i,t+1}, Z_{i,t+2}, …, Z_{i,T}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li></ul><p>我们已知，</p><ul><li>商品历史销量 $Z_{i,1:t-1}:=Z_{i, 1}, Z_{i, 2}, …, Z_{i, t-1}$</li><li>特征 $X_{i, 1:T}:=X_{i,1}, X_{i,2}, …, X_{i, t-1}, X_{i, t}, X_{i, t+1},…, X_{i, T}$</li></ul><p>也就是说，已知历史 $conditional\ range:=[1, t-1]$，预测未来 $prediction\ range:=[t, T]$</p>]]></content>
       
       
       <categories>
@@ -309,9 +309,9 @@
       
         <tags>
             
-            <tag> 集成学习 </tag>
-            
             <tag> 树模型 </tag>
+            
+            <tag> 集成学习 </tag>
             
             <tag> 随机森林 </tag>
             
