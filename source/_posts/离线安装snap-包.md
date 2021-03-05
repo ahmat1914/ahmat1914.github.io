@@ -22,6 +22,7 @@ curl -H 'Snap-Device-Series: 16' http://api.snapcraft.io/v2/snaps/info/node >> n
 ```
 
 `node.json` 如下，ubuntu 对应找到 amd64 stable 对应的 download url
+![](/images/snap-node-info.png)
 
 在有网络的机器上下载 `*.snap` 包
 
@@ -36,3 +37,4 @@ wget https://api.snapcraft.io/api/v1/snaps/download/MEd4V4HHFkCXBSz6UzVmKF2D2PmW
 ```bash
 sudo snap install --dangerous MEd4V4HHFkCXBSz6UzVmKF2D2PmWcVwR_3292.snap --classic
 ```
+![](/images/snap-node-list.png)
