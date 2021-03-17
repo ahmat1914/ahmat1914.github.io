@@ -325,11 +325,11 @@
                 </a>
                 
                 
-                <a href="/categories/MachineLearning/" title="MachineLearning: 29">
+                <a href="/categories/MachineLearning/" title="MachineLearning: 31">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F5EEF8;">MachineLearning
-                        <span class="tag-length">29</span>
+                        <span class="tag-length">31</span>
                     </span>
                 </a>
                 
@@ -352,11 +352,11 @@
                 </a>
                 
                 
-                <a href="/categories/Tech/" title="Tech: 2">
+                <a href="/categories/Tech/" title="Tech: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #FEF9E7;">Tech
-                        <span class="tag-length">2</span>
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
@@ -380,6 +380,108 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/03/17/shi-jian-xu-lie-de-ping-wen-xing/">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/images/stationary-nonstationary.png" class="responsive-img" alt="时间序列的平稳性">
+                            
+                            <span class="card-title">时间序列的平稳性</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                平稳性如果时间序列的性质不随时间变化而变化（如均值0，方差趋于稳定值），我们称该序列是平稳的。典型的平稳序列是白噪声（white noise series）。
+因此具有趋势、周期性、季节性的序列不是平稳序列。
+ARIMA模型要求序列是平稳的
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/MachineLearning/" class="post-category">
+                                    MachineLearning
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">
+                            <span class="chip bg-color">时间序列</span>
+                        </a>
+                        
+                        <a href="/tags/arima/">
+                            <span class="chip bg-color">arima</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/03/08/exploratory-data-analysis-for-time-series/">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/images/practical-time-series-analysis.png" class="responsive-img" alt="Exploratory Data Analysis for Time Series">
+                            
+                            <span class="card-title">Exploratory Data Analysis for Time Series</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                分两个部分，第一部分，讨论时间序列数据上常用的方法，如柱状图（histograms）、曲线图（plotting），和一些能用于时间序列数据的聚合操作（group-by operations）。
+第二部分，重点讨论时间序列分析相关的方法。
+F
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/MachineLearning/" class="post-category">
+                                    MachineLearning
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">
+                            <span class="chip bg-color">时间序列</span>
+                        </a>
+                        
+                        <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+                            <span class="chip bg-color">读书笔记</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -447,11 +549,11 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                以商品销量举例，
+                                任何按照时间顺序观察的事物都是时间序列。
+以商品销量举例，
 
 第 $i$ 个商品在 $t$ 时刻的销量 $Z$ 表示为 $Z_{i, t}$；
-我们预测条件分布 $P(Z_{i,t}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$
-进一步预测更多(截止 
+我们预测条件分布 $P(Z_{i,t}|Z_{i, t-1}, Z_{i, t-2}, …, Z
                             
                         </div>
                         <div class="publish-info">
@@ -798,114 +900,6 @@ $$
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/02/21/po-su-bei-xie-si-fang-fa-gai-lan/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="/images/Posterior-Probability.png" class="responsive-img" alt="朴素贝叶斯方法概览">
-                            
-                            <span class="card-title">朴素贝叶斯方法概览</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                源于托马斯·贝叶斯（Thomas Bayes）生前为解决一个“逆概”问题写的一篇文章，而这篇文章是在他死后才由他的一位朋友发表出来的。
-
-
-什么叫逆概问题在贝叶斯写这篇文章之前，人们已经能够计算“正向概率”，如“假设袋子里面有N个白球，M个
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MachineLearning/" class="post-category">
-                                    MachineLearning
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
-                            <span class="chip bg-color">贝叶斯</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">
-                            <span class="chip bg-color">概率论</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/02/21/xian-yan-gai-lu-he-hou-yan-gai-lu/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="/images/Posterior-Probability.png" class="responsive-img" alt="先验概率和后验概率">
-                            
-                            <span class="card-title">先验概率和后验概率</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                讲解先验概率（Prior probability）和后验概率（Posterior probability）最好的方法是举例子。
-
-
-例子 1一般情况下发生了交通事故，更容易堵车。
-
-先验概率：今天出门堵车的可能性 $P(堵车)$
-
-条件概率
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MachineLearning/" class="post-category">
-                                    MachineLearning
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/">
-                            <span class="chip bg-color">贝叶斯</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/">
-                            <span class="chip bg-color">概率论</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 </main>
@@ -921,7 +915,7 @@ $$
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 3</div>
+            <div class="center-align b-text-gray">1 / 4</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -952,7 +946,7 @@ $$
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">33.8k</span>&nbsp;字
+                class="white-color">35.9k</span>&nbsp;字
             
             
             

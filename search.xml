@@ -4,11 +4,90 @@
   
     
     <entry>
+      <title>时间序列的平稳性</title>
+      <link href="2021/03/17/shi-jian-xu-lie-de-ping-wen-xing/"/>
+      <url>2021/03/17/shi-jian-xu-lie-de-ping-wen-xing/</url>
+      
+        <content type="html"><![CDATA[<h3 id="平稳性"><a href="#平稳性" class="headerlink" title="平稳性"></a>平稳性</h3><p>如果时间序列的性质不随时间变化而变化（如均值0，方差趋于稳定值），我们称该序列是平稳的。典型的平稳序列是白噪声（white noise series）。</p><p>因此具有趋势、周期性、季节性的序列不是平稳序列。</p><p>ARIMA模型要求序列是平稳的，或可以通过处理（如差分）平稳化。</p><h3 id="判断平稳性"><a href="#判断平稳性" class="headerlink" title="判断平稳性"></a>判断平稳性</h3><p>判断平稳性主要有两种，观察法和单位根检验法。</p><ul><li>观察可视化的数据，从中推断数据是否稳定；如观察时间曲线图或自相关图</li><li>单位根检验的方法有很多种，如 ADF检验。</li></ul><h4 id="观察法"><a href="#观察法" class="headerlink" title="观察法"></a>观察法</h4><p>观察曲线图，判断哪些序列平稳</p><p><img src="/images/which-stationary-nonstationary.png" alt=""></p><ul><li>存在季节性的序列：d, h, i</li><li>存在趋势的序列：a, c, e, f, i</li><li>方差明显变化的序列: i</li></ul><p>剩下的 b, g 是平稳序列。</p><p>和时间曲线图一样，自相关图（ACF图）也能帮助我们识别非平稳时间序列。 对于一个平稳时间序列,自相关系数（ACF）会快速的下降到接近 0 的水平，然而非平稳时间序列的自相关系数会下降的比较缓慢。</p><p><img src="/images/acf-google.png" alt=""></p><p>差分后的谷歌股价的自相关图看起来像白噪声序列。所有自回归系数都在 95% 的置信度以内。</p><h4 id="单位根检验"><a href="#单位根检验" class="headerlink" title="单位根检验"></a>单位根检验</h4><p>单位根检验是一种更客观的判定是否需要差分的方法。这个针对平稳性的统计假设检验被用于判断是否需要差分方法来让数据更平稳。<br>单位根检验的方法有很多种，ADF是一种常用的单位根检验方法，他的原假设为序列具有单位根，即非平稳，对于一个平稳的时序数据，就需要在给定的置信水平上显著，拒绝原假设。以下为检验结果，其p值大于0.99，说明并不能拒绝原假设。</p><p><img src="/images/p-value.png" alt=""></p><h3 id="平稳化处理方法"><a href="#平稳化处理方法" class="headerlink" title="平稳化处理方法"></a>平稳化处理方法</h3><p>平稳性是时间序列分析的前提条件，故我们需要对不平稳的序列进行处理将其转换成平稳的序列。常用的方法有：</p><ul><li>对数变换</li><li>平滑法</li><li>差分</li><li>分解</li></ul><h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><p>差分可以通过去除时间序列中的一些变化特征来平稳化它的均值，并因此消除（或减小）时间序列的趋势和季节性。</p><p>差分序列是指原序列的连续观测值之间的变化值组成的时间序列，它可以被表示为：<br>$$<br>y_t’ = y_t - y_{t-1}<br>$$</p><h4 id="一阶差分、白噪声、random-walk"><a href="#一阶差分、白噪声、random-walk" class="headerlink" title="一阶差分、白噪声、random walk"></a>一阶差分、白噪声、random walk</h4><p>当差分序列是白噪声时，即可得到“随机游走”模型：</p><p>$$<br>y_t = y_{t-1} + \epsilon_t<br>$$<br>其中 $\epsilon_t$ 是白噪声。</p><h4 id="二阶差分"><a href="#二阶差分" class="headerlink" title="二阶差分"></a>二阶差分</h4><p>有时差分后的数据仍然不平稳，所以可能需要再一次对数据进行差分来得到一个平稳的序列：</p><p>$$<br>y_t’’=y_t’ - y_{t-1}’=(y_t - y_{t-1}) - (y_{t-1} - y_{t-2})=y_t-2y_{t-1} + y_{t-2}<br>$$</p><h4 id="季节性差分"><a href="#季节性差分" class="headerlink" title="季节性差分"></a>季节性差分</h4><p><img src="/images/seasonal-differ.png" alt=""></p><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul><li><a href="https://otexts.com/fpp2/" target="_blank" rel="noopener">Forecasting: Principles &amp; Practice</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> MachineLearning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 时间序列 </tag>
+            
+            <tag> arima </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Exploratory Data Analysis for Time Series</title>
+      <link href="2021/03/08/exploratory-data-analysis-for-time-series/"/>
+      <url>2021/03/08/exploratory-data-analysis-for-time-series/</url>
+      
+        <content type="html"><![CDATA[<p>分两个部分，第一部分，讨论时间序列数据上常用的方法，如柱状图（histograms）、曲线图（plotting），和一些能用于时间序列数据的聚合操作（group-by operations）。</p><p>第二部分，重点讨论时间序列分析相关的方法。</p><h2 id="Familiar-Methods"><a href="#Familiar-Methods" class="headerlink" title="Familiar Methods"></a>Familiar Methods</h2><p>先从常用于时间序列数据的探索性方法。如有哪些列、取值范围。</p><ul><li>某一列是否和另一列强相关？</li><li>某一特征均值、variance 多少？</li></ul><p>回答这些问题，可以做一些常用的技术分析，画图、计算统计值、画柱状图、using targeted scatter plots。</p><p>同时你也需要回答面向时间的问题：</p><ul><li>What is the range of values you see, and do they vary by time period or some other logical unit of analysis?</li><li>Does the data look consistent and uniformly measured, or does it suggest changes in either measurement or behavior over time?。</li></ul><p>我们使用一些时间序列数据，做一些数据分析，并探索时间序列特有的方法和一些非时间序列方法。</p><h3 id="Plotting"><a href="#Plotting" class="headerlink" title="Plotting"></a>Plotting</h3><p><img src="/images/simple-plot-of-timeseries-data.png" alt=""></p><h3 id="Histograms"><a href="#Histograms" class="headerlink" title="Histograms"></a>Histograms</h3><p>take a histogram of the data, also taking a histogram of the differenced data.</p><p><img src="/images/histogram-of-timeseries-and-difference.png" alt=""></p><p>A hist() of the difference of the data is often more interesting than a hist() of the untransformed data.<br>After all, in a time series context, often (and particularly in finance) what is most interesting is how a value changes from one measurement to the next rather than the value’s actual measurement. </p><p>The histogram of the difference tells us that the value of the time series has gone both up (positive difference values) and down (negative difference values) about the same amount over time. </p><p>we can see from this histogram that just a slight bias in favor of positive over negative differences is what accounts for that trend.</p><h3 id="Scatter-Plots"><a href="#Scatter-Plots" class="headerlink" title="Scatter Plots"></a>Scatter Plots</h3><p>We can use scatter plots to determine both how two stocks are linked at a specific time and how their price shifts are related over time.</p><p>In this example, we plot both cases (see Figure 3-3):</p><ul><li>The values of two different stocks over time</li><li>The values of the daily changes in these two stocks over time (via differencing) with R’s diff() function</li></ul><p><img src="/images/sotcks-price-and-difference-over-time.png" alt=""></p><p>As we’ve already seen, the actual values are less informative than the differences between adjacent time points, so we have plotted the diffs in a second scatter plot. These look like very strong correlations, but the relationships are not as strong as they appear.</p><p>What we need to do is find out whether the change in one stock earlier in time can predict the change in another stock later in time. To do this, we shift one of the differences of the stocks back by 1 before looking at the scatter plot.</p><p><img src="/images/correlation-between-the-stocks-disappears-as-soon-as-we-put-in-a-time-lag.png" alt=""></p><h2 id="Time-Series–Specific-Exploratory-Methods"><a href="#Time-Series–Specific-Exploratory-Methods" class="headerlink" title="Time Series–Specific Exploratory Methods"></a>Time Series–Specific Exploratory Methods</h2><p>focus on relations of values at different times in the same series.</p><p>We walk through a few concepts and related techniques used to classify time series.</p><p>We will cover the concepts and their resulting methods in order from stationarity to self-correlations to spurious correlations. </p><p>The concepts we will explore are:</p><ul><li><p>Stationarity: What it means for a time series to be stationary and a statistical test for stationarity</p></li><li><p>Self-correlation: What it means to say that a time series correlates with itself and what such a correlation indicates about the underlying dynamics of the time series</p></li><li><p>Spurious correlations: What it means for a correlation to be spurious and when you should expect to run into spurious correlations</p></li></ul><p>The methods we will learn to apply are:</p><ul><li><p>Rolling and expanding window functions</p></li><li><p>Self-correlation functions</p><ul><li>The autocorrelation function</li><li>The partial autocorrelation function</li></ul></li></ul><p>The first question you will likely ask about a time series is whether it appears to reflect a system that is <strong>“stable”</strong> or one that is constantly changing.<br>The level of stability, or <strong>stationarity</strong>, is important to assess because we need to know how much we should expect the system’s long-term past behavior to reflect its long-term future behavior.</p><p>Once we have assessed the “stability” (this word is not used in a technical sense here) of a time series, we try to determine whether there are <strong>internal dynamics</strong> in that series (seasonal changes, for example).<br>That is, we are looking for <strong>self-correlations</strong>, answering the fundamental question of how tightly past data, distant or recent, predicts future data.</p><p>Finally, when we think we have found certain behavioral dynamics within the system, we need to <strong>make sure we are not identifying relationships based on dynamics</strong> that do not in any way imply the causal relationships we wish to discover; hence, we must look for <strong>spurious correlations</strong>.</p><h3 id="Understanding-Stationarity"><a href="#Understanding-Stationarity" class="headerlink" title="Understanding Stationarity"></a>Understanding Stationarity</h3><p>Many traditional statistical time series models rely on a time series being stationary.</p><p>Generally speaking, a stationary time series is one that has fairly stable statistical properties over time, particularly with respect to mean and variance.</p><p>We will walk through the concept both intuitively and with a somewhat formal definition before discussing a common test for stationarity.</p><h4 id="INTUITION"><a href="#INTUITION" class="headerlink" title="INTUITION"></a>INTUITION</h4><p>A stationary time series is one in which a time series measurement reflects a system in a steady state. (it can be easier to rule things out as not being stationary rather than saying something is stationary. )</p><p><img src="/images/clear-example-of-a-timeseries-not-stationary.png" alt=""></p><p>There are several traits that show this process(airline passengers data) is not stationary.</p><ul><li>First, the mean value is increasing over time, rather than remaining steady.</li><li>Second, the distance between peak and trough on a yearly basis is growing, so the variance of the process is increasing over time.</li><li>Third, the process displays strong seasonal behavior, the antithesis of stationarity.</li></ul><h4 id="STATIONARY-DEFINITION-AND-THE-AUGMENTED-DICKEY–FULLER-TEST"><a href="#STATIONARY-DEFINITION-AND-THE-AUGMENTED-DICKEY–FULLER-TEST" class="headerlink" title="STATIONARY DEFINITION AND THE AUGMENTED DICKEY–FULLER TEST"></a>STATIONARY DEFINITION AND THE AUGMENTED DICKEY–FULLER TEST</h4><p><img src="/images/definition-of-a-stationary-process.png" alt=""></p><p>Statistical tests for stationarity often come down to the question of whether there is a unit root—that is, whether 1 is a solution of the process’s characteristic equation.1 A linear time series is nonstationary if there is a unit root, although lack of a unit root does not prove stationarity.</p><p>!(a simple intuition for what a unit root is)[/images/a-simple-intuition-for-what-a-unit-root-is.png]</p><p>Tests for determining whether a process is stationary are called $hypothesis tests$.</p><p>The $Augmented Dickey–Fuller (ADF)$ test is the most commonly used metric to assess a time series for stationarity problems. </p><blockquote><p>This test posits a null hypothesis that a unit root is present in a time series. Depending on the results of the test, this null hypothesis can be rejected for a specified significance level, meaning the presence of a unit root test can be rejected at a given significance level.</p></blockquote><p>待续。。。</p><h3 id="Applying-Window-Functions"><a href="#Applying-Window-Functions" class="headerlink" title="Applying Window Functions"></a>Applying Window Functions</h3><h3 id="Understanding-and-Identifying-Self-Correlation"><a href="#Understanding-and-Identifying-Self-Correlation" class="headerlink" title="Understanding and Identifying Self-Correlation"></a>Understanding and Identifying Self-Correlation</h3><h3 id="Spurious-Correlations"><a href="#Spurious-Correlations" class="headerlink" title="Spurious Correlations"></a>Spurious Correlations</h3><h2 id="Some-Useful-Visualizations"><a href="#Some-Useful-Visualizations" class="headerlink" title="Some Useful Visualizations"></a>Some Useful Visualizations</h2><h3 id="1D-Visualizations"><a href="#1D-Visualizations" class="headerlink" title="1D Visualizations"></a>1D Visualizations</h3><h3 id="2D-Visualizations"><a href="#2D-Visualizations" class="headerlink" title="2D Visualizations"></a>2D Visualizations</h3><h3 id="3D-Visualizations"><a href="#3D-Visualizations" class="headerlink" title="3D Visualizations"></a>3D Visualizations</h3><h3 id="More-Resources"><a href="#More-Resources" class="headerlink" title="More Resources"></a>More Resources</h3><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul><li>Practical Time Series Analysis By <a href="https://learning.oreilly.com/search/?query=author%3A%22Aileen%20Nielsen%22&sort=relevance&highlight=true" target="_blank" rel="noopener">Aileen Nielsen</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> MachineLearning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 时间序列 </tag>
+            
+            <tag> 读书笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>离线安装snap 包</title>
+      <link href="2021/03/05/chi-xian-an-zhuang-snap-bao/"/>
+      <url>2021/03/05/chi-xian-an-zhuang-snap-bao/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>国内有没有 Snap 源？<br>国内就没有一个能用的 snap 镜像源！<br>如题，snap 部署很方便，但是下载速度也太慢了吧?<br>问下 ubuntu 如何安装本地的 snap 包？</p></blockquote><a id="more"></a><p>demo with nodejs</p><pre class=" language-bash"><code class="language-bash">curl -H <span class="token string">'Snap-Device-Series: 16'</span> http://api.snapcraft.io/v2/snaps/info/node <span class="token operator">>></span> node.json</code></pre><p><code>node.json</code> 如下，ubuntu 对应找到 amd64 stable 对应的 download url<br><img src="/images/snap-node-info.png" alt=""></p><p>在有网络的机器上下载 <code>*.snap</code> 包</p><pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> https://api.snapcraft.io/api/v1/snaps/download/MEd4V4HHFkCXBSz6UzVmKF2D2PmWcVwR_3292.snap<span class="token comment" spellcheck="true"># 下载了 MEd4V4HHFkCXBSz6UzVmKF2D2PmWcVwR_3292.snap</span></code></pre><p>到目标机器上安装 <code>*.snap</code> 包</p><pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> snap <span class="token function">install</span> --dangerous MEd4V4HHFkCXBSz6UzVmKF2D2PmWcVwR_3292.snap --classic</code></pre><p><img src="/images/snap-node-list.png" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Tech </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> snap </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DeepAR: 使用自回归递归网络实现概率预测</title>
       <link href="2021/03/03/deepar-shi-yong-zi-hui-gui-di-gui-wang-luo-shi-xian-gai-lu-yu-ce/"/>
       <url>2021/03/03/deepar-shi-yong-zi-hui-gui-di-gui-wang-luo-shi-xian-gai-lu-yu-ce/</url>
       
-        <content type="html"><![CDATA[<h3 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h3><p>以商品销量举例，</p><ul><li>第 $i$ 个商品在 $t$ 时刻的销量 $Z$ 表示为 $Z_{i, t}$；<a id="more"></a></li><li>我们预测条件分布 $P(Z_{i,t}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li><li>进一步预测更多(截止 T)时间上的条件分布 $P(Z_{i,t}, Z_{i,t+1}, Z_{i,t+2}, …, Z_{i,T}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li></ul><p>我们已知，商品历史销量 $$Z_{i,1:t-1}:=Z_{i, 1}, Z_{i, 2}, …, Z_{i, t-1}$$ 和特征 $$X_{i, 1:T}:=X_{i,1}, X_{i,2}, …, X_{i, t-1}, X_{i, t}, X_{i, t+1},…, X_{i, T}$$，预测未来销量。</p><p>模型的分布为条件概率似然函数的乘积：</p><p><img src="public/images/distribution-product-of-likehood-factors.png" alt=""></p><p><img src="../images/distribution-product-of-likehood-factors.png" alt=""></p><p>其中，</p><p>$$<br>\mathbf{h}<br>$$<br>模型参数θ<br>模型的分布为概率似然函数的乘积：</p><p>也就是说，已知历史 $conditional\ range:=[1, t-1]$，预测未来 $prediction\ range:=[t, T]$</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h3><p>以商品销量举例，</p><ul><li>第 $i$ 个商品在 $t$ 时刻的销量 $Z$ 表示为 $Z_{i, t}$；<a id="more"></a></li><li>我们预测条件分布 $P(Z_{i,t}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li><li>进一步预测更多(截止 T)时间上的条件分布 $P(Z_{i,t}, Z_{i,t+1}, Z_{i,t+2}, …, Z_{i,T}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li></ul><p>我们已知，商品历史销量 $$Z_{i,1:t-1}:=Z_{i, 1}, Z_{i, 2}, …, Z_{i, t-1}$$ 和特征 $$X_{i, 1:T}:=X_{i,1}, X_{i,2}, …, X_{i, t-1}, X_{i, t}, X_{i, t+1},…, X_{i, T}$$，预测未来销量。</p><p>模型的分布为条件概率似然函数的乘积：</p><p><img src="/images/distribution-product-of-likehood-factors.png" alt=""></p><p>其中， 模型参数θ; </p><p>也就是说，已知历史 $conditional\ range:=[1, t-1]$，预测未来 $prediction\ range:=[t, T]$</p><p>$\mathbf{h}_{i,t}$ 是自回归网络：<br><img src="/images/autoregressive-recurrent-net.png" alt=""></p><p>其中 $\Theta$ 是参数。</p><p>对 $h_{i,0}$ 和 $Z{_{i,0}}$ 的初始化值都设置了0。</p><p>… … 待续</p>]]></content>
       
       
       <categories>
@@ -35,7 +114,7 @@
       <link href="2021/03/03/shi-jian-xu-lie-de-shu-xue-biao-shi/"/>
       <url>2021/03/03/shi-jian-xu-lie-de-shu-xue-biao-shi/</url>
       
-        <content type="html"><![CDATA[<p>以商品销量举例，</p><ul><li>第 $i$ 个商品在 $t$ 时刻的销量 $Z$ 表示为 $Z_{i, t}$；<a id="more"></a></li><li>我们预测条件分布 $P(Z_{i,t}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li><li>进一步预测更多(截止 T)时间上的条件分布 $P(Z_{i,t}, Z_{i,t+1}, Z_{i,t+2}, …, Z_{i,T}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li></ul><p>我们已知，</p><ul><li>商品历史销量 $Z_{i,1:t-1}:=Z_{i, 1}, Z_{i, 2}, …, Z_{i, t-1}$</li><li>特征 $X_{i, 1:T}:=X_{i,1}, X_{i,2}, …, X_{i, t-1}, X_{i, t}, X_{i, t+1},…, X_{i, T}$</li></ul><p>也就是说，已知历史 $conditional\ range:=[1, t-1]$，预测未来 $prediction\ range:=[t, T]$</p>]]></content>
+        <content type="html"><![CDATA[<p>任何按照时间顺序观察的事物都是时间序列。<a id="more"></a></p><p>以商品销量举例，</p><ul><li>第 $i$ 个商品在 $t$ 时刻的销量 $Z$ 表示为 $Z_{i, t}$；<!--more--></li><li>我们预测条件分布 $P(Z_{i,t}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li><li>进一步预测更多(截止 T)时间上的条件分布 $P(Z_{i,t}, Z_{i,t+1}, Z_{i,t+2}, …, Z_{i,T}|Z_{i, t-1}, Z_{i, t-2}, …, Z_{i, 1})$</li></ul><p>我们已知，</p><ul><li>商品历史销量 $Z_{i,1:t-1}:=Z_{i, 1}, Z_{i, 2}, …, Z_{i, t-1}$</li><li>特征 $X_{i, 1:T}:=X_{i,1}, X_{i,2}, …, X_{i, t-1}, X_{i, t}, X_{i, t+1},…, X_{i, T}$</li></ul><p>也就是说，已知历史 $conditional\ range:=[1, t-1]$，预测未来 $prediction\ range:=[t, T]$</p>]]></content>
       
       
       <categories>
