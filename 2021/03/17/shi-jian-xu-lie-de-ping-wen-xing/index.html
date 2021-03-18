@@ -415,14 +415,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-03-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    782
+                    786
                 </div>
                 
 
@@ -454,7 +454,7 @@
 <p>ARIMA模型要求序列是平稳的，或可以通过处理（如差分）平稳化。</p>
 <h3 id="判断平稳性"><a href="#判断平稳性" class="headerlink" title="判断平稳性"></a>判断平稳性</h3><p>判断平稳性主要有两种，观察法和单位根检验法。</p>
 <ul>
-<li>观察可视化的数据，从中推断数据是否稳定；如观察时间曲线图或自相关图</li>
+<li>观察可视化的数据，从中推断数据是否稳定。如观察时间曲线图或自相关图</li>
 <li>单位根检验的方法有很多种，如 ADF检验。</li>
 </ul>
 <h5 id="观察法"><a href="#观察法" class="headerlink" title="观察法"></a>观察法</h5><p>观察曲线图，判断哪些序列平稳</p>
@@ -468,9 +468,14 @@
 <p>和时间曲线图一样，自相关图（ACF图）也能帮助我们识别非平稳时间序列。 对于一个平稳时间序列,自相关系数（ACF）会快速的下降到接近 0 的水平，然而非平稳时间序列的自相关系数会下降的比较缓慢。</p>
 <p><img src="/images/acf-google.png" alt=""></p>
 <p>差分后的谷歌股价的自相关图看起来像白噪声序列。所有自回归系数都在 95% 的置信度以内。</p>
+<ul>
+<li><input disabled="" type="checkbox"> 待更新</li>
+</ul>
 <h5 id="单位根检验"><a href="#单位根检验" class="headerlink" title="单位根检验"></a>单位根检验</h5><p>单位根检验是一种更客观的判定是否需要差分的方法。这个针对平稳性的统计假设检验被用于判断是否需要差分方法来让数据更平稳。<br>单位根检验的方法有很多种，ADF是一种常用的单位根检验方法，他的原假设为序列具有单位根，即非平稳，对于一个平稳的时序数据，就需要在给定的置信水平上显著，拒绝原假设。以下为检验结果，其p值大于0.99，说明并不能拒绝原假设。</p>
 <p><img src="/images/p-value.png" alt=""></p>
-<h3 id="平稳化处理方法"><a href="#平稳化处理方法" class="headerlink" title="平稳化处理方法"></a>平稳化处理方法</h3><p>平稳性是时间序列分析的前提条件，故我们需要对不平稳的序列进行处理将其转换成平稳的序列。常用的方法有：</p>
+<ul>
+<li><input disabled="" type="checkbox"> 待更新<h3 id="平稳化处理方法"><a href="#平稳化处理方法" class="headerlink" title="平稳化处理方法"></a>平稳化处理方法</h3>平稳性是时间序列分析的前提条件，故我们需要对不平稳的序列进行处理将其转换成平稳的序列。常用的方法有：</li>
+</ul>
 <ul>
 <li>对数变换</li>
 <li>平滑法</li>
@@ -484,7 +489,7 @@
 <h5 id="二阶差分"><a href="#二阶差分" class="headerlink" title="二阶差分"></a>二阶差分</h5><p>有时差分后的数据仍然不平稳，所以可能需要再一次对数据进行差分来得到一个平稳的序列：</p>
 <p>$$<br>y_t’’=y_t’ - y_{t-1}’=(y_t - y_{t-1}) - (y_{t-1} - y_{t-2})=y_t-2y_{t-1} + y_{t-2}<br>$$</p>
 <h5 id="季节性差分"><a href="#季节性差分" class="headerlink" title="季节性差分"></a>季节性差分</h5><p><img src="/images/seasonal-differ.png" alt=""></p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://otexts.com/fpp2/" target="_blank" rel="noopener">Forecasting: Principles &amp; Practice</a></li>
 </ul>
 
@@ -599,17 +604,16 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/03/17/shi-jian-xu-lie-de-ping-wen-xing/">
+                <a href="/2021/03/18/yan-chi-suan-zi/">
                     <div class="card-image">
                         
-                        <img src="/images/stationary-nonstationary.png" class="responsive-img" alt="时间序列的平稳性">
+                        <img src="/images/lag-operator.jpeg" class="responsive-img" alt="延迟算子">
                         
-                        <span class="card-title">时间序列的平稳性</span>
+                        <span class="card-title">延迟算子</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -619,9 +623,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -634,16 +638,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">
                         <span class="chip bg-color">时间序列</span>
-                    </a>
-                    
-                    <a href="/tags/arima/">
-                        <span class="chip bg-color">arima</span>
                     </a>
                     
                 </div>
@@ -851,7 +850,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.9k</span>&nbsp;字
+                class="white-color">36.1k</span>&nbsp;字
             
             
             

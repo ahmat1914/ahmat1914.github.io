@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="使用交叉验证选择决策树预剪枝参数 max_depth, ahmatjan">
+    <meta name="keywords" content="延迟算子, ahmatjan">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>使用交叉验证选择决策树预剪枝参数 max_depth | ahmatjan</title>
+    <title>延迟算子 | ahmatjan</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -258,12 +258,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/lag-operator.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">使用交叉验证选择决策树预剪枝参数 max_depth</h1>
+                    <h1 class="description center-align post-title">延迟算子</h1>
                 </div>
             </div>
         </div>
@@ -379,12 +379,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
-                                <span class="chip bg-color">决策树</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/">
-                                <span class="chip bg-color">树模型</span>
+                            <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">
+                                <span class="chip bg-color">时间序列</span>
                             </a>
                         
                     </div>
@@ -399,10 +395,6 @@
                                 MachineLearning
                             </a>
                         
-                            <a href="/categories/MachineLearning/exercises/" class="post-category">
-                                exercises
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -412,21 +404,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-15
+                    2021-03-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-19
+                    2021-03-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    365
+                    203
                 </div>
                 
 
@@ -453,90 +445,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>max_depth  限制树的最大深度，超过设定深度的树枝全部剪掉。</p>
-<a id="more"></a>
-
-<h3 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a>准备数据</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sklearn <span class="token keyword">import</span> tree
-<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>datasets <span class="token keyword">import</span> load_wine
-<span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>model_selection <span class="token keyword">import</span> train_test_split
-wine <span class="token operator">=</span> load_wine<span class="token punctuation">(</span><span class="token punctuation">)</span>
-Xtrain<span class="token punctuation">,</span> Xtest<span class="token punctuation">,</span> Ytrain<span class="token punctuation">,</span> Ytest <span class="token operator">=</span> train_test_split<span class="token punctuation">(</span>wine<span class="token punctuation">.</span>data<span class="token punctuation">,</span>wine<span class="token punctuation">.</span>target<span class="token punctuation">,</span>test_size<span class="token operator">=</span><span class="token number">0.3</span><span class="token punctuation">)</span>
-feature_name <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'酒精'</span><span class="token punctuation">,</span><span class="token string">'苹果酸'</span><span class="token punctuation">,</span><span class="token string">'灰'</span><span class="token punctuation">,</span><span class="token string">'灰的碱性'</span><span class="token punctuation">,</span><span class="token string">'镁'</span><span class="token punctuation">,</span><span class="token string">'总酚'</span><span class="token punctuation">,</span><span class="token string">'类黄酮'</span><span class="token punctuation">,</span><span class="token string">'非黄烷类酚类'</span><span class="token punctuation">,</span><span class="token string">'花青素'</span><span class="token punctuation">,</span><span class="token string">'颜色强度'</span><span class="token punctuation">,</span><span class="token string">'色调'</span><span class="token punctuation">,</span><span class="token string">'od280/od315稀释葡萄酒'</span><span class="token punctuation">,</span>'脯氨酸’<span class="token punctuation">]</span></code></pre>
-<h3 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h3><p>默认参数模型准确率</p>
-<pre class=" language-python"><code class="language-python">clf <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>criterion<span class="token operator">=</span><span class="token string">"entropy"</span>
-                                    <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">30</span>
-                                    <span class="token punctuation">,</span>splitter<span class="token operator">=</span><span class="token string">"random"</span>
-                                    <span class="token punctuation">)</span>
-clf <span class="token operator">=</span> clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
-score <span class="token operator">=</span> clf<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span></code></pre>
-<p><code>0.88</code></p>
-<h3 id="默认-max-depth-生成决策树"><a href="#默认-max-depth-生成决策树" class="headerlink" title="默认 max_depth 生成决策树"></a>默认 max_depth 生成决策树</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> graphviz
-dot_data <span class="token operator">=</span> tree<span class="token punctuation">.</span>export_graphviz<span class="token punctuation">(</span>clf
-                                <span class="token punctuation">,</span>feature_names<span class="token operator">=</span> feature_name
-                                <span class="token punctuation">,</span>class_names<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"琴酒"</span><span class="token punctuation">,</span><span class="token string">"雪莉"</span><span class="token punctuation">,</span><span class="token string">"贝尔摩德"</span><span class="token punctuation">]</span>
-                                <span class="token punctuation">,</span>filled<span class="token operator">=</span><span class="token boolean">True</span>
-                                <span class="token punctuation">,</span>rounded<span class="token operator">=</span><span class="token boolean">True</span>
-                                <span class="token punctuation">)</span>
-graph <span class="token operator">=</span> graphviz<span class="token punctuation">.</span>Source<span class="token punctuation">(</span>dot_data<span class="token punctuation">)</span>
-graph</code></pre>
-<p><img src="/images/max_depth/11.png" alt=""></p>
-<h3 id="max-depth-3-生成决策树"><a href="#max-depth-3-生成决策树" class="headerlink" title="max_depth=3 生成决策树"></a>max_depth=3 生成决策树</h3><pre class=" language-python"><code class="language-python">clf <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>criterion<span class="token operator">=</span><span class="token string">"entropy"</span>
-                                    <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">30</span>
-                                    <span class="token punctuation">,</span>splitter<span class="token operator">=</span><span class="token string">"random"</span>
-                                    <span class="token punctuation">,</span>max_depth<span class="token operator">=</span><span class="token number">3</span>
-                                <span class="token comment" spellcheck="true">#    ,min_samples_leaf=10</span>
-                                <span class="token comment" spellcheck="true">#    ,min_samples_split=25</span>
-                                    <span class="token punctuation">)</span>
-clf <span class="token operator">=</span> clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
-dot_data <span class="token operator">=</span> tree<span class="token punctuation">.</span>export_graphviz<span class="token punctuation">(</span>clf
-                                <span class="token punctuation">,</span>feature_names<span class="token operator">=</span> feature_name
-                                <span class="token punctuation">,</span>class_names<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"琴酒"</span><span class="token punctuation">,</span><span class="token string">"雪莉"</span><span class="token punctuation">,</span><span class="token string">"贝尔摩德"</span><span class="token punctuation">]</span>
-                                <span class="token punctuation">,</span>filled<span class="token operator">=</span><span class="token boolean">True</span>
-                                <span class="token punctuation">,</span>rounded<span class="token operator">=</span><span class="token boolean">True</span>
-                                <span class="token punctuation">)</span>
-graph <span class="token operator">=</span> graphviz<span class="token punctuation">.</span>Source<span class="token punctuation">(</span>dot_data<span class="token punctuation">)</span>
-graph</code></pre>
-<p><img src="/images/max_depth/2.png" alt=""></p>
-<h3 id="交叉验证-学习曲线"><a href="#交叉验证-学习曲线" class="headerlink" title="交叉验证 学习曲线"></a>交叉验证 学习曲线</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-test <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    clf <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>max_depth<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span>
-                                    <span class="token punctuation">,</span>criterion<span class="token operator">=</span><span class="token string">"entropy"</span>
-                                    <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">30</span>
-                                    <span class="token punctuation">,</span>splitter<span class="token operator">=</span><span class="token string">"random"</span>
-                                    <span class="token punctuation">)</span>
-    clf <span class="token operator">=</span> clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
-    score <span class="token operator">=</span> clf<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
-    test<span class="token punctuation">.</span>append<span class="token punctuation">(</span>score<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span>test<span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">"red"</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">"max_depth"</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="/images/max_depth/2.png" alt=""></p>
-<h3 id="交叉验证-学习曲线-1"><a href="#交叉验证-学习曲线-1" class="headerlink" title="交叉验证 学习曲线"></a>交叉验证 学习曲线</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
-test <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    clf <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>max_depth<span class="token operator">=</span>i<span class="token operator">+</span><span class="token number">1</span>
-                                    <span class="token punctuation">,</span>criterion<span class="token operator">=</span><span class="token string">"entropy"</span>
-                                    <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">30</span>
-                                    <span class="token punctuation">,</span>splitter<span class="token operator">=</span><span class="token string">"random"</span>
-                                    <span class="token punctuation">)</span>
-    clf <span class="token operator">=</span> clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
-    score <span class="token operator">=</span> clf<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
-    test<span class="token punctuation">.</span>append<span class="token punctuation">(</span>score<span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">,</span>test<span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">"red"</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">"max_depth"</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p><img src="/images/max_depth/3.png" alt=""></p>
-<h3 id="max-depth-3-时模型准确率"><a href="#max-depth-3-时模型准确率" class="headerlink" title="max_depth=3 时模型准确率"></a>max_depth=3 时模型准确率</h3><pre class=" language-python"><code class="language-python">clf <span class="token operator">=</span> tree<span class="token punctuation">.</span>DecisionTreeClassifier<span class="token punctuation">(</span>criterion<span class="token operator">=</span><span class="token string">"entropy"</span><span class="token punctuation">,</span>
-                                    max_depth<span class="token operator">=</span><span class="token number">3</span>
-                                    <span class="token punctuation">,</span>random_state<span class="token operator">=</span><span class="token number">30</span>
-                                    <span class="token punctuation">,</span>splitter<span class="token operator">=</span><span class="token string">"random"</span>
-                                    <span class="token punctuation">)</span>
-clf <span class="token operator">=</span> clf<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>Xtrain<span class="token punctuation">,</span> Ytrain<span class="token punctuation">)</span>
-score <span class="token operator">=</span> clf<span class="token punctuation">.</span>score<span class="token punctuation">(</span>Xtest<span class="token punctuation">,</span> Ytest<span class="token punctuation">)</span>
-score</code></pre>
-<p><code>0.94</code></p>
+                <h3 id="延迟算子"><a href="#延迟算子" class="headerlink" title="延迟算子"></a>延迟算子</h3><p>时间序列的延迟使用延迟算子（backshift operator）描述， 用$B$ 表示。 (有的文献使用滞后算子，Lag operator，用$L$表示）</p>
+<p>$$<br>By_t=y_{t-1}<br>$$</p>
+<p>$$<br>B(By_t)=B^2y_t=y_{t-2}<br>$$</p>
+<p>$$<br>B^{12}y_t=y_{t-12}<br>$$</p>
+<h3 id="一阶差分"><a href="#一阶差分" class="headerlink" title="一阶差分"></a>一阶差分</h3><p>$$<br>y’<em>t=y_t - y</em>{t-1}=y_t - By_t=(1-B)y_t<br>$$</p>
+<h3 id="二阶差分"><a href="#二阶差分" class="headerlink" title="二阶差分"></a>二阶差分</h3><p>$$<br>y_t’’=y_t’ - y_{t-1}’=(y_t - y_{t-1}) - (y_{t-1} - y_{t-2})=y_t-2y_{t-1} + y_{t-2}=y_t-2By_t-B^2y_t=(1-2B+B^2)y_t=(1-B)^2y_t<br>$$</p>
+<h3 id="d-阶差分"><a href="#d-阶差分" class="headerlink" title="d 阶差分"></a>d 阶差分</h3><p>$$<br>(1-B)^dy_t<br>$$</p>
+<h3 id="延迟算子特性"><a href="#延迟算子特性" class="headerlink" title="延迟算子特性"></a>延迟算子特性</h3><p>延迟算子符合代数变换的规则。如一阶差分乘以同期（季节性）差分可表示为：<br>$$<br>(1-B)(1-B^m)y_t=(1-B^m-B+B^{m+1})y_t=y_t-B^my_t-By_t+B^{m+1}y_t=y_t-y_{t-m}-y_{t-1}+y_{t-m-1}<br>$$</p>
+<p>延迟算子的其他特性<br><img src="/images/lag-operator2.png" alt=""></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://otexts.com/fpp2/" target="_blank" rel="noopener">Forecasting: Principles &amp; Practice</a></li>
+</ul>
 
                 
             </div>
@@ -563,7 +483,7 @@ score</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ahmat1914.github.io/2021/02/15/shi-yong-jiao-cha-yan-zheng-xuan-ze-jue-ce-shu-yu-jian-zhi-can-shu-max-depth/">https://ahmat1914.github.io/2021/02/15/shi-yong-jiao-cha-yan-zheng-xuan-ze-jue-ce-shu-yu-jian-zhi-can-shu-max-depth/</a>
+                    <a href="https://ahmat1914.github.io/2021/03/18/yan-chi-suan-zi/">https://ahmat1914.github.io/2021/03/18/yan-chi-suan-zi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,12 +521,8 @@ score</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
-                                    <span class="chip bg-color">决策树</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/">
-                                    <span class="chip bg-color">树模型</span>
+                                <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">
+                                    <span class="chip bg-color">时间序列</span>
                                 </a>
                             
                         </div>
@@ -649,28 +565,29 @@ score</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/02/19/sui-ji-sen-lin/">
+                <a href="/2021/03/18/yan-chi-suan-zi/">
                     <div class="card-image">
                         
-                        <img src="/images/randomforest.png" class="responsive-img" alt="随机森林">
+                        <img src="/images/lag-operator.jpeg" class="responsive-img" alt="延迟算子">
                         
-                        <span class="card-title">随机森林</span>
+                        <span class="card-title">延迟算子</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            随机森林是一种具有代表性的 Bagging（装袋法）集成算法。
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -683,19 +600,12 @@ score</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%A0%91%E6%A8%A1%E5%9E%8B/">
-                        <span class="chip bg-color">树模型</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">集成学习</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/">
-                        <span class="chip bg-color">随机森林</span>
+                    <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">
+                        <span class="chip bg-color">时间序列</span>
                     </a>
                     
                 </div>
@@ -709,13 +619,12 @@ score</code></pre>
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/22/zhi-chi-xiang-liang-ji-xiang-guan-xi-ti/">
+                <a href="/2021/03/17/shi-jian-xu-lie-de-ping-wen-xing/">
                     <div class="card-image">
                         
+                        <img src="/images/stationary-nonstationary.png" class="responsive-img" alt="时间序列的平稳性">
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="支持向量机相关习题">
-                        
-                        <span class="card-title">支持向量机相关习题</span>
+                        <span class="card-title">时间序列的平稳性</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -726,7 +635,7 @@ score</code></pre>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
                             </span>
                         <span class="publish-author">
                             
@@ -736,10 +645,6 @@ score</code></pre>
                                     MachineLearning
                                 </a>
                             
-                            <a href="/categories/MachineLearning/exercises/" class="post-category">
-                                    exercises
-                                </a>
-                            
                             
                         </span>
                     </div>
@@ -747,8 +652,12 @@ score</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/svm/">
-                        <span class="chip bg-color">svm</span>
+                    <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">
+                        <span class="chip bg-color">时间序列</span>
+                    </a>
+                    
+                    <a href="/tags/arima/">
+                        <span class="chip bg-color">arima</span>
                     </a>
                     
                 </div>

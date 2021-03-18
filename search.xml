@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>延迟算子</title>
+      <link href="2021/03/18/yan-chi-suan-zi/"/>
+      <url>2021/03/18/yan-chi-suan-zi/</url>
+      
+        <content type="html"><![CDATA[<h3 id="延迟算子"><a href="#延迟算子" class="headerlink" title="延迟算子"></a>延迟算子</h3><p>时间序列的延迟使用延迟算子（backshift operator）描述， 用$B$ 表示。 (有的文献使用滞后算子，Lag operator，用$L$表示）</p><p>$$<br>By_t=y_{t-1}<br>$$</p><p>$$<br>B(By_t)=B^2y_t=y_{t-2}<br>$$</p><p>$$<br>B^{12}y_t=y_{t-12}<br>$$</p><h3 id="一阶差分"><a href="#一阶差分" class="headerlink" title="一阶差分"></a>一阶差分</h3><p>$$<br>y’<em>t=y_t - y</em>{t-1}=y_t - By_t=(1-B)y_t<br>$$</p><h3 id="二阶差分"><a href="#二阶差分" class="headerlink" title="二阶差分"></a>二阶差分</h3><p>$$<br>y_t’’=y_t’ - y_{t-1}’=(y_t - y_{t-1}) - (y_{t-1} - y_{t-2})=y_t-2y_{t-1} + y_{t-2}=y_t-2By_t-B^2y_t=(1-2B+B^2)y_t=(1-B)^2y_t<br>$$</p><h3 id="d-阶差分"><a href="#d-阶差分" class="headerlink" title="d 阶差分"></a>d 阶差分</h3><p>$$<br>(1-B)^dy_t<br>$$</p><h3 id="延迟算子特性"><a href="#延迟算子特性" class="headerlink" title="延迟算子特性"></a>延迟算子特性</h3><p>延迟算子符合代数变换的规则。如一阶差分乘以同期（季节性）差分可表示为：<br>$$<br>(1-B)(1-B^m)y_t=(1-B^m-B+B^{m+1})y_t=y_t-B^my_t-By_t+B^{m+1}y_t=y_t-y_{t-m}-y_{t-1}+y_{t-m-1}<br>$$</p><p>延迟算子的其他特性<br><img src="/images/lag-operator2.png" alt=""></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul><li><a href="https://otexts.com/fpp2/" target="_blank" rel="noopener">Forecasting: Principles &amp; Practice</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> MachineLearning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 时间序列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>时间序列的平稳性</title>
       <link href="2021/03/17/shi-jian-xu-lie-de-ping-wen-xing/"/>
       <url>2021/03/17/shi-jian-xu-lie-de-ping-wen-xing/</url>
       
-        <content type="html"><![CDATA[<h3 id="平稳性"><a href="#平稳性" class="headerlink" title="平稳性"></a>平稳性</h3><p>如果时间序列的性质不随时间变化而变化（如均值0，方差趋于稳定值），我们称该序列是平稳的。典型的平稳序列是白噪声（white noise series）。</p><p>因此具有趋势、周期性、季节性的序列不是平稳序列。</p><p>ARIMA模型要求序列是平稳的，或可以通过处理（如差分）平稳化。</p><h3 id="判断平稳性"><a href="#判断平稳性" class="headerlink" title="判断平稳性"></a>判断平稳性</h3><p>判断平稳性主要有两种，观察法和单位根检验法。</p><ul><li>观察可视化的数据，从中推断数据是否稳定；如观察时间曲线图或自相关图</li><li>单位根检验的方法有很多种，如 ADF检验。</li></ul><h5 id="观察法"><a href="#观察法" class="headerlink" title="观察法"></a>观察法</h5><p>观察曲线图，判断哪些序列平稳</p><p><img src="/images/which-stationary-nonstationary.png" alt=""></p><ul><li>存在季节性的序列：d, h, i</li><li>存在趋势的序列：a, c, e, f, i</li><li>方差明显变化的序列: i</li></ul><p>剩下的 b, g 是平稳序列。</p><p>和时间曲线图一样，自相关图（ACF图）也能帮助我们识别非平稳时间序列。 对于一个平稳时间序列,自相关系数（ACF）会快速的下降到接近 0 的水平，然而非平稳时间序列的自相关系数会下降的比较缓慢。</p><p><img src="/images/acf-google.png" alt=""></p><p>差分后的谷歌股价的自相关图看起来像白噪声序列。所有自回归系数都在 95% 的置信度以内。</p><h5 id="单位根检验"><a href="#单位根检验" class="headerlink" title="单位根检验"></a>单位根检验</h5><p>单位根检验是一种更客观的判定是否需要差分的方法。这个针对平稳性的统计假设检验被用于判断是否需要差分方法来让数据更平稳。<br>单位根检验的方法有很多种，ADF是一种常用的单位根检验方法，他的原假设为序列具有单位根，即非平稳，对于一个平稳的时序数据，就需要在给定的置信水平上显著，拒绝原假设。以下为检验结果，其p值大于0.99，说明并不能拒绝原假设。</p><p><img src="/images/p-value.png" alt=""></p><h3 id="平稳化处理方法"><a href="#平稳化处理方法" class="headerlink" title="平稳化处理方法"></a>平稳化处理方法</h3><p>平稳性是时间序列分析的前提条件，故我们需要对不平稳的序列进行处理将其转换成平稳的序列。常用的方法有：</p><ul><li>对数变换</li><li>平滑法</li><li>差分</li><li>分解</li></ul><h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><p>差分可以通过去除时间序列中的一些变化特征来平稳化它的均值，并因此消除（或减小）时间序列的趋势和季节性。</p><p>差分序列是指原序列的连续观测值之间的变化值组成的时间序列，它可以被表示为：<br>$$<br>y_t’ = y_t - y_{t-1}<br>$$</p><h5 id="一阶差分、白噪声、random-walk"><a href="#一阶差分、白噪声、random-walk" class="headerlink" title="一阶差分、白噪声、random walk"></a>一阶差分、白噪声、random walk</h5><p>当差分序列是白噪声时，即可得到“随机游走”模型：</p><p>$$<br>y_t = y_{t-1} + \epsilon_t<br>$$<br>其中 $\epsilon_t$ 是白噪声。</p><h5 id="二阶差分"><a href="#二阶差分" class="headerlink" title="二阶差分"></a>二阶差分</h5><p>有时差分后的数据仍然不平稳，所以可能需要再一次对数据进行差分来得到一个平稳的序列：</p><p>$$<br>y_t’’=y_t’ - y_{t-1}’=(y_t - y_{t-1}) - (y_{t-1} - y_{t-2})=y_t-2y_{t-1} + y_{t-2}<br>$$</p><h5 id="季节性差分"><a href="#季节性差分" class="headerlink" title="季节性差分"></a>季节性差分</h5><p><img src="/images/seasonal-differ.png" alt=""></p><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul><li><a href="https://otexts.com/fpp2/" target="_blank" rel="noopener">Forecasting: Principles &amp; Practice</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<h3 id="平稳性"><a href="#平稳性" class="headerlink" title="平稳性"></a>平稳性</h3><p>如果时间序列的性质不随时间变化而变化（如均值0，方差趋于稳定值），我们称该序列是平稳的。典型的平稳序列是白噪声（white noise series）。</p><p>因此具有趋势、周期性、季节性的序列不是平稳序列。</p><p>ARIMA模型要求序列是平稳的，或可以通过处理（如差分）平稳化。</p><h3 id="判断平稳性"><a href="#判断平稳性" class="headerlink" title="判断平稳性"></a>判断平稳性</h3><p>判断平稳性主要有两种，观察法和单位根检验法。</p><ul><li>观察可视化的数据，从中推断数据是否稳定。如观察时间曲线图或自相关图</li><li>单位根检验的方法有很多种，如 ADF检验。</li></ul><h5 id="观察法"><a href="#观察法" class="headerlink" title="观察法"></a>观察法</h5><p>观察曲线图，判断哪些序列平稳</p><p><img src="/images/which-stationary-nonstationary.png" alt=""></p><ul><li>存在季节性的序列：d, h, i</li><li>存在趋势的序列：a, c, e, f, i</li><li>方差明显变化的序列: i</li></ul><p>剩下的 b, g 是平稳序列。</p><p>和时间曲线图一样，自相关图（ACF图）也能帮助我们识别非平稳时间序列。 对于一个平稳时间序列,自相关系数（ACF）会快速的下降到接近 0 的水平，然而非平稳时间序列的自相关系数会下降的比较缓慢。</p><p><img src="/images/acf-google.png" alt=""></p><p>差分后的谷歌股价的自相关图看起来像白噪声序列。所有自回归系数都在 95% 的置信度以内。</p><ul><li><input disabled="" type="checkbox"> 待更新</li></ul><h5 id="单位根检验"><a href="#单位根检验" class="headerlink" title="单位根检验"></a>单位根检验</h5><p>单位根检验是一种更客观的判定是否需要差分的方法。这个针对平稳性的统计假设检验被用于判断是否需要差分方法来让数据更平稳。<br>单位根检验的方法有很多种，ADF是一种常用的单位根检验方法，他的原假设为序列具有单位根，即非平稳，对于一个平稳的时序数据，就需要在给定的置信水平上显著，拒绝原假设。以下为检验结果，其p值大于0.99，说明并不能拒绝原假设。</p><p><img src="/images/p-value.png" alt=""></p><ul><li><input disabled="" type="checkbox"> 待更新<h3 id="平稳化处理方法"><a href="#平稳化处理方法" class="headerlink" title="平稳化处理方法"></a>平稳化处理方法</h3>平稳性是时间序列分析的前提条件，故我们需要对不平稳的序列进行处理将其转换成平稳的序列。常用的方法有：</li></ul><ul><li>对数变换</li><li>平滑法</li><li>差分</li><li>分解</li></ul><h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><p>差分可以通过去除时间序列中的一些变化特征来平稳化它的均值，并因此消除（或减小）时间序列的趋势和季节性。</p><p>差分序列是指原序列的连续观测值之间的变化值组成的时间序列，它可以被表示为：<br>$$<br>y_t’ = y_t - y_{t-1}<br>$$</p><h5 id="一阶差分、白噪声、random-walk"><a href="#一阶差分、白噪声、random-walk" class="headerlink" title="一阶差分、白噪声、random walk"></a>一阶差分、白噪声、random walk</h5><p>当差分序列是白噪声时，即可得到“随机游走”模型：</p><p>$$<br>y_t = y_{t-1} + \epsilon_t<br>$$<br>其中 $\epsilon_t$ 是白噪声。</p><h5 id="二阶差分"><a href="#二阶差分" class="headerlink" title="二阶差分"></a>二阶差分</h5><p>有时差分后的数据仍然不平稳，所以可能需要再一次对数据进行差分来得到一个平稳的序列：</p><p>$$<br>y_t’’=y_t’ - y_{t-1}’=(y_t - y_{t-1}) - (y_{t-1} - y_{t-2})=y_t-2y_{t-1} + y_{t-2}<br>$$</p><h5 id="季节性差分"><a href="#季节性差分" class="headerlink" title="季节性差分"></a>季节性差分</h5><p><img src="/images/seasonal-differ.png" alt=""></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul><li><a href="https://otexts.com/fpp2/" target="_blank" rel="noopener">Forecasting: Principles &amp; Practice</a></li></ul>]]></content>
       
       
       <categories>
@@ -415,9 +440,9 @@
       
         <tags>
             
-            <tag> 集成学习 </tag>
-            
             <tag> 树模型 </tag>
+            
+            <tag> 集成学习 </tag>
             
             <tag> 随机森林 </tag>
             
