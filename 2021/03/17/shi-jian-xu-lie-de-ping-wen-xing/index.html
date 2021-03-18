@@ -422,7 +422,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    786
+                    793
                 </div>
                 
 
@@ -484,7 +484,8 @@
 </ul>
 <h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><p>差分可以通过去除时间序列中的一些变化特征来平稳化它的均值，并因此消除（或减小）时间序列的趋势和季节性。</p>
 <p>差分序列是指原序列的连续观测值之间的变化值组成的时间序列，它可以被表示为：<br>$$<br>y_t’ = y_t - y_{t-1}<br>$$</p>
-<h5 id="一阶差分、白噪声、random-walk"><a href="#一阶差分、白噪声、random-walk" class="headerlink" title="一阶差分、白噪声、random walk"></a>一阶差分、白噪声、random walk</h5><p>当差分序列是白噪声时，即可得到“随机游走”模型：</p>
+<h5 id="一阶差分、白噪声、random-walk"><a href="#一阶差分、白噪声、random-walk" class="headerlink" title="一阶差分、白噪声、random walk"></a>一阶差分、白噪声、random walk</h5><p>$$<br>y_t’ = y_t - y_{t-1}<br>$$</p>
+<p>当差分序列$y’_t$是白噪声时，即可得到“随机游走”模型：</p>
 <p>$$<br>y_t = y_{t-1} + \epsilon_t<br>$$<br>其中 $\epsilon_t$ 是白噪声。</p>
 <h5 id="二阶差分"><a href="#二阶差分" class="headerlink" title="二阶差分"></a>二阶差分</h5><p>有时差分后的数据仍然不平稳，所以可能需要再一次对数据进行差分来得到一个平稳的序列：</p>
 <p>$$<br>y_t’’=y_t’ - y_{t-1}’=(y_t - y_{t-1}) - (y_{t-1} - y_{t-2})=y_t-2y_{t-1} + y_{t-2}<br>$$</p>
@@ -850,7 +851,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">36.1k</span>&nbsp;字
+                class="white-color">36.2k</span>&nbsp;字
             
             
             
