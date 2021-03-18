@@ -173,3 +173,6 @@ $ARIMA(3,1,1)$ 模型的残差自相关图（如下）显示出所有的自相�
 
 Hyndman-Khandakar算法流程：
 ![](/images/Hyndman-Khandakar.png)
+
+### 参考
+* [Forecasting: Principles & Practice](https://otexts.com/fpp2/)
