@@ -115,7 +115,7 @@ ARIMA(q,d,q) 模型的特例:
 
 仅从时序图中我们通常无法判断 $p和q$ 的合适取值。然而我们有时从自相关图和与其紧密相关的偏自相关图中，可以判断 $p和q$ 的合适取值。
 
-回顾之前我们所说过的，自相关图（ACF Plot）反映了自回归中 $y_t$ 和 $y_{t−k}$ 在不同 k 取值之下的关系。
+自相关图（ACF Plot）反映了自回归中 $y_t$ 和 $y_{t−k}$ 在不同 k 取值之下的关系。
 
 现在如果 $yt$ 和 $y_{t−1}$ 已经存在相关性，则 $y_{t−1}$ 和 $y_{t−2}$ 必然存在相关性。然而 $yt$ 和 $y_{t−2}$ 也同样必然相关，这是因为它们都与 $y_{t−1}$ 相关而不是因为 $y_{t−2}$ 包含新的信息可以用来预测 $y_t$。
 
@@ -176,3 +176,4 @@ Hyndman-Khandakar算法流程：
 
 ### 参考
 * [Forecasting: Principles & Practice](https://otexts.com/fpp2/)
+* [ARIMA models for time series forecasting](http://people.duke.edu/~rnau/411arim3.htm)
