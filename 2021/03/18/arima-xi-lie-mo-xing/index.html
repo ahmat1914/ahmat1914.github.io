@@ -419,7 +419,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-18
+                    2021-03-19
                 </div>
                 
 
@@ -523,7 +523,7 @@
 <li>或先观察 ACF，PACF图，选出几个可能的 p，q取值，然后计算 AIC，选择误差最小的。<br><img src="/images/aic-acf-difference.png" alt=""></li>
 </ul>
 <h3 id="自相关图和偏自相关图"><a href="#自相关图和偏自相关图" class="headerlink" title="自相关图和偏自相关图"></a>自相关图和偏自相关图</h3><p>仅从时序图中我们通常无法判断 $p和q$ 的合适取值。然而我们有时从自相关图和与其紧密相关的偏自相关图中，可以判断 $p和q$ 的合适取值。</p>
-<p>回顾之前我们所说过的，自相关图（ACF Plot）反映了自回归中 $y_t$ 和 $y_{t−k}$ 在不同 k 取值之下的关系。</p>
+<p>自相关图（ACF Plot）反映了自回归中 $y_t$ 和 $y_{t−k}$ 在不同 k 取值之下的关系。</p>
 <p>现在如果 $yt$ 和 $y_{t−1}$ 已经存在相关性，则 $y_{t−1}$ 和 $y_{t−2}$ 必然存在相关性。然而 $yt$ 和 $y_{t−2}$ 也同样必然相关，这是因为它们都与 $y_{t−1}$ 相关而不是因为 $y_{t−2}$ 包含新的信息可以用来预测 $y_t$。</p>
 <p>为了解决这个问题，我们可以使用偏自相关, partial autocorrelations 简称 PACF。</p>
 <p>偏自相关衡量的是在移除延迟 $1,2,3,…,k−1$ 对 $y_t$ 的影响的情况下, $y_t$ 和 $y_{t−k}$ 的关系。</p>
@@ -566,6 +566,7 @@
 <h3 id="最小化AIC，确定p-q-取值"><a href="#最小化AIC，确定p-q-取值" class="headerlink" title="最小化AIC，确定p,q 取值"></a>最小化AIC，确定p,q 取值</h3><p>Hyndman-Khandakar算法流程：<br><img src="/images/Hyndman-Khandakar.png" alt=""></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://otexts.com/fpp2/" target="_blank" rel="noopener">Forecasting: Principles &amp; Practice</a></li>
+<li><a href="http://people.duke.edu/~rnau/411arim3.htm" target="_blank" rel="noopener">ARIMA models for time series forecasting</a></li>
 </ul>
 
                 
@@ -683,29 +684,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/03/18/arima-xi-lie-mo-xing/">
+                <a href="/2021/03/19/zi-xiang-guan-tu/">
                     <div class="card-image">
                         
-                        <img src="/images/arima-logo.png" class="responsive-img" alt="ARIMA 系列模型">
+                        <img src="/images/autocorrelation-logo.png" class="responsive-img" alt="自相关图">
                         
-                        <span class="card-title">ARIMA 系列模型</span>
+                        <span class="card-title">自相关图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            自相关系数自相关系数可以测量时间序列 滞后值 之间的线性相关性，正如相关系数可以衡量两个变量之间的线性相关性。
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -718,20 +718,19 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/arima/">
-                        <span class="chip bg-color">arima</span>
+                    <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">
+                        <span class="chip bg-color">时间序列</span>
                     </a>
                     
-                    <a href="/tags/ma/">
-                        <span class="chip bg-color">ma</span>
+                    <a href="/tags/acf/">
+                        <span class="chip bg-color">acf</span>
                     </a>
                     
-                    <a href="/tags/ar/">
-                        <span class="chip bg-color">ar</span>
+                    <a href="/tags/pacf/">
+                        <span class="chip bg-color">pacf</span>
                     </a>
                     
                 </div>
@@ -935,7 +934,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">38.4k</span>&nbsp;字
+                class="white-color">39.2k</span>&nbsp;字
             
             
             
