@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="时间序列的平稳性, ahmatjan">
+    <meta name="keywords" content="单位根检验, ahmatjan">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>时间序列的平稳性 | ahmatjan</title>
+    <title>单位根检验 | ahmatjan</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -258,12 +258,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/stationary-nonstationary.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/ADF-test-logo.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">时间序列的平稳性</h1>
+                    <h1 class="description center-align post-title">单位根检验</h1>
                 </div>
             </div>
         </div>
@@ -379,12 +379,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/arima/">
-                                <span class="chip bg-color">arima</span>
+                            <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
+                                <span class="chip bg-color">决策树</span>
                             </a>
                         
-                            <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">
-                                <span class="chip bg-color">时间序列</span>
+                            <a href="/tags/%E7%94%BB%E5%9B%BE/">
+                                <span class="chip bg-color">画图</span>
                             </a>
                         
                     </div>
@@ -408,7 +408,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-17
+                    2021-03-19
                 </div>
                 
 
@@ -422,14 +422,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    638
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    4 Min
                 </div>
                 
 
@@ -449,46 +449,114 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="平稳性"><a href="#平稳性" class="headerlink" title="平稳性"></a>平稳性</h3><p>如果时间序列的性质不随时间变化而变化（如均值0，方差趋于稳定值），我们称该序列是平稳的。典型的平稳序列是白噪声（white noise series）。</p>
-<p>因此具有趋势、周期性、季节性的序列不是平稳序列。</p>
-<p>ARIMA模型要求序列是平稳的，或可以通过处理（如差分）平稳化。</p>
-<h3 id="判断平稳性"><a href="#判断平稳性" class="headerlink" title="判断平稳性"></a>判断平稳性</h3><p>判断平稳性主要有两种，观察法和单位根检验法。</p>
+                <h3 id="单位根检验"><a href="#单位根检验" class="headerlink" title="单位根检验"></a>单位根检验</h3><p>单位根检验是一种更客观的判定是否需要差分的方法。<a id="more"></a></p>
+<p>这个针对平稳性的统计假设检验被用于判断是否需要差分方法来让数据更平稳。<br>单位根检验的方法有很多种，ADF是一种常用的单位根检验方法，他的原假设为序列具有单位根，即非平稳，对于一个平稳的时序数据，就需要在给定的置信水平上显著拒绝原假设。</p>
+<h3 id="ADF-检验"><a href="#ADF-检验" class="headerlink" title="ADF 检验"></a>ADF 检验</h3><p>在统计学里，迪基-福勒检验（Dickey-Fuller test）可以测试一个自回归模型是否存在单位根（unit root）。</p>
+<p>ADF 检验思路：</p>
+<ol>
+<li>ADF 测试提出虚无假设（Null hypothesis, H0）：存在单位根；产生对立假设（Alternative Hypothesis, H1）。</li>
+<li>计算对比 ADF 统计量和给定显著性水平下的ADF统计量的临界值，从而得出虚无假设被拒绝的概率。</li>
+</ol>
+<p>如果存在单位根，序列不平稳，原因如下。（不关心单位根不存在的情况，因为如果不存在，并不能说明平稳或不平稳）</p>
+<p>一个简单的 $AR(1)$ 模型如下：</p>
+<p>$$<br>y_t=w_1y_{t-1} + \epsilon_t<br>$$<br>其中，$\epsilon_t$ 是平稳序列（如白噪声）。</p>
+<p>一阶差分：<br>$$<br>y_t’=y_t-y_{t-1}=(w_1y_{t-1} + \epsilon_t)-y_{t-1}=(w_1-1)y_{t-1}+\epsilon_t<br>$$</p>
+<p>假设 $w_1=1$ （即单位根存在），一阶差分是平稳序列：</p>
+<p>$$<br>y_t’=\epsilon_t<br>$$</p>
+<p>于是，$y_t$ 是非平稳序列，相当于随机游走（random walk）：<br>$$<br>y_t = y_{t-1} + \epsilon_t=y_0 +\sum_{i=1}^{t}\epsilon_i<br>$$</p>
+<h3 id="使用-ADF-结果判断平稳性"><a href="#使用-ADF-结果判断平稳性" class="headerlink" title="使用 ADF 结果判断平稳性"></a>使用 ADF 结果判断平稳性</h3><p>ADF 检验结果，可能如下：</p>
+<pre class=" language-python"><code class="language-python">test_result <span class="token operator">=</span> <span class="token punctuation">(</span>
+    <span class="token operator">-</span><span class="token number">0.4801283240847767</span><span class="token punctuation">,</span>
+    <span class="token number">0.8958363331790191</span><span class="token punctuation">,</span>
+    <span class="token number">13</span><span class="token punctuation">,</span>
+    <span class="token number">1542</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">"1%"</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">3.4345978724183603</span><span class="token punctuation">,</span>
+        <span class="token string">"5%"</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">2.863416175501975</span><span class="token punctuation">,</span>
+        <span class="token string">"10%"</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">2.567768846731635</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token operator">-</span><span class="token number">6789.599195492883</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
 <ul>
-<li>观察可视化的数据，从中推断数据是否稳定。如观察时间曲线图或自相关图</li>
-<li>单位根检验的方法有很多种，如 ADF检验。</li>
+<li>第一个值，-1.8481210964862593 是显著性检验统计量（tau-statistic Critical value）。</li>
+<li>第二个值， 0.35684591783869046 是 p-value，虚无假设不被拒绝（注：不等于成立）的概率。</li>
+<li>第三个值，0 是使用的滞后阶数。（The number of lags used.）</li>
+<li>第四个值，用于ADF回归和计算临界值用到的观测值数目。</li>
+<li>第五个值，三个置信度。Critical values for the test statistic at the 1%, 5%, 10% levels. Based on MacKinnon (2010)</li>
 </ul>
-<h5 id="观察法"><a href="#观察法" class="headerlink" title="观察法"></a>观察法</h5><p>观察曲线图，判断哪些序列平稳</p>
-<p><img src="/images/which-stationary-nonstationary.png" alt=""></p>
+<p>两种方法可以判断平稳性，</p>
+<p>方法一、观察 p-value ：</p>
 <ul>
-<li>存在季节性的序列：d, h, i</li>
-<li>存在趋势的序列：a, c, e, f, i</li>
-<li>方差明显变化的序列: i</li>
+<li>如果 p-value 很大（p-value&gt;0.05），说明虚无假设不被拒绝（注：不等于成立）的概率很大。即大概率存在单位根，序列非平稳。</li>
+<li>如果 p-value 很小（p-value &lt;= 0.05），说明虚无假设被拒绝。即小概率存在（相当于不存在）单位根，不存在单位根情况下，无法确定平稳性。</li>
 </ul>
-<p>剩下的 b, g 是平稳序列。</p>
-<p>和时间曲线图一样，自相关图（ACF图）也能帮助我们识别非平稳时间序列。 对于一个平稳时间序列,自相关系数（ACF）会快速的下降到接近 0 的水平，然而非平稳时间序列的自相关系数会下降的比较缓慢。</p>
-<p><img src="/images/acf-google.png" alt=""></p>
-<p>差分后的谷歌股价的自相关图看起来像白噪声序列。所有自回归系数都在 95% 的置信度以内。</p>
+<p>方法二、比较显著性检验统计量（au-statistic Critical value）和三个置信度上的统计量：</p>
 <ul>
-<li><input disabled="" type="checkbox"> 待更新</li>
+<li>如果显著性检验统计量大于三个置信度上的值，说明虚无假设不被拒绝（注：不等于成立）。即存在单位根，序列非平稳。</li>
+<li>如果显著性检验统计量小于任意一个置信度上的值，说明虚无假设被拒绝。即不存在单位根，无法确定平稳性序列平稳。</li>
 </ul>
-<h3 id="平稳化处理方法"><a href="#平稳化处理方法" class="headerlink" title="平稳化处理方法"></a>平稳化处理方法</h3><p>平稳性是时间序列分析的前提条件，故我们需要对不平稳的序列进行处理将其转换成平稳的序列。常用的方法有：</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>使用比特币价格数据（来自 <a href="https://www.kaggle.com/team-ai/bitcoin-price-prediction" target="_blank" rel="noopener">Kaggle 数据集</a>）</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd
+
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'arima/bitcoin_price_Training - Training.csv'</span><span class="token punctuation">,</span>parse_dates<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'Date'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>fillna<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p><img src="/images/bitcoin-data-head.png" alt=""></p>
+<p>其中，闭市价格 <code>Close</code> 是我们分析对象。</p>
+<pre class=" language-python"><code class="language-python">ts <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">"Date"</span><span class="token punctuation">,</span> <span class="token string">"Close"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>set_index<span class="token punctuation">(</span><span class="token string">"Date"</span><span class="token punctuation">)</span>
+ts<span class="token punctuation">.</span>sort_index<span class="token punctuation">(</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+ts</code></pre>
+<p><img src="/images/bitcoin-close-head.png" alt=""></p>
+<p>先观察时序图</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> matplotlib <span class="token keyword">import</span> pyplot <span class="token keyword">as</span> plt
+
+<span class="token keyword">def</span> <span class="token function">time_plot_with_properties</span><span class="token punctuation">(</span>ts<span class="token punctuation">,</span> mean_window<span class="token operator">=</span><span class="token number">24</span><span class="token punctuation">,</span> std_window<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># calculate rolling mean</span>
+    rolled_mean <span class="token operator">=</span> ts<span class="token punctuation">.</span>rolling<span class="token punctuation">(</span>window<span class="token operator">=</span>mean_window<span class="token punctuation">,</span> center<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">.</span>mean<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># calculate rolling standard</span>
+    rolled_std <span class="token operator">=</span> ts<span class="token punctuation">.</span>rolling<span class="token punctuation">(</span>window<span class="token operator">=</span>std_window<span class="token punctuation">,</span> center<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">.</span>std<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    _ <span class="token operator">=</span> plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># time plot of the original series</span>
+    plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>ts<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">"blue"</span><span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">"Original"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># time plot of rolling mean</span>
+    plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>rolled_mean<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">"red"</span><span class="token punctuation">,</span> label<span class="token operator">=</span>f<span class="token string">"Roll {mean_window} Mean"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># time plot of standard Deviation</span>
+    plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>rolled_std<span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">"black"</span><span class="token punctuation">,</span> label<span class="token operator">=</span>f<span class="token string">"Roll {std_window} Std"</span><span class="token punctuation">)</span>
+
+    plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span>rotation<span class="token operator">=</span><span class="token number">90</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span>loc<span class="token operator">=</span><span class="token string">"best"</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'Rolling Mean &amp; Standard Deviation'</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span>block<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+
+time_plot_with_properties<span class="token punctuation">(</span>ts<span class="token punctuation">)</span></code></pre>
+<p><img src="/images/timeseries-plot-1.png" alt=""></p>
+<p>Augmented Dickey Fuller Test</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> statsmodels<span class="token punctuation">.</span>tsa<span class="token punctuation">.</span>stattools <span class="token keyword">import</span> adfuller
+
+test_result <span class="token operator">=</span> adfuller<span class="token punctuation">(</span>ts<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>test_result<span class="token punctuation">)</span></code></pre>
+<p>ADF 结果如下</p>
+<pre class=" language-python"><code class="language-python">test_result <span class="token operator">=</span> <span class="token punctuation">(</span>
+    <span class="token number">2.535588587388622</span><span class="token punctuation">,</span>
+    <span class="token number">0.9990604352222925</span><span class="token punctuation">,</span>
+    <span class="token number">24</span><span class="token punctuation">,</span>
+    <span class="token number">1531</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">"1%"</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">3.4346284441307184</span><span class="token punctuation">,</span>
+        <span class="token string">"5%"</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">2.863429668579316</span><span class="token punctuation">,</span>
+        <span class="token string">"10%"</span><span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">2.5677760318409732</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token number">15393.063847184316</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+<p>方法一、观察 p-value ：</p>
 <ul>
-<li>对数变换</li>
-<li>平滑法</li>
-<li>差分</li>
-<li>分解</li>
+<li><code>p-value=0.9990604352222925</code> 很大，虚无假设不被拒绝的概率很大，序列非平稳。</li>
 </ul>
-<h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><p>差分可以通过去除时间序列中的一些变化特征来平稳化它的均值，并因此消除（或减小）时间序列的趋势和季节性。</p>
-<p>差分序列是指原序列的连续观测值之间的变化值组成的时间序列，它可以被表示为：<br>$$<br>y_t’ = y_t - y_{t-1}<br>$$</p>
-<h5 id="一阶差分、白噪声、random-walk"><a href="#一阶差分、白噪声、random-walk" class="headerlink" title="一阶差分、白噪声、random walk"></a>一阶差分、白噪声、random walk</h5><p>$$<br>y_t’ = y_t - y_{t-1}<br>$$</p>
-<p>当差分序列$y’_t$是白噪声时，即可得到“随机游走”模型：</p>
-<p>$$<br>y_t = y_{t-1} + \epsilon_t=y_0 +\sum_{i=1}^{t}\epsilon_i<br>$$<br>其中 $\epsilon_t$ 是白噪声。</p>
-<h5 id="二阶差分"><a href="#二阶差分" class="headerlink" title="二阶差分"></a>二阶差分</h5><p>有时差分后的数据仍然不平稳，所以可能需要再一次对数据进行差分来得到一个平稳的序列：</p>
-<p>$$<br>y_t’’=y_t’ - y_{t-1}’=(y_t - y_{t-1}) - (y_{t-1} - y_{t-2})=y_t-2y_{t-1} + y_{t-2}<br>$$</p>
-<h5 id="季节性差分"><a href="#季节性差分" class="headerlink" title="季节性差分"></a>季节性差分</h5><p><img src="/images/seasonal-differ.png" alt=""></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://otexts.com/fpp2/" target="_blank" rel="noopener">Forecasting: Principles &amp; Practice</a></li>
+<p>方法二、比较显著性检验统计量（au-statistic Critical value）和三个置信度上的统计量：</p>
+<ul>
+<li><code>critical_value=2.535588587388622</code> 大于三个置信度上的值（<code>-3.4, -2.8, -2.5</code>），虚无假设不被拒绝的概率很大，序列非平稳。</li>
 </ul>
+<p>两种方法得出结论一致，改序列不平稳。</p>
 
                 
             </div>
@@ -515,7 +583,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ahmat1914.github.io/2021/03/17/shi-jian-xu-lie-de-ping-wen-xing/">https://ahmat1914.github.io/2021/03/17/shi-jian-xu-lie-de-ping-wen-xing/</a>
+                    <a href="https://ahmat1914.github.io/2021/03/19/dan-wei-gen-jian-yan/">https://ahmat1914.github.io/2021/03/19/dan-wei-gen-jian-yan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -553,12 +621,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/arima/">
-                                    <span class="chip bg-color">arima</span>
+                                <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
+                                    <span class="chip bg-color">决策树</span>
                                 </a>
                             
-                                <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">
-                                    <span class="chip bg-color">时间序列</span>
+                                <a href="/tags/%E7%94%BB%E5%9B%BE/">
+                                    <span class="chip bg-color">画图</span>
                                 </a>
                             
                         </div>
@@ -601,28 +669,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/03/18/yan-chi-suan-zi/">
+                <a href="/2021/03/19/dan-wei-gen-jian-yan/">
                     <div class="card-image">
                         
-                        <img src="/images/lag-operator.jpeg" class="responsive-img" alt="延迟算子">
+                        <img src="/images/ADF-test-logo.png" class="responsive-img" alt="单位根检验">
                         
-                        <span class="card-title">延迟算子</span>
+                        <span class="card-title">单位根检验</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            单位根检验单位根检验是一种更客观的判定是否需要差分的方法。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -635,11 +704,16 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">
-                        <span class="chip bg-color">时间序列</span>
+                    <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/">
+                        <span class="chip bg-color">决策树</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%94%BB%E5%9B%BE/">
+                        <span class="chip bg-color">画图</span>
                     </a>
                     
                 </div>
@@ -653,23 +727,23 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/08/exploratory-data-analysis-for-time-series/">
+                <a href="/2021/03/19/zi-xiang-guan-tu/">
                     <div class="card-image">
                         
-                        <img src="/images/practical-time-series-analysis.png" class="responsive-img" alt="Exploratory Data Analysis for Time Series">
+                        <img src="/images/autocorrelation-logo.png" class="responsive-img" alt="自相关图">
                         
-                        <span class="card-title">Exploratory Data Analysis for Time Series</span>
+                        <span class="card-title">自相关图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            自相关系数自相关系数可以测量时间序列 滞后值 之间的线性相关性，正如相关系数可以衡量两个变量之间的线性相关性。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
                             </span>
                         <span class="publish-author">
                             
@@ -690,8 +764,12 @@
                         <span class="chip bg-color">时间序列</span>
                     </a>
                     
-                    <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">读书笔记</span>
+                    <a href="/tags/acf/">
+                        <span class="chip bg-color">acf</span>
+                    </a>
+                    
+                    <a href="/tags/pacf/">
+                        <span class="chip bg-color">pacf</span>
                     </a>
                     
                 </div>
