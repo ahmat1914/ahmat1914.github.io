@@ -80,8 +80,7 @@ time_plot_with_properties(ts)
 ```
 ![](/images/bitcoin-time-series-plot.png)
 
-从时序图中观察到
-* 明显的上涨趋势
+从时序图中观察到明显的上涨趋势。
 
 画 acf、pacf 图
 ```python
@@ -151,7 +150,7 @@ for p in p_lst:
 ```
 搜索过程很耗时间，下文举例的模型中使用 `p=1, d=[0,1], q=1`。
 
-### ARIMA(1, 0, 1) 模型实验
+### $ARIMA(1, 0, 1)$ 模型实验
 ```python
 from statsmodels.tsa.arima_model import ARIMA
 ```
@@ -208,7 +207,7 @@ plt.show(block=False)
 ```
 ![](/images/bitcoin-validation-report-plot.png)
 
-### ARIMA(1,1,1)
+### $ARIMA(1,1,1)$
 
 ```python
 model_fitted = ARIMA(y_train, order=(1, 1, 1)).fit()
@@ -216,6 +215,8 @@ model_fitted = ARIMA(y_train, order=(1, 1, 1)).fit()
 print(model_fittedsummary())
 ```
 ![](/images/bitcoin-arima111-summary.png)
+
+> 注意模型预测的 y'，也就是是说 model_fitted.fittedvalues 输出的是 y'
 
 $$
 y_t' = 0.753 + 0.5614*y_{t-1}' - 0.5915 * \epsilon_{t-1}
