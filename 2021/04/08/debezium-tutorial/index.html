@@ -1,0 +1,1599 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Debezium Tutorial, ahmatjan">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163441124-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-163441124-1');
+</script>
+
+
+    <title>Debezium Tutorial | ahmatjan</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">ahmatjan</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">ahmatjan</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/debezium-connector.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Debezium Tutorial</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                <span class="chip bg-color">大数据</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Tech/" class="post-category">
+                                Tech
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2021-04-08
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2021-04-08
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    2.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    13 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="What-is-Debezium"><a href="#What-is-Debezium" class="headerlink" title="What is Debezium?"></a>What is Debezium?</h2><ul>
+<li><input disabled="" type="checkbox"> need to be updated </li>
+</ul>
+<p>Debezium is a set of distributed services to capture changes in your databases so that your applications can see those changes and respond to them. </p>
+<p>Debezium’s goal is to build up a library of connectors that capture changes from a variety of database management systems and produce events with very similar structures.</p>
+<p>Currently have the following connectors:</p>
+<ul>
+<li>MongoDB</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>SQL Server</li>
+<li>Oracle (Incubating)</li>
+<li>Db2</li>
+<li>Cassandra (Incubating)</li>
+<li>Vitess (Incubating)</li>
+</ul>
+<p>Debezium是一个开源项目，为捕获数据更改(change data capture,CDC)提供了一个低延迟的流式处理平台。</p>
+<ul>
+<li>Debezium为所有的数据库更改事件提供了一个统一的模型，所以你的应用不用担心每一种数据库管理系统的错综复杂性。</li>
+<li>Debezium用持久化的、有副本备份的日志来记录数据库数据变化的历史，因此，你的应用可以随时停止再重启，而不会错过它停止运行时发生的事件，保证了所有的事件都能被正确地、完全地处理掉。</li>
+</ul>
+<p>Debezium是一个捕获数据更改(CDC)平台，并且利用Kafka和Kafka Connect实现了自己的持久性、可靠性和容错性。每一个部署在Kafka Connect分布式的、可扩展的、容错性的服务中的connector监控一个上游数据库服务器，捕获所有的数据库更改，然后记录到一个或者多个Kafka topic(通常一个数据库表对应一个kafka topic)。</p>
+<p>使用场景：</p>
+<ul>
+<li>缓存失效(Cache invalidation)</li>
+<li>简化单体应用(Simplifying monolithic applications)</li>
+<li>共享数据库(Sharing databases)</li>
+<li>数据集成(Data integration)</li>
+</ul>
+<p>是通过抽取数据库日志来获取变更的。</p>
+<p>Debezium is a distributed platform that turns your existing databases into event streams, so applications can see and respond immediately to each row-level change in the databases.</p>
+<p>Debezium is a distributed platform that turns your existing databases into event streams, so applications can see and respond immediately to each row-level change in the databases.</p>
+<ul>
+<li>Debezium is built on top of Apache Kafka and provides Kafka Connect compatible connectors that monitor specific database management systems. </li>
+<li>Debezium records the history of data changes in Kafka logs, from where your application consumes them. <ul>
+<li>This makes it possible for your application to easily consume all of the events correctly and completely.</li>
+<li>Even if your application stops unexpectedly, it will not miss anything: when the application restarts, it will resume consuming the events where it left off.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Run-a-demo"><a href="#Run-a-demo" class="headerlink" title="Run a demo"></a>Run a demo</h2><p>This tutorial demonstrates how to use Debezium to monitor a MySQL database. </p>
+<p>We Will </p>
+<ol>
+<li>start the Debezium services, </li>
+<li>run a MySQL database server with a simple example database, </li>
+<li>and use Debezium to monitor the database for changes.</li>
+</ol>
+<h3 id="Starting-the-services"><a href="#Starting-the-services" class="headerlink" title="Starting the services"></a>Starting the services</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># zookeeper</span>
+docker run -it --rm --name zookeeper -p 2181:2181 -p 2888:2888 -p 3888:3888 debezium/zookeeper:1.4
+<span class="token comment" spellcheck="true"># Kafka</span>
+docker run -it --rm --name kafka -p 9092:9092 --link zookeeper:zookeeper debezium/kafka:1.4
+<span class="token comment" spellcheck="true"># mysql</span>
+docker run -it --rm --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD<span class="token operator">=</span>debezium -e MYSQL_USER<span class="token operator">=</span>mysqluser -e MYSQL_PASSWORD<span class="token operator">=</span>mysqlpw debezium/example-mysql:1.4
+<span class="token comment" spellcheck="true"># mysql client</span>
+docker run -it --rm --name mysqlterm --link mysql --rm mysql:5.7 sh -c <span class="token string">'exec mysql -h"<span class="token variable">$MYSQL_PORT_3306_TCP_ADDR</span>" -P"<span class="token variable">$MYSQL_PORT_3306_TCP_PORT</span>" -uroot -p"<span class="token variable">$MYSQL_ENV_MYSQL_ROOT_PASSWORD</span>”'</span>
+<span class="token comment" spellcheck="true"># Kafka connect</span>
+docker run -it --rm --name connect -p 8083:8083 -e GROUP_ID<span class="token operator">=</span>1 -e CONFIG_STORAGE_TOPIC<span class="token operator">=</span>my_connect_configs -e OFFSET_STORAGE_TOPIC<span class="token operator">=</span>my_connect_offsets -e STATUS_STORAGE_TOPIC<span class="token operator">=</span>my_connect_statuses --link zookeeper:zookeeper --link kafka:kafka --link mysql:mysql debezium/connect:1.4
+</code></pre>
+<p>After starting the Debezium and MySQL services, you are ready to deploy the Debezium MySQL connector so that it can start monitoring the sample MySQL database (inventory).</p>
+<h3 id="Registering-a-connector-to-monitor-the-inventory-database"><a href="#Registering-a-connector-to-monitor-the-inventory-database" class="headerlink" title="Registering a connector to monitor the inventory database"></a>Registering a connector to monitor the inventory database</h3><p>By registering the Debezium MySQL connector, the connector will start monitoring the MySQL database server’s <code>binlog</code>.  When a row in the database changes, Debezium generates a change event.</p>
+<blockquote>
+<p>The binlog records all of the database’s transactions (such as changes to individual rows and changes to the schemas).</p>
+</blockquote>
+<ol>
+<li>the configuration of the Debezium MySQL connector that you will register.<br>(For more information, see <a href="https://debezium.io/documentation/reference/1.5/connectors/mysql.html#mysql-connector-properties" target="_blank" rel="noopener">MySQL connector configuration properties</a> .)</li>
+</ol>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"inventory-connector"</span><span class="token punctuation">,</span>
+    <span class="token property">"config"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"connector.class"</span><span class="token operator">:</span> <span class="token string">"io.debezium.connector.mysql.MySqlConnector"</span><span class="token punctuation">,</span>
+        <span class="token property">"tasks.max"</span><span class="token operator">:</span> <span class="token string">"1"</span><span class="token punctuation">,</span>
+        <span class="token property">"database.hostname"</span><span class="token operator">:</span> <span class="token string">"mysql"</span><span class="token punctuation">,</span>
+        <span class="token property">"database.port"</span><span class="token operator">:</span> <span class="token string">"3306"</span><span class="token punctuation">,</span>
+        <span class="token property">"database.user"</span><span class="token operator">:</span> <span class="token string">"debezium"</span><span class="token punctuation">,</span>
+        <span class="token property">"database.password"</span><span class="token operator">:</span> <span class="token string">"dbz"</span><span class="token punctuation">,</span>
+        <span class="token property">"database.server.id"</span><span class="token operator">:</span> <span class="token string">"184054"</span><span class="token punctuation">,</span>
+        <span class="token property">"database.server.name"</span><span class="token operator">:</span> <span class="token string">"dbserver1"</span><span class="token punctuation">,</span>
+        <span class="token property">"database.include.list"</span><span class="token operator">:</span> <span class="token string">"inventory"</span><span class="token punctuation">,</span>
+        <span class="token property">"database.history.kafka.bootstrap.servers"</span><span class="token operator">:</span> <span class="token string">"kafka:9092"</span><span class="token punctuation">,</span>
+        <span class="token property">"database.history.kafka.topic"</span><span class="token operator">:</span> <span class="token string">"schema-changes.inventory"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<ul>
+<li>“connector.class”: use Debezium MySQL connector,</li>
+<li>“database.history.kafka.bootstrap.servers”, “database.history.kafka.topic”: The connector will store the history of the database schemas in Kafka using this broker (the same broker to which you are sending events) and topic name.</li>
+</ul>
+<ol start="2">
+<li>Use the curl command to register the Debezium MySQL connector.</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash">$ curl -i -X POST -H <span class="token string">"Accept:application/json"</span> -H <span class="token string">"Content-Type:application/json"</span> localhost:8083/connectors/ -d <span class="token string">'{
+    "name": "inventory-connector",
+    "config": {
+        "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+        "tasks.max": "1",
+        "database.hostname": "mysql",
+        "database.port": "3306",
+        "database.user": "debezium",
+        "database.password": "dbz",
+        "database.server.id": "184054",
+        "database.server.name": "dbserver1",
+        "database.include.list": "inventory",
+        "database.history.kafka.bootstrap.servers": "kafka:9092",
+        "database.history.kafka.topic": "dbhistory.inventory"
+    }
+}'</span>
+
+HTTP/1.1 201 Created
+Date: Thu,
+08 Apr 2021 10: 55: 09 GMT
+Location: http: //localhost:8083/connectors/inventory-connector
+Content-Type: application/json
+Content-Length: 490
+Server: Jetty<span class="token punctuation">(</span>9.4.33.v20201020<span class="token punctuation">)</span>
+
+<span class="token punctuation">{</span>
+    <span class="token string">"name"</span><span class="token keyword">:</span> <span class="token string">"inventory-connector"</span>,
+    <span class="token string">"config"</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"connector.class"</span><span class="token keyword">:</span> <span class="token string">"io.debezium.connector.mysql.MySqlConnector"</span>,
+        <span class="token string">"tasks.max"</span><span class="token keyword">:</span> <span class="token string">"1"</span>,
+        <span class="token string">"database.hostname"</span><span class="token keyword">:</span> <span class="token string">"mysql"</span>,
+        <span class="token string">"database.port"</span><span class="token keyword">:</span> <span class="token string">"3306"</span>,
+        <span class="token string">"database.user"</span><span class="token keyword">:</span> <span class="token string">"debezium"</span>,
+        <span class="token string">"database.password"</span><span class="token keyword">:</span> <span class="token string">"dbz"</span>,
+        <span class="token string">"database.server.id"</span><span class="token keyword">:</span> <span class="token string">"184054"</span>,
+        <span class="token string">"database.server.name"</span><span class="token keyword">:</span> <span class="token string">"dbserver1"</span>,
+        <span class="token string">"database.include.list"</span><span class="token keyword">:</span> <span class="token string">"inventory"</span>,
+        <span class="token string">"database.history.kafka.bootstrap.servers"</span><span class="token keyword">:</span> <span class="token string">"kafka:9092"</span>,
+        <span class="token string">"database.history.kafka.topic"</span><span class="token keyword">:</span> <span class="token string">"dbhistory.inventory"</span>,
+        <span class="token string">"name"</span><span class="token keyword">:</span> <span class="token string">"inventory-connector"</span>
+    <span class="token punctuation">}</span>,
+    <span class="token string">"tasks"</span><span class="token keyword">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>,
+    <span class="token string">"type"</span><span class="token keyword">:</span> <span class="token string">"source"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ol start="3">
+<li>Verify that inventory-connector is included in the list of connectors:</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash">$ curl -H <span class="token string">"Accept:application/json"</span> localhost:8083/connectors/
+
+<span class="token punctuation">[</span><span class="token string">"inventory-connector"</span><span class="token punctuation">]</span></code></pre>
+<ol start="4">
+<li>Review the connector’s tasks:</li>
+</ol>
+<pre class=" language-bash"><code class="language-bash">curl -i -X GET -H <span class="token string">"Accept:application/json"</span> localhost:8083/connectors/inventory-connector
+
+HTTP/1.1 200 OK
+Date: Thu,
+08 Apr 2021 10: 57: 27 GMT
+Content-Type: application/json
+Content-Length: 534
+Server: Jetty<span class="token punctuation">(</span>9.4.33.v20201020<span class="token punctuation">)</span>
+
+<span class="token punctuation">{</span>
+    <span class="token string">"name"</span><span class="token keyword">:</span> <span class="token string">"inventory-connector"</span>,
+    <span class="token string">"config"</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+        <span class="token string">"connector.class"</span><span class="token keyword">:</span> <span class="token string">"io.debezium.connector.mysql.MySqlConnector"</span>,
+        <span class="token string">"database.user"</span><span class="token keyword">:</span> <span class="token string">"debezium"</span>,
+        <span class="token string">"database.server.id"</span><span class="token keyword">:</span> <span class="token string">"184054"</span>,
+        <span class="token string">"tasks.max"</span><span class="token keyword">:</span> <span class="token string">"1"</span>,
+        <span class="token string">"database.hostname"</span><span class="token keyword">:</span> <span class="token string">"mysql"</span>,
+        <span class="token string">"database.password"</span><span class="token keyword">:</span> <span class="token string">"dbz"</span>,
+        <span class="token string">"database.history.kafka.bootstrap.servers"</span><span class="token keyword">:</span> <span class="token string">"kafka:9092"</span>,
+        <span class="token string">"database.history.kafka.topic"</span><span class="token keyword">:</span> <span class="token string">"dbhistory.inventory"</span>,
+        <span class="token string">"name"</span><span class="token keyword">:</span> <span class="token string">"inventory-connector"</span>,
+        <span class="token string">"database.server.name"</span><span class="token keyword">:</span> <span class="token string">"dbserver1"</span>,
+        <span class="token string">"database.port"</span><span class="token keyword">:</span> <span class="token string">"3306"</span>,
+        <span class="token string">"database.include.list"</span><span class="token keyword">:</span> <span class="token string">"inventory"</span>
+    <span class="token punctuation">}</span>,
+    <span class="token string">"tasks"</span><span class="token keyword">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"connector"</span><span class="token keyword">:</span> <span class="token string">"inventory-connector"</span>,
+            <span class="token string">"task"</span><span class="token keyword">:</span> 0
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>,
+    <span class="token string">"type"</span><span class="token keyword">:</span> <span class="token string">"source"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>When you register a connector, it generates a large amount of log output in the Kafka Connect container. By reviewing this output, you can better understand the process that the connector goes through from the time it is created until it begins reading the MySQL server’s binlog.</p>
+<h3 id="Viewing-change-events"><a href="#Viewing-change-events" class="headerlink" title="Viewing change events"></a>Viewing change events</h3><p>After deploying the Debezium MySQL connector, it starts monitoring the inventory database for data change events.</p>
+<p>Start the <code>watch-topic</code> utility to watch the dbserver1.inventory.customers topic from the beginning of the topic.</p>
+<pre class=" language-bash"><code class="language-bash">docker run -it --rm --name watcher --link zookeeper:zookeeper --link kafka:kafka debezium/kafka:1.4 watch-topic -a -k dbserver1.inventory.customers</code></pre>
+<ol>
+<li>Create event</li>
+</ol>
+<p>Here are the details of the key of the last event (formatted for readability):</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"schema"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"struct"</span><span class="token punctuation">,</span>
+        <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int32"</span><span class="token punctuation">,</span>
+                <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"id"</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"dbserver1.inventory.customers.Key"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1004</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>The event has two parts: a <code>schema</code> and a <code>payload</code>. </p>
+<ul>
+<li>The schema contains a Kafka Connect schema describing what is in the payload. </li>
+<li>The payload has a single id field, with a value of <code>1004</code>.</li>
+</ul>
+<ol start="2">
+<li>Updating the database and viewing the update event</li>
+</ol>
+<p>In the terminal that is running the MySQL command line client, run the following statement:</p>
+<pre class=" language-mysql"><code class="language-mysql">mysql> UPDATE customers SET first_name='Anne Marie' WHERE id=1004;
+
+/* Query OK, 1 row affected (0.05 sec) Rows matched: 1 Changed: 1 Warnings: 0
+
+mssql> select * from customers;</code></pre>
+<p>Switch to the terminal running watch-topic to see a new fifth event.</p>
+<p>By changing a record in the customers table, the Debezium MySQL connector generated a new event.<br>You should see two new JSON documents: </p>
+<ul>
+<li>one for the event’s key, </li>
+<li>and one for the new event’s value.</li>
+</ul>
+<p>Here are the details of the key for the update event (formatted for readability):</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        <span class="token property">"schema"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"struct"</span><span class="token punctuation">,</span>
+            <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int32"</span><span class="token punctuation">,</span>
+                    <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                    <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"id"</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"dbserver1.inventory.customers.Key"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1004</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+        <span class="token property">"schema"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"struct"</span><span class="token punctuation">,</span>
+            <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"struct"</span><span class="token punctuation">,</span>
+                    <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int32"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"id"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"first_name"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"last_name"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"email"</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"dbserver1.inventory.customers.Value"</span><span class="token punctuation">,</span>
+                    <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"before"</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"struct"</span><span class="token punctuation">,</span>
+                    <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int32"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"id"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"first_name"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"last_name"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"email"</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"dbserver1.inventory.customers.Value"</span><span class="token punctuation">,</span>
+                    <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"after"</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"struct"</span><span class="token punctuation">,</span>
+                    <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"version"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"connector"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"name"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int64"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"ts_ms"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"io.debezium.data.Enum"</span><span class="token punctuation">,</span>
+                            <span class="token property">"version"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                            <span class="token property">"parameters"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                                <span class="token property">"allowed"</span><span class="token operator">:</span> <span class="token string">"true,last,false"</span>
+                            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token property">"default"</span><span class="token operator">:</span> <span class="token string">"false"</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"snapshot"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"db"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"table"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int64"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"server_id"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"gtid"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"file"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int64"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"pos"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int32"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"row"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int64"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"thread"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"query"</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"io.debezium.connector.mysql.Source"</span><span class="token punctuation">,</span>
+                    <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"source"</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                    <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                    <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"op"</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int64"</span><span class="token punctuation">,</span>
+                    <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                    <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"ts_ms"</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"struct"</span><span class="token punctuation">,</span>
+                    <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"id"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int64"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"total_order"</span>
+                        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int64"</span><span class="token punctuation">,</span>
+                            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                            <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"data_collection_order"</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                    <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"transaction"</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"dbserver1.inventory.customers.Envelope"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"before"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1004</span><span class="token punctuation">,</span>
+                <span class="token property">"first_name"</span><span class="token operator">:</span> <span class="token string">"Anne"</span><span class="token punctuation">,</span>
+                <span class="token property">"last_name"</span><span class="token operator">:</span> <span class="token string">"Kretchmar"</span><span class="token punctuation">,</span>
+                <span class="token property">"email"</span><span class="token operator">:</span> <span class="token string">"annek@noanswer.org"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"after"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1004</span><span class="token punctuation">,</span>
+                <span class="token property">"first_name"</span><span class="token operator">:</span> <span class="token string">"Anne Marie"</span><span class="token punctuation">,</span>
+                <span class="token property">"last_name"</span><span class="token operator">:</span> <span class="token string">"Kretchmar"</span><span class="token punctuation">,</span>
+                <span class="token property">"email"</span><span class="token operator">:</span> <span class="token string">"annek@noanswer.org"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"source"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.4.2.Final"</span><span class="token punctuation">,</span>
+                <span class="token property">"connector"</span><span class="token operator">:</span> <span class="token string">"mysql"</span><span class="token punctuation">,</span>
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"dbserver1"</span><span class="token punctuation">,</span>
+                <span class="token property">"ts_ms"</span><span class="token operator">:</span> <span class="token number">1617879658000</span><span class="token punctuation">,</span>
+                <span class="token property">"snapshot"</span><span class="token operator">:</span> <span class="token string">"false"</span><span class="token punctuation">,</span>
+                <span class="token property">"db"</span><span class="token operator">:</span> <span class="token string">"inventory"</span><span class="token punctuation">,</span>
+                <span class="token property">"table"</span><span class="token operator">:</span> <span class="token string">"customers"</span><span class="token punctuation">,</span>
+                <span class="token property">"server_id"</span><span class="token operator">:</span> <span class="token number">223344</span><span class="token punctuation">,</span>
+                <span class="token property">"gtid"</span><span class="token operator">:</span> <span class="token null">null</span><span class="token punctuation">,</span>
+                <span class="token property">"file"</span><span class="token operator">:</span> <span class="token string">"mysql-bin.000003"</span><span class="token punctuation">,</span>
+                <span class="token property">"pos"</span><span class="token operator">:</span> <span class="token number">364</span><span class="token punctuation">,</span>
+                <span class="token property">"row"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token property">"thread"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token property">"query"</span><span class="token operator">:</span> <span class="token null">null</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">"op"</span><span class="token operator">:</span> <span class="token string">"u"</span><span class="token punctuation">,</span>
+            <span class="token property">"ts_ms"</span><span class="token operator">:</span> <span class="token number">1617879658595</span><span class="token punctuation">,</span>
+            <span class="token property">"transaction"</span><span class="token operator">:</span> <span class="token null">null</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>Here is that new event’s value. There are no changes in the schema section, so only the payload section is shown (formatted for readability):</p>
+<p>By viewing the payload section, you can learn several important things about the update event:</p>
+<ul>
+<li>By comparing the before and after structures, you can determine what actually changed in the affected row because of the commit.</li>
+<li>By reviewing the source structure, you can find information about MySQL’s record of the change (providing traceability).</li>
+<li>By comparing the payload section of an event to other events in the same topic (or a different topic), you can determine whether the event occurred before, after, or as part of the same MySQL commit as another event.</li>
+</ul>
+<ol start="3">
+<li>Deleting a record in the database and viewing the delete event</li>
+</ol>
+<p>In the terminal that is running the MySQL command line client, run the following statement:</p>
+<pre class=" language-mysql"><code class="language-mysql">mysql> DELETE FROM customers WHERE id=1004;</code></pre>
+<p>By deleting a row in the customers table, the Debezium MySQL connector generated two new events.</p>
+<p>Review the key and value for the first new event.<br>Here are the details of the key for the first new event (formatted for readability):</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"schema"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"struct"</span><span class="token punctuation">,</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"dbserver1.inventory.customers.Key"</span><span class="token punctuation">,</span>
+        <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"id"</span><span class="token punctuation">,</span>
+                <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int32"</span><span class="token punctuation">,</span>
+                <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1004</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Here is the value of the first new event (formatted for readability):</p>
+<pre class=" language-json"><code class="language-json">
+<span class="token punctuation">{</span>
+    <span class="token property">"schema"</span><span class="token operator">:</span> <span class="token punctuation">{</span>...
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"before"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1004</span><span class="token punctuation">,</span>
+            <span class="token property">"first_name"</span><span class="token operator">:</span> <span class="token string">"Anne Marie"</span><span class="token punctuation">,</span>
+            <span class="token property">"last_name"</span><span class="token operator">:</span> <span class="token string">"Kretchmar"</span><span class="token punctuation">,</span>
+            <span class="token property">"email"</span><span class="token operator">:</span> <span class="token string">"annek@noanswer.org"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"after"</span><span class="token operator">:</span> <span class="token null">null</span><span class="token punctuation">,</span>
+        <span class="token property">"source"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"1.5.0.CR1"</span><span class="token punctuation">,</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"dbserver1"</span><span class="token punctuation">,</span>
+            <span class="token property">"server_id"</span><span class="token operator">:</span> <span class="token number">223344</span><span class="token punctuation">,</span>
+            <span class="token property">"ts_sec"</span><span class="token operator">:</span> <span class="token number">1486501558</span><span class="token punctuation">,</span>
+            <span class="token property">"gtid"</span><span class="token operator">:</span> <span class="token null">null</span><span class="token punctuation">,</span>
+            <span class="token property">"file"</span><span class="token operator">:</span> <span class="token string">"mysql-bin.000003"</span><span class="token punctuation">,</span>
+            <span class="token property">"pos"</span><span class="token operator">:</span> <span class="token number">725</span><span class="token punctuation">,</span>
+            <span class="token property">"row"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">"snapshot"</span><span class="token operator">:</span> <span class="token null">null</span><span class="token punctuation">,</span>
+            <span class="token property">"thread"</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+            <span class="token property">"db"</span><span class="token operator">:</span> <span class="token string">"inventory"</span><span class="token punctuation">,</span>
+            <span class="token property">"table"</span><span class="token operator">:</span> <span class="token string">"customers"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"op"</span><span class="token operator">:</span> <span class="token string">"d"</span><span class="token punctuation">,</span>
+        <span class="token property">"ts_ms"</span><span class="token operator">:</span> <span class="token number">1486501558315</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Review the key and value for the second new event.<br>Here is the key for the second new event (formatted for readability):</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"schema"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"struct"</span><span class="token punctuation">,</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"dbserver1.inventory.customers.Key"</span><span class="token punctuation">,</span>
+        <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token property">"fields"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">"field"</span><span class="token operator">:</span> <span class="token string">"id"</span><span class="token punctuation">,</span>
+                <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"int32"</span><span class="token punctuation">,</span>
+                <span class="token property">"optional"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">1004</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Here is the value of that same event (formatted for readability):</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"schema"</span><span class="token operator">:</span> <span class="token null">null</span><span class="token punctuation">,</span>
+    <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token null">null</span>
+<span class="token punctuation">}</span></code></pre>
+<p>If Kafka is set up to be log compacted, it will remove older messages from the topic if there is at least one message later in the topic with same key. </p>
+<p>This last event is called a tombstone event, because it has a key and an empty value. </p>
+<ul>
+<li>This means that Kafka will remove all prior messages with the same key. </li>
+<li>Even though the prior messages will be removed, the tombstone event means that consumers can still read the topic from the beginning and not miss any events.</li>
+</ul>
+<h3 id="cleaning-up"><a href="#cleaning-up" class="headerlink" title="cleaning up"></a>cleaning up</h3><pre class=" language-bash"><code class="language-bash">docker stop mysqlterm watcher connect mysql kafka zookeeper</code></pre>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://debezium.io/documentation/reference/1.5/tutorial.html#updating-database-viewing-update-event" target="_blank" rel="noopener">Tutorial</a></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">ahmatjan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://ahmat1914.github.io/2021/04/08/debezium-tutorial/">https://ahmat1914.github.io/2021/04/08/debezium-tutorial/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">ahmatjan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                    <span class="chip bg-color">大数据</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/04/08/debezium-tutorial/">
+                    <div class="card-image">
+                        
+                        <img src="/images/debezium-connector.png" class="responsive-img" alt="Debezium Tutorial">
+                        
+                        <span class="card-title">Debezium Tutorial</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Tech/" class="post-category">
+                                    Tech
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">大数据</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/27/adaboost-suan-fa-liu-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Adaboost 算法流程">
+                        
+                        <span class="card-title">Adaboost 算法流程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            对于二分类任务，Adaboost 几本思路是训练d 个弱分类器 $G_1(x), G_2(x), …, G_d(x)$，然后把这些弱分类器线性组合成强分类器 $G(x)$。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MachineLearning/" class="post-category">
+                                    MachineLearning
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Adaboost/">
+                        <span class="chip bg-color">Adaboost</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2014-2021</span>
+            
+            <span id="year">2014</span>
+            <a href="/about" target="_blank">ahmatjan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">45k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2014";
+                    var startMonth = "4";
+                    var startDate = "14";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
