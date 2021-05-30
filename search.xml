@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>关于机器学习的常见问题</title>
+      <link href="2021/05/30/guan-yu-ji-qi-xue-xi-de-chang-jian-wen-ti/"/>
+      <url>2021/05/30/guan-yu-ji-qi-xue-xi-de-chang-jian-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<h3 id="什么是机器学习？"><a href="#什么是机器学习？" class="headerlink" title="什么是机器学习？"></a>什么是机器学习？</h3><p>定义机器学习（Machine Learning      ），先需要澄清相关核心概念。</p><ul><li>数据</li><li>解决问题</li><li>自动化</li></ul><p>机器自动从数据中学习规律，并将规律应用到解决新的问题上。</p><h5 id="分类有哪些？"><a href="#分类有哪些？" class="headerlink" title="分类有哪些？"></a>分类有哪些？</h5><p>根据训练集中标签是否已知，分为监督学习和非监督学习。</p><ul><li>监督学习<ul><li>用于分类问题的常见算法<ul><li>感知机:二分类模型；回归超平面平面进行数据划分；</li><li>支持向量机SVM：得到让所有实例距离尽可能远的分离超平面；可以使用核函数；</li><li>逻辑回归：</li><li>朴素贝叶斯：</li><li>决策树：</li><li>分类的集成算法：</li><li>KNN算法：</li></ul></li><li>用于回归问题的常见算法<ul><li>线性回归：</li><li>岭回归：</li><li>Lasso回归：</li><li>Elastic Net回归：</li><li>贝叶斯岭回归：</li><li>SGD回归：</li><li>SVR：</li><li>KNN回归：</li><li>决策树回归：</li><li>神经网络：</li><li>RandomForest回归：</li><li>XGBoost回归：</li><li>LightGBM回归：</li></ul></li></ul></li></ul><blockquote><p>分类是一种基于一个或多个自变量确定因变量所属类别的技术。</p></blockquote><blockquote><p>核函数将不可分数据映射到可分的高维空间。</p></blockquote><ul><li>非监督学习<ul><li>常见的非监督算法和用途<ul><li>K 均值（K-Means）算法；</li><li>自编码器（Auto-Encoder）；</li><li>主成分分析（Principal Component Analysis）</li><li>深度置信网络（Deep Belief Nets）</li><li>Hebbian Learning</li><li>生成对抗网络（GAN）</li><li>自组织映射（Self-Organizing maps）</li></ul></li></ul></li></ul><h5 id="和深度学习的区别？"><a href="#和深度学习的区别？" class="headerlink" title="和深度学习的区别？"></a>和深度学习的区别？</h5><p>深度学习是机器学习的一种。</p><p>深度学习利用深度的神经网络，将模型处理得更为复杂，从而使模型对数据的理解更加深入。</p><h3 id="什么是神经网络？"><a href="#什么是神经网络？" class="headerlink" title="什么是神经网络？"></a>什么是神经网络？</h3><p>神经网络是机器学习的一种；深度网路从数据中学习规律，并将规律应用到解决新的问题上。这里的规律是指很多神经元的连接规则。</p><p>如，m 层全连接神经网络（Full Connected Network）由 1个输入层，m-2 个隐藏层，一个输出层组成；每个连接都有一个权重，所有权重一起组成了神经网络的连接规则。</p><p><img src="/images/neural-network.png" alt=""></p><h3 id="如何计算计算图的倒数？"><a href="#如何计算计算图的倒数？" class="headerlink" title="如何计算计算图的倒数？"></a>如何计算计算图的倒数？</h3><blockquote><p>pytorch是动态图机制，所以在训练模型时候，每迭代一次都会构建一个新的计算图。</p></blockquote><p>计算图代表程序中变量之间的关系。如  $y=(a+b)(b+c)$</p><p><img src="/images/computational-graph.png" alt=""><br><img src="/images/computational-graph2.png" alt=""><br><img src="/images/computational-graph3.png" alt=""></p><p>用链式求导法则和隐式函数求导方法。</p><p>TODO： 计算图、计算图上的导数、反向传播算法、计算图在 TensorFlow和pytorch 中的应用。</p><h3 id="局部最优和全局最优是什么？"><a href="#局部最优和全局最优是什么？" class="headerlink" title="局部最优和全局最优是什么？"></a>局部最优和全局最优是什么？</h3><p>函数值空间内在有限的区域内找到的最优解是局部最优解；在整个函数值空间内找到的最优解是全局最优解。实际问题中找到局部最优解往往能解决大部分问题。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MachineLearning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Q&amp;A </tag>
+            
+            <tag> 常见问题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Debezium Tutorial</title>
       <link href="2021/04/08/debezium-tutorial/"/>
       <url>2021/04/08/debezium-tutorial/</url>
