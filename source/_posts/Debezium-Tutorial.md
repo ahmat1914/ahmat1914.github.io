@@ -9,7 +9,7 @@ date: 2021-04-08 17:49:36
 img: /images/debezium-connector.png
 ---
 
-### What is Debezium?
+## What is Debezium?
 
 - [ ] need to be updated 
 
@@ -53,7 +53,7 @@ Debezium is a distributed platform that turns your existing databases into event
 
 
 
-### Run a demo
+## Run a demo
 This tutorial demonstrates how to use Debezium to monitor a MySQL database. 
 
 We Will 
@@ -61,7 +61,7 @@ We Will
 2. run a MySQL database server with a simple example database, 
 3. and use Debezium to monitor the database for changes.
 
-#### Starting the services
+### Starting the services
 
 ```bash
 # zookeeper
@@ -79,7 +79,7 @@ docker run -it --rm --name connect -p 8083:8083 -e GROUP_ID=1 -e CONFIG_STORAGE_
 
 After starting the Debezium and MySQL services, you are ready to deploy the Debezium MySQL connector so that it can start monitoring the sample MySQL database (inventory).
 
-#### Registering a connector to monitor the inventory database
+### Registering a connector to monitor the inventory database
 
 By registering the Debezium MySQL connector, the connector will start monitoring the MySQL database server’s `binlog`.  When a row in the database changes, Debezium generates a change event.
 
@@ -110,7 +110,7 @@ By registering the Debezium MySQL connector, the connector will start monitoring
 * "connector.class": use Debezium MySQL connector,
 * "database.history.kafka.bootstrap.servers", "database.history.kafka.topic": The connector will store the history of the database schemas in Kafka using this broker (the same broker to which you are sending events) and topic name.
 
-1. Use the curl command to register the Debezium MySQL connector.
+2. Use the curl command to register the Debezium MySQL connector.
 
 ```bash
 $ curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" localhost:8083/connectors/ -d '{
@@ -209,7 +209,7 @@ Server: Jetty(9.4.33.v20201020)
 
 When you register a connector, it generates a large amount of log output in the Kafka Connect container. By reviewing this output, you can better understand the process that the connector goes through from the time it is created until it begins reading the MySQL server’s binlog.
 
-#### Viewing change events
+### Viewing change events
 After deploying the Debezium MySQL connector, it starts monitoring the inventory database for data change events.
 
 Start the `watch-topic` utility to watch the dbserver1.inventory.customers topic from the beginning of the topic.
@@ -618,13 +618,17 @@ Here is the value of that same event (formatted for readability):
 }
 ```
 
-If Kafka is set up to be log compacted, it will remove older messages from the topic if there is at least one message later in the topic with same key. This last event is called a tombstone event, because it has a key and an empty value. This means that Kafka will remove all prior messages with the same key. Even though the prior messages will be removed, the tombstone event means that consumers can still read the topic from the beginning and not miss any events.
+If Kafka is set up to be log compacted, it will remove older messages from the topic if there is at least one message later in the topic with same key. 
 
-1. cleaning up
+This last event is called a tombstone event, because it has a key and an empty value. 
+* This means that Kafka will remove all prior messages with the same key. 
+* Even though the prior messages will be removed, the tombstone event means that consumers can still read the topic from the beginning and not miss any events.
+
+### cleaning up
 
 ```bash
 docker stop mysqlterm watcher connect mysql kafka zookeeper
 ```
   
-### References
+## References
 * [Tutorial](https://debezium.io/documentation/reference/1.5/tutorial.html#updating-database-viewing-update-event)
