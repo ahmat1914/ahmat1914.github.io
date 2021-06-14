@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>推荐系统模型列表</title>
+      <link href="2021/06/14/tui-jian-xi-tong-mo-xing-lie-biao/"/>
+      <url>2021/06/14/tui-jian-xi-tong-mo-xing-lie-biao/</url>
+      
+        <content type="html"><![CDATA[<p>推荐模型 2010 年之前千篇一律以协同过滤、逻辑回归、因子分解机、梯度提升树为主。2015年之后深度学习推荐模型百花齐放。<a id="more"></a></p><h3 id="CF-系列"><a href="#CF-系列" class="headerlink" title="CF 系列"></a>CF 系列</h3><p>从物品或用户的相似度出发，协同过滤算法（Collaborative Filtering）衍生出物品协同过滤（ItemCF）和用户协同过滤（UserCF）。</p><p>为了更好的处理稀疏共现矩阵、增强模型泛化能力，从协同过滤衍生出矩阵分解模型（Matrix Factorization Machine），并发展出矩阵分解的各分支模型。</p><h3 id="逻辑回归系列"><a href="#逻辑回归系列" class="headerlink" title="逻辑回归系列"></a>逻辑回归系列</h3><p>与协同过滤只使用用户和物品之间信息相比，逻辑回归能够利用和融合更多用户、物品、上下文信息。从 LR衍生出 LS-PLM、基于LR 的FM、和多种模型的组合模型。</p><h3 id="因子分解机模型系列"><a href="#因子分解机模型系列" class="headerlink" title="因子分解机模型系列"></a>因子分解机模型系列</h3><p>基于传统逻辑回归，加入了二阶部分，使模型具备了特征组合能力。衍生出 FFM。</p><h3 id="组合模型"><a href="#组合模型" class="headerlink" title="组合模型"></a>组合模型</h3><p>组合不同模型，融合多个模型优点是搭建推荐系统常用的方法。如 Facebook 提出的 GBDT+LR 组合模型。</p><p>组合模型体现出特种工程模型化的思想。</p><p><img src="/images/%E6%8E%A8%E8%8D%90%E6%A8%A1%E5%9E%8B%E8%BF%9B%E5%8C%96%E5%85%B3%E7%B3%BB%E5%9B%BE.png" alt=""></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul><li>《深度学习推荐系统》</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> MachineLearning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 推荐系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于机器学习的常见问题</title>
       <link href="2021/05/30/guan-yu-ji-qi-xue-xi-de-chang-jian-wen-ti/"/>
       <url>2021/05/30/guan-yu-ji-qi-xue-xi-de-chang-jian-wen-ti/</url>
