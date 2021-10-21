@@ -7,7 +7,7 @@ tags:
   - ray
 mathjax: false
 date: 2021-10-21 18:52:06
-img: /images/ray-banner.png
+img: /images/ray.banner.png
 ---
 
 ## Overview
