@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="符号函数, ahmatjan">
+    <meta name="keywords" content="Methods of same actor instance will share same process, ahmatjan">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>符号函数 | ahmatjan</title>
+    <title>Methods of same actor instance will share same process | ahmatjan</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -258,12 +258,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">符号函数</h1>
+                    <h1 class="description center-align post-title">Methods of same actor instance will share same process</h1>
                 </div>
             </div>
         </div>
@@ -379,8 +379,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                <span class="chip bg-color">数学</span>
+                            <a href="/tags/ray/">
+                                <span class="chip bg-color">ray</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">
+                                <span class="chip bg-color">分布式</span>
                             </a>
                         
                     </div>
@@ -391,8 +395,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/MachineLearning/" class="post-category">
-                                MachineLearning
+                            <a href="/categories/Note/" class="post-category">
+                                Note
                             </a>
                         
                     </div>
@@ -404,21 +408,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-27
+                    2021-10-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-27
+                    2021-10-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    57
+                    254
                 </div>
                 
 
@@ -445,14 +449,64 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>符号函数（Sign function，简称sgn）是一个逻辑函数，用以判断实数的正负号。</p>
+                <p>Actor - a stateful worker process (an instance of a <code>@ray.remote</code> class).</p>
 <a id="more"></a>
 
-<p>为避免和英文读音相似的正弦函数（sine）混淆，它亦称为 Signum function。其定义为：</p>
-<p><img src="/images/sign.function.svg" alt="Signum function"></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://zh.wikipedia.org/wiki/%E7%AC%A6%E5%8F%B7%E5%87%BD%E6%95%B0" target="_blank" rel="noopener">Wikipedia</a></li>
-</ul>
+<blockquote>
+<p>with a single actor, no parallelism can be achieved because calls to the actor’s methods will be executed one at a time.</p>
+</blockquote>
+<blockquote>
+<p>A task can be stateless (a <code>@ray.remote</code> function) or stateful (a method of a <code>@ray.remote</code> class(Actor))</p>
+</blockquote>
+<p>Actor 有状态，意味着共用同一个实例。同一个实例提交的不同的 task 就具备了一样的属性，如 进程、元信息。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+
+<span class="token keyword">import</span> names
+<span class="token keyword">import</span> ray
+
+
+@ray<span class="token punctuation">.</span>remote<span class="token punctuation">(</span>num_cpus<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">Worker</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> names<span class="token punctuation">.</span>get_full_name<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">work</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+
+ray<span class="token punctuation">.</span>init<span class="token punctuation">(</span><span class="token punctuation">)</span>
+same_worker <span class="token operator">=</span> Worker<span class="token punctuation">.</span>remote<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>ray<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">[</span>same_worker<span class="token punctuation">.</span>work<span class="token punctuation">.</span>remote<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ray<span class="token punctuation">.</span>shutdown<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<pre class=" language-bash"><code class="language-bash">2021-10-28 17:38:30,642 INFO services.py:1173 -- View the Ray dashboard at http://127.0.0.1:8265
+
+<span class="token punctuation">[</span><span class="token punctuation">(</span>40925, <span class="token string">'Renee Colbeth'</span><span class="token punctuation">)</span>, <span class="token punctuation">(</span>40925, <span class="token string">'Renee Colbeth'</span><span class="token punctuation">)</span>, <span class="token punctuation">(</span>40925, <span class="token string">'Renee Colbeth'</span><span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre>
+<p>相对的，不同的实例有不同的状态。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+
+<span class="token keyword">import</span> names
+<span class="token keyword">import</span> ray
+
+
+@ray<span class="token punctuation">.</span>remote<span class="token punctuation">(</span>num_cpus<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">Worker</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> names<span class="token punctuation">.</span>get_full_name<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">work</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+
+ray<span class="token punctuation">.</span>init<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+workers <span class="token operator">=</span> <span class="token punctuation">[</span>Worker<span class="token punctuation">.</span>remote<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>ray<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">[</span>worker<span class="token punctuation">.</span>work<span class="token punctuation">.</span>remote<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> worker <span class="token keyword">in</span> workers<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ray<span class="token punctuation">.</span>shutdown<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-bash"><code class="language-bash">View the Ray dashboard at http://127.0.0.1:8265
+
+<span class="token punctuation">[</span><span class="token punctuation">(</span>10752, <span class="token string">'Kathryn Hodge'</span><span class="token punctuation">)</span>, <span class="token punctuation">(</span>10816, <span class="token string">'Melvin Borden'</span><span class="token punctuation">)</span>, <span class="token punctuation">(</span>10758, <span class="token string">'Sherry Hampshire'</span><span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre>
 
                 
             </div>
@@ -479,7 +533,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ahmat1914.github.io/2021/03/27/fu-hao-han-shu/">https://ahmat1914.github.io/2021/03/27/fu-hao-han-shu/</a>
+                    <a href="https://ahmat1914.github.io/2021/10/28/methods-of-same-actor-instance-will-share-same-process/">https://ahmat1914.github.io/2021/10/28/methods-of-same-actor-instance-will-share-same-process/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -517,8 +571,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E5%AD%A6/">
-                                    <span class="chip bg-color">数学</span>
+                                <a href="/tags/ray/">
+                                    <span class="chip bg-color">ray</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">
+                                    <span class="chip bg-color">分布式</span>
                                 </a>
                             
                         </div>
@@ -561,46 +619,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/03/27/adaboost-suan-fa-liu-cheng/">
+                <a href="/2021/10/28/methods-of-same-actor-instance-will-share-same-process/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Adaboost 算法流程">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Methods of same actor instance will share same process">
                         
-                        <span class="card-title">Adaboost 算法流程</span>
+                        <span class="card-title">Methods of same actor instance will share same process</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对于二分类任务，Adaboost 几本思路是训练d 个弱分类器 $G_1(x), G_2(x), …, G_d(x)$，然后把这些弱分类器线性组合成强分类器 $G(x)$。
+                            Actor - a stateful worker process (an instance of a @ray.remote class).
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MachineLearning/" class="post-category">
-                                    MachineLearning
+                            <a href="/categories/Note/" class="post-category">
+                                    Note
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Adaboost/">
-                        <span class="chip bg-color">Adaboost</span>
+                    <a href="/tags/ray/">
+                        <span class="chip bg-color">ray</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">
+                        <span class="chip bg-color">分布式</span>
                     </a>
                     
                 </div>
@@ -614,31 +678,30 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/24/jue-ding-xi-shu-r2/">
+                <a href="/2021/10/21/python-fen-bu-shi-ji-suan-kuang-jia-ray/">
                     <div class="card-image">
                         
+                        <img src="/images/ray.banner.png" class="responsive-img" alt="Python 分布式计算框架 Ray">
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="决定系数(R2)">
-                        
-                        <span class="card-title">决定系数(R2)</span>
+                        <span class="card-title">Python 分布式计算框架 Ray</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一般用可决系数（$R^2$）评价线性回归模型对数据的拟合程度。
+                            Overview是什么An open source framework that provides a simple, universal API for building distributed applications.
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MachineLearning/" class="post-category">
-                                    MachineLearning
+                            <a href="/categories/Tech/" class="post-category">
+                                    Tech
                                 </a>
                             
                             
@@ -648,8 +711,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/R2/">
-                        <span class="chip bg-color">R2</span>
+                    <a href="/tags/ray/">
+                        <span class="chip bg-color">ray</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">
+                        <span class="chip bg-color">分布式</span>
                     </a>
                     
                 </div>

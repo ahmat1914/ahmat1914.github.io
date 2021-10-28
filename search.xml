@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Methods of same actor instance will share same process</title>
+      <link href="2021/10/28/methods-of-same-actor-instance-will-share-same-process/"/>
+      <url>2021/10/28/methods-of-same-actor-instance-will-share-same-process/</url>
+      
+        <content type="html"><![CDATA[<p>Actor - a stateful worker process (an instance of a <code>@ray.remote</code> class).</p><a id="more"></a><blockquote><p>with a single actor, no parallelism can be achieved because calls to the actor’s methods will be executed one at a time.</p></blockquote><blockquote><p>A task can be stateless (a <code>@ray.remote</code> function) or stateful (a method of a <code>@ray.remote</code> class(Actor))</p></blockquote><p>Actor 有状态，意味着共用同一个实例。同一个实例提交的不同的 task 就具备了一样的属性，如 进程、元信息。</p><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os<span class="token keyword">import</span> names<span class="token keyword">import</span> ray@ray<span class="token punctuation">.</span>remote<span class="token punctuation">(</span>num_cpus<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token keyword">class</span> <span class="token class-name">Worker</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>        self<span class="token punctuation">.</span>name <span class="token operator">=</span> names<span class="token punctuation">.</span>get_full_name<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token keyword">def</span> <span class="token function">work</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token keyword">return</span> <span class="token punctuation">(</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>ray<span class="token punctuation">.</span>init<span class="token punctuation">(</span><span class="token punctuation">)</span>same_worker <span class="token operator">=</span> Worker<span class="token punctuation">.</span>remote<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>ray<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">[</span>same_worker<span class="token punctuation">.</span>work<span class="token punctuation">.</span>remote<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>ray<span class="token punctuation">.</span>shutdown<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><pre class=" language-bash"><code class="language-bash">2021-10-28 17:38:30,642 INFO services.py:1173 -- View the Ray dashboard at http://127.0.0.1:8265<span class="token punctuation">[</span><span class="token punctuation">(</span>40925, <span class="token string">'Renee Colbeth'</span><span class="token punctuation">)</span>, <span class="token punctuation">(</span>40925, <span class="token string">'Renee Colbeth'</span><span class="token punctuation">)</span>, <span class="token punctuation">(</span>40925, <span class="token string">'Renee Colbeth'</span><span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre><p>相对的，不同的实例有不同的状态。</p><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os<span class="token keyword">import</span> names<span class="token keyword">import</span> ray@ray<span class="token punctuation">.</span>remote<span class="token punctuation">(</span>num_cpus<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token keyword">class</span> <span class="token class-name">Worker</span><span class="token punctuation">:</span>    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>        self<span class="token punctuation">.</span>name <span class="token operator">=</span> names<span class="token punctuation">.</span>get_full_name<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token keyword">def</span> <span class="token function">work</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token keyword">return</span> <span class="token punctuation">(</span>os<span class="token punctuation">.</span>getpid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>ray<span class="token punctuation">.</span>init<span class="token punctuation">(</span><span class="token punctuation">)</span>workers <span class="token operator">=</span> <span class="token punctuation">[</span>Worker<span class="token punctuation">.</span>remote<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token keyword">print</span><span class="token punctuation">(</span>ray<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">[</span>worker<span class="token punctuation">.</span>work<span class="token punctuation">.</span>remote<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> worker <span class="token keyword">in</span> workers<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>ray<span class="token punctuation">.</span>shutdown<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><pre class=" language-bash"><code class="language-bash">View the Ray dashboard at http://127.0.0.1:8265<span class="token punctuation">[</span><span class="token punctuation">(</span>10752, <span class="token string">'Kathryn Hodge'</span><span class="token punctuation">)</span>, <span class="token punctuation">(</span>10816, <span class="token string">'Melvin Borden'</span><span class="token punctuation">)</span>, <span class="token punctuation">(</span>10758, <span class="token string">'Sherry Hampshire'</span><span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Note </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ray </tag>
+            
+            <tag> 分布式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python 分布式计算框架 Ray</title>
       <link href="2021/10/21/python-fen-bu-shi-ji-suan-kuang-jia-ray/"/>
       <url>2021/10/21/python-fen-bu-shi-ji-suan-kuang-jia-ray/</url>
@@ -20,9 +47,9 @@
       
         <tags>
             
-            <tag> 分布式 </tag>
-            
             <tag> ray </tag>
+            
+            <tag> 分布式 </tag>
             
         </tags>
       
@@ -808,9 +835,9 @@
       
         <tags>
             
-            <tag> 集成学习 </tag>
-            
             <tag> 树模型 </tag>
+            
+            <tag> 集成学习 </tag>
             
             <tag> 随机森林 </tag>
             
