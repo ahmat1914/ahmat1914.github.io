@@ -7,7 +7,7 @@ tags:
   - 分布式
 mathjax: false
 date: 2021-10-28 17:34:46
-img:
+img: /images/theFourthDimension.jpeg
 ---
 
 Actor - a stateful worker process (an instance of a `@ray.remote` class).
